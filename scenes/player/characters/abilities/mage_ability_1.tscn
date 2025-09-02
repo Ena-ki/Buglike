@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqls0w1o1p21n"]
 
-[ext_resource type="Script" uid="uid://j5hcq6ypt1j8" path="res://scripts/characters/abilities/mage_ability_1.gd" id="1_lntao"]
-[ext_resource type="Texture2D" uid="uid://w0aweg2mf3o2" path="res://res/textures/fireball.png.png" id="2_ojxfe"]
+[ext_resource type="Script" uid="uid://j5hcq6ypt1j8" path="res://scripts/player/characters/abilities/mage_ability_1.gd" id="1_ysfku"]
+[ext_resource type="Texture2D" uid="uid://w0aweg2mf3o2" path="res://res/textures/fireball.png.png" id="2_ci8vt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sldey"]
 
 [node name="MageAbility1" type="Area2D"]
-script = ExtResource("1_lntao")
+script = ExtResource("1_ysfku")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sldey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_ojxfe")
+texture = ExtResource("2_ci8vt")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
