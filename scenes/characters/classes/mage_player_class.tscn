@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://n4u4nwwerpgm"]
+
+[ext_resource type="Script" uid="uid://8872mspebyv0" path="res://scripts/characters/classes/mage_player_class.gd" id="1_4fk0p"]
+[ext_resource type="Resource" uid="uid://bcqgt3f2eolno" path="res://resources/characters/classes/mage_player_class.tres" id="2_jn2af"]
+
+[node name="MagePlayerClass" type="Node" node_paths=PackedStringArray("player_class_animated_sprite2D")]
+script = ExtResource("1_4fk0p")
+player_class_animated_sprite2D = NodePath("visuals/AnimatedSprite2D")
+player_class_res = ExtResource("2_jn2af")
+metadata/_custom_type_script = "uid://82n088pgvl8q"
+
+[node name="visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visuals"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]

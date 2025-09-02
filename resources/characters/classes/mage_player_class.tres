@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PlayerClassRes" load_steps=3 format=3 uid="uid://bcqgt3f2eolno"]
+
+[ext_resource type="SpriteFrames" uid="uid://cyabm5lhmqg7s" path="res://res/sprite frames/mage_player_class_spriteframes.tres" id="1_7x28c"]
+[ext_resource type="Script" uid="uid://4onchcx023y2" path="res://scripts/resources/player_class_res.gd" id="2_fw4ow"]
+
+[resource]
+script = ExtResource("2_fw4ow")
+player_class_name = "Mage"
+player_class_texture = ExtResource("1_7x28c")
+speed = 1.0
+ability_1_name = "Ability 1"
+ability_2_name = "Ability 2"
+ability_3_name = "Ability 3"
+ability_4_name = "Ability 4"
+ability_1_cooldown_time = 1.0
+ability_2_cooldown_time = 1.0
+ability_3_cooldown_time = 1.0
+ability_4_cooldown_time = 1.0
+ability_1_damage = 1.0
+ability_2_damage = 1.0
+ability_3_damage = 1.0
+ability_4_damage = 1.0
+metadata/_custom_type_script = "uid://4onchcx023y2"
