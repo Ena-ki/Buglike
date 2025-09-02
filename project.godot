@@ -14,6 +14,10 @@ config/name="poilgo-game"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://res/textures/icon.svg"
 
+[autoload]
+
+Enums="*res://scripts/globals/Enums.gd"
+
 [dotnet]
 
 project/assembly_name="poilgo-game"
