@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="PlayerClassRes" load_steps=3 format=3 uid="uid://bcqgt3f2eolno"]
+[gd_resource type="Resource" script_class="PlayerClassRes" load_steps=4 format=3 uid="uid://bcqgt3f2eolno"]
 
+[ext_resource type="PackedScene" uid="uid://cqls0w1o1p21n" path="res://scenes/player/characters/abilities/mage_ability_1.tscn" id="1_6qnww"]
 [ext_resource type="SpriteFrames" uid="uid://cyabm5lhmqg7s" path="res://res/sprite frames/mage_player_class_spriteframes.tres" id="1_wutlx"]
 [ext_resource type="Script" uid="uid://4onchcx023y2" path="res://scripts/resources/player_class_res.gd" id="2_6qnww"]
 
@@ -8,6 +9,7 @@ script = ExtResource("2_6qnww")
 player_class_name = "Mage"
 player_class_sprite_frames = ExtResource("1_wutlx")
 speed = 1.0
+ability_1_scene = ExtResource("1_6qnww")
 ability_1_name = "Ability 1"
 ability_2_name = "Ability 2"
 ability_3_name = "Ability 3"

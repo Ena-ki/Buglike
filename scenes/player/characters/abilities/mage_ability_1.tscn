@@ -5,8 +5,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sldey"]
 
-[node name="MageAbility1" type="Area2D"]
+[node name="MageAbility1" type="Area2D" node_paths=PackedStringArray("life_timer")]
 script = ExtResource("1_ysfku")
+life_timer = NodePath("Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sldey")

@@ -9,13 +9,9 @@ func _ready():
 
 
 func use_ability_1() -> bool:
-  if ability_1_cooldown > 0.0:
-    return false
   
   var ability_1_instance = player_class_res.ability_1_scene.instantiate()
   add_child(ability_1_instance)
-
-  ability_1_instance.projectile_speed = 500.0
 
   print("from mage_player_class.gd : ability 1")
   return true

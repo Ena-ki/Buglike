@@ -8,6 +8,7 @@ class_name PlayerClassRes
 @export var player_class_sprite_frames : SpriteFrames
 @export var speed : float = 1.0
 
+
 @export_group("Ability Metadata")
 @export_subgroup("abilities")
 @export var ability_1_scene : PackedScene
@@ -24,8 +25,9 @@ class_name PlayerClassRes
 @export var ability_2_texture : Texture2D
 @export var ability_3_texture : Texture2D
 @export var ability_4_texture : Texture2D
-@export_group("Ability Stats")
 
+
+@export_group("Ability Stats")
 @export_subgroup("Ability Cooldowns")
 @export var ability_1_cooldown_time : float = 1.0
 @export var ability_2_cooldown_time : float = 1.0

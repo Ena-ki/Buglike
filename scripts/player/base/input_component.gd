@@ -18,7 +18,6 @@ func set_player_number(new_player_number : Enums.PlayerNumber) -> void:
       player_number_string = "player_4_"
 
 
-
 func get_movement_vector() -> Vector2:
   return Input.get_vector(
     player_number_string + "left", 
