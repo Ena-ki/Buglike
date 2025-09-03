@@ -1,20 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqls0w1o1p21n"]
+[gd_scene load_steps=5 format=3 uid="uid://cqls0w1o1p21n"]
 
 [ext_resource type="Script" uid="uid://j5hcq6ypt1j8" path="res://scripts/player/characters/abilities/mage_ability_1.gd" id="1_ysfku"]
 [ext_resource type="Texture2D" uid="uid://w0aweg2mf3o2" path="res://res/textures/fireball.png.png" id="2_ci8vt"]
+[ext_resource type="Script" uid="uid://bni6ybe87qydc" path="res://scripts/player/characters/abilities/projectile.gd" id="2_l4r5g"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sldey"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1lkng"]
+radius = 5.0
 
-[node name="MageAbility1" type="Area2D" node_paths=PackedStringArray("life_timer")]
+[node name="MageAbility1" type="Node2D" node_paths=PackedStringArray("projectile")]
 script = ExtResource("1_ysfku")
-life_timer = NodePath("Timer")
+projectile = NodePath("Projectile")
+metadata/_custom_type_script = "uid://bnml52ypyli"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_sldey")
+[node name="Projectile" type="Area2D" parent="."]
+script = ExtResource("2_l4r5g")
+metadata/_custom_type_script = "uid://bni6ybe87qydc"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Projectile"]
+shape = SubResource("CircleShape2D_1lkng")
+
+[node name="Fireball_png" type="Sprite2D" parent="."]
 texture = ExtResource("2_ci8vt")
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true

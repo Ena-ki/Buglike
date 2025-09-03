@@ -26,16 +26,8 @@ class_name PlayerClassRes
 @export var ability_3_texture : Texture2D
 @export var ability_4_texture : Texture2D
 
-
 @export_group("Ability Stats")
-@export_subgroup("Ability Cooldowns")
 @export var ability_1_cooldown_time : float = 1.0
 @export var ability_2_cooldown_time : float = 1.0
 @export var ability_3_cooldown_time : float = 1.0
 @export var ability_4_cooldown_time : float = 1.0
-@export_subgroup("Ability Damage")
-@export var ability_1_damage : float = 1.0
-@export var ability_2_damage : float = 1.0
-@export var ability_3_damage : float = 1.0
-@export var ability_4_damage : float = 1.0
-

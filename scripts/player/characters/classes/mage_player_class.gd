@@ -11,9 +11,9 @@ func _ready():
 func use_ability_1() -> bool:
   
   var ability_1_instance = player_class_res.ability_1_scene.instantiate()
-  add_child(ability_1_instance)
-
-  print("from mage_player_class.gd : ability 1")
+  get_tree().current_scene.add_child(ability_1_instance)
+  ability_1_instance.global_position = global_position
+  ability_1_instance.direction = Vector2.UP
   return true
 
 

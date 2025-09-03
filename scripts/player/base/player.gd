@@ -17,9 +17,6 @@ func _physics_process(delta: float) -> void:
   if input_component.is_ability_1_pressed():
     #fix projectile abilities following us
     player_class.use_ability_1()
-  
-
-  print(velocity)
 
 
   move_and_slide()

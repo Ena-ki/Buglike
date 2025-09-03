@@ -1,26 +1,21 @@
-extends Area2D
+extends Ability
+class_name MageAbility1
 
-# all of this shit is so ass
-# it's fine for now, but make it a projectile template
-# and give it properties with resources
+#projectile should be a component 
 
+@export var projectile : Projectile
 
-@export var life_timer : Timer
-#should be changed from the player class
-var life_time = 2.0
-var texture : Texture2D
-var damage := 1.0
-var projectile_speed := 100.0
-var direction := Vector2.UP
+var projectile_speed : float = 1.0
+var direction : Vector2 = Vector2.ZERO
 
 
 func _ready():
-  life_timer.timeout.connect(on_timer_timeout)  
+  projectile.body_entered.connect(on_projectile_body_entered)
 
 
-func _process(delta: float) -> void:
-  position += direction * delta * projectile_speed
+func _process(delta):
+  position += direction * projectile_speed * delta * 1000 # magic ass number
 
 
-func on_timer_timeout() -> void:
-  queue_free()
+func on_projectile_body_entered(body : Node2D):
+  pass
