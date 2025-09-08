@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerClassRes" load_steps=3 format=3 uid="uid://bcqgt3f2eolno"]
+
+[ext_resource type="SpriteFrames" uid="uid://cyabm5lhmqg7s" path="res://res/sprite frames/mage_player_class_spriteframes.tres" id="1_wutlx"]
+[ext_resource type="Script" uid="uid://4onchcx023y2" path="res://scripts/resources/player_class_res.gd" id="2_6qnww"]
+
+[resource]
+script = ExtResource("2_6qnww")
+player_class_name = "Mage"
+player_class_sprite_frames = ExtResource("1_wutlx")
+speed = 1.0
+metadata/_custom_type_script = "uid://4onchcx023y2"

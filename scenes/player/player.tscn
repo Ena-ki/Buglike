@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://eyrcgijxb4gq"]
+
+[ext_resource type="Script" uid="uid://c0gu0i0i661ml" path="res://scripts/player/player.gd" id="1_avlhq"]
+[ext_resource type="PackedScene" uid="uid://n4u4nwwerpgm" path="res://scenes/player/classes/mage_player_class.tscn" id="2_8xdpj"]
+[ext_resource type="PackedScene" uid="uid://cqls0w1o1p21n" path="res://scenes/player/abilities/mage_ability_1.tscn" id="3_8xdpj"]
+[ext_resource type="PackedScene" uid="uid://bsnchcxec6i3" path="res://scenes/player/abilities/movement_ability.tscn" id="3_lvxji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_avlhq"]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_class")]
+script = ExtResource("1_avlhq")
+player_class = NodePath("MagePlayerClass")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_avlhq")
+
+[node name="MagePlayerClass" parent="." instance=ExtResource("2_8xdpj")]
+movement_ability_scene = ExtResource("3_lvxji")
+ability_1_scene = ExtResource("3_8xdpj")
+ability_2_scene = ExtResource("3_8xdpj")
+ability_3_scene = ExtResource("3_8xdpj")

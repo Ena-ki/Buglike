@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqls0w1o1p21n"]
+
+[ext_resource type="Script" uid="uid://j5hcq6ypt1j8" path="res://scripts/player/abilities/mage_ability_1.gd" id="1_75jds"]
+
+[node name="MageAbility1" type="Node2D"]
+script = ExtResource("1_75jds")
