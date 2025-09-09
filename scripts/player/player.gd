@@ -4,11 +4,14 @@ extends CharacterBody2D
 @export var player_class : PlayerClass
 
 
-
-
 func _physics_process(delta: float) -> void:
-  player_class.movement_ability.execute_ability(1000, self, 1)
+  if player_class.is_alive:
+    player_class.movement_ability.execute_ability(1000, self, player_number)
   
-  if Input.is_action_just_pressed("player_1_ability_1"):
+  if Input.is_action_just_pressed("player_"+str(player_number)+"_ability_1"):
     player_class.ability_1.execute_ability()
+  
+  if Input.is_action_just_pressed("ui_accept"):
+    player_class.get_damaged(20)
+
   move_and_slide()

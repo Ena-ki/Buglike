@@ -6,3 +6,4 @@
 
 [node name="Player" parent="." instance=ExtResource("1_jbqir")]
 scale = Vector2(0.993225, 1)
+player_number = 2

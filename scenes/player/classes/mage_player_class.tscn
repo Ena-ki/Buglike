@@ -1,13 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://n4u4nwwerpgm"]
 
 [ext_resource type="Script" uid="uid://8872mspebyv0" path="res://scripts/player/classes/mage_player_class.gd" id="1_w7l3u"]
-[ext_resource type="Resource" uid="uid://bcqgt3f2eolno" path="res://resources/player/classes/mage_player_class.tres" id="2_hxnb7"]
 [ext_resource type="SpriteFrames" uid="uid://cyabm5lhmqg7s" path="res://res/sprite frames/mage_player_class_spriteframes.tres" id="3_lr3sr"]
+[ext_resource type="Script" uid="uid://cspsulj7rn1ts" path="res://scripts/player/states/state_machine.gd" id="3_w7l3u"]
 
 [node name="MagePlayerClass" type="Node2D"]
 script = ExtResource("1_w7l3u")
-player_class_res = ExtResource("2_hxnb7")
 metadata/_custom_type_script = "uid://82n088pgvl8q"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_lr3sr")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_w7l3u")
