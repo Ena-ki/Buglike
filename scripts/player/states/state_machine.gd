@@ -1,4 +1,5 @@
-extends Node
+class_name StateMachine extends Node
+
 
 @export var initial_state : State
 
@@ -10,7 +11,18 @@ func _ready():
   for child in get_children():
     if child is State:
       states[child.name.to_lower()] = child
-      child.change_state.connect(on_state_transition)
+      child.transition.connect(on_state_transition)
+  
+  print(owner)
+  print(states.keys())
+
+  await owner.ready
+  if initial_state :
+    current_state = initial_state
+    current_state.enter()
+  else :
+    current_state = states[states.keys()[0]]
+    current_state.enter()
 
 
 func _process(delta):
@@ -37,4 +49,3 @@ func on_state_transition(state : State, new_state_name : String) -> void:
   current_state = new_state
   
   
-

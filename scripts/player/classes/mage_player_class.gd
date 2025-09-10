@@ -1,7 +1,5 @@
 extends PlayerClass
 
-@export var player_animated_sprite : AnimatedSprite2D
-
 
 func _ready():
   movement_ability = load_ability(self, movement_ability_scene)
