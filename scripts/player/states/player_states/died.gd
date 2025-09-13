@@ -1,7 +1,8 @@
-class_name Died extends State
+class_name Died extends PlayerState
 
 func enter():
-  owner.is_alive = false
+  owner.velocity = Vector2.ZERO
+
 #change sprite
 #can't move
 #can't cast spells

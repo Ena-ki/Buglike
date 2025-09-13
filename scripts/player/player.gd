@@ -1,17 +1,29 @@
-extends CharacterBody2D
+extends Entity
 
 @export var player_number : Enums.PlayerNumber = Enums.PlayerNumber.PLAYER_1
 @export var player_class : PlayerClass
+@export var state_machine : StateMachine
 
+var speed = 100  
+var is_invunderable : bool = false
 
 func _physics_process(delta: float) -> void:
-  if player_class.is_alive:
-    player_class.movement_ability.execute_ability(1000, self, player_number)
+  
+  if Input.is_action_just_pressed("ui_accept"):
+    damage(20)
+    print(health)
+
+  if state_machine.current_state.name != "Died":
+    player_class.movement_ability.execute_ability(speed, self, player_number)
     
     if Input.is_action_just_pressed("player_"+str(player_number)+"_ability_1"):
-      player_class.ability_1.execute_ability()
-    
-    if Input.is_action_just_pressed("ui_accept"):
-      player_class.get_damaged(20)
+      player_class.ability_1.execute_ability() 
 
   move_and_slide()
+
+
+func damage(damage : float):
+  if not is_invunderable:
+    health -= damage
+    emit_signal("damaged", damage)
+

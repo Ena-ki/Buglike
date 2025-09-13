@@ -1,15 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://eyrcgijxb4gq"]
+[gd_scene load_steps=11 format=3 uid="uid://eyrcgijxb4gq"]
 
 [ext_resource type="Script" uid="uid://c0gu0i0i661ml" path="res://scripts/player/player.gd" id="1_avlhq"]
 [ext_resource type="PackedScene" uid="uid://n4u4nwwerpgm" path="res://scenes/player/classes/mage_player_class.tscn" id="2_8xdpj"]
 [ext_resource type="PackedScene" uid="uid://cqls0w1o1p21n" path="res://scenes/player/abilities/mage_ability_1.tscn" id="3_8xdpj"]
 [ext_resource type="PackedScene" uid="uid://bsnchcxec6i3" path="res://scenes/player/abilities/movement_ability.tscn" id="3_lvxji"]
+[ext_resource type="Script" uid="uid://cspsulj7rn1ts" path="res://scripts/utilities/state_machine.gd" id="5_qek5x"]
+[ext_resource type="Script" uid="uid://bodqv4t1h7xfi" path="res://scripts/player/states/player_states/idle.gd" id="6_5gtgg"]
+[ext_resource type="Script" uid="uid://dunlobgsiby58" path="res://scripts/player/states/player_states/walking.gd" id="7_h17s1"]
+[ext_resource type="Script" uid="uid://crcegpih1b8uj" path="res://scripts/player/states/player_states/died.gd" id="8_qek5x"]
+[ext_resource type="Script" uid="uid://jl8t07k8n5r4" path="res://scripts/player/states/player_states/damaged.gd" id="9_5gtgg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_avlhq"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_class")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_class", "state_machine")]
 script = ExtResource("1_avlhq")
 player_class = NodePath("MagePlayerClass")
+state_machine = NodePath("StateMachine")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_avlhq")
@@ -19,3 +25,24 @@ movement_ability_scene = ExtResource("3_lvxji")
 ability_1_scene = ExtResource("3_8xdpj")
 ability_2_scene = ExtResource("3_8xdpj")
 ability_3_scene = ExtResource("3_8xdpj")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_qek5x")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://cspsulj7rn1ts"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("6_5gtgg")
+metadata/_custom_type_script = "uid://bodqv4t1h7xfi"
+
+[node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("7_h17s1")
+metadata/_custom_type_script = "uid://dunlobgsiby58"
+
+[node name="Died" type="Node" parent="StateMachine"]
+script = ExtResource("8_qek5x")
+metadata/_custom_type_script = "uid://crcegpih1b8uj"
+
+[node name="Damaged" type="Node" parent="StateMachine"]
+script = ExtResource("9_5gtgg")
+metadata/_custom_type_script = "uid://jl8t07k8n5r4"

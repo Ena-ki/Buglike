@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 
 
 func on_state_transition(state : State, new_state_name : String) -> void:
+  print("state change from ", state.name, " to ", new_state_name)
   if state != current_state:
     return
   
