@@ -8,4 +8,5 @@ script = ExtResource("1_w7l3u")
 metadata/_custom_type_script = "uid://82n088pgvl8q"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
 sprite_frames = ExtResource("3_lr3sr")

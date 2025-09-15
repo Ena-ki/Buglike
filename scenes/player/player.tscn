@@ -11,20 +11,21 @@
 [ext_resource type="Script" uid="uid://jl8t07k8n5r4" path="res://scripts/player/states/player_states/damaged.gd" id="9_5gtgg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_avlhq"]
+radius = 12.0416
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_class", "state_machine")]
 script = ExtResource("1_avlhq")
 player_class = NodePath("MagePlayerClass")
 state_machine = NodePath("StateMachine")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_avlhq")
-
 [node name="MagePlayerClass" parent="." instance=ExtResource("2_8xdpj")]
 movement_ability_scene = ExtResource("3_lvxji")
 ability_1_scene = ExtResource("3_8xdpj")
 ability_2_scene = ExtResource("3_8xdpj")
 ability_3_scene = ExtResource("3_8xdpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_avlhq")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_qek5x")
