@@ -1,5 +1,5 @@
 extends Node2D
 
 
-func execute_ability():
+func execute():
   print("shoot fireball")

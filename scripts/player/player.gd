@@ -1,4 +1,4 @@
-extends Entity
+class_name Player extends Entity
 
 @export var player_number : Enums.PlayerNumber = Enums.PlayerNumber.PLAYER_1
 @export var player_class : PlayerClass
@@ -14,10 +14,10 @@ func _physics_process(delta: float) -> void:
     print(health)
 
   if state_machine.current_state.name != "Died":
-    player_class.movement_ability.execute_ability(speed, self, player_number)
+    player_class.movement_ability.execute(speed, self, player_number)
     
     if Input.is_action_just_pressed("player_"+str(player_number)+"_ability_1"):
-      player_class.ability_1.execute_ability() 
+      player_class.ability_1.execute() 
 
   move_and_slide()
 

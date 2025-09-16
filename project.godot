@@ -12,6 +12,7 @@ config_version=5
 
 config/name="poilgo-game"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 config/icon="res://res/textures/icon.svg"
 
 [autoload]
@@ -20,8 +21,6 @@ Enums="*res://scripts/globals/Enums.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=480
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 

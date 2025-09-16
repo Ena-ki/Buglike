@@ -1,5 +1,4 @@
-class_name PlayerClass
-extends Node2D
+class_name PlayerClass extends Node2D
 
 @export_category("player abilities")
 @export var movement_ability_scene : PackedScene

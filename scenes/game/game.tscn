@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp5qp4h7nvx2k"]
+[gd_scene load_steps=3 format=3 uid="uid://bp5qp4h7nvx2k"]
+
+[ext_resource type="PackedScene" uid="uid://bx2nloye6f0vx" path="res://scenes/levels/level_1.tscn" id="1_sul5r"]
 
 [sub_resource type="GDScript" id="GDScript_c7aoy"]
 script/source = "extends Node
@@ -6,3 +8,29 @@ script/source = "extends Node
 
 [node name="Game" type="Node"]
 script = SubResource("GDScript_c7aoy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/Control/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(640, 480)
+render_target_update_mode = 4
+
+[node name="Level1" parent="CanvasLayer/Control/SubViewportContainer/SubViewport" instance=ExtResource("1_sul5r")]
