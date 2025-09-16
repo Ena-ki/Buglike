@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://n4u4nwwerpgm"]
+[gd_scene load_steps=5 format=3 uid="uid://n4u4nwwerpgm"]
 
 [ext_resource type="Script" uid="uid://8872mspebyv0" path="res://scripts/player/classes/mage_player_class.gd" id="1_w7l3u"]
-[ext_resource type="SpriteFrames" uid="uid://cyabm5lhmqg7s" path="res://res/sprite frames/mage_player_class_spriteframes.tres" id="3_lr3sr"]
+[ext_resource type="PackedScene" uid="uid://bsnchcxec6i3" path="res://scenes/player/abilities/movement_ability.tscn" id="2_a1j2k"]
+[ext_resource type="PackedScene" uid="uid://cqls0w1o1p21n" path="res://scenes/player/abilities/mage_ability_1.tscn" id="3_b2k3l"]
+[ext_resource type="SpriteFrames" uid="uid://cyabm5lhmqg7s" path="res://res/sprite frames/mage_player_class_spriteframes.tres" id="4_c3l4m"]
 
 [node name="MagePlayerClass" type="Node2D"]
 script = ExtResource("1_w7l3u")
+movement_ability_scene = ExtResource("2_a1j2k")
+ability_1_scene = ExtResource("3_b2k3l")
 metadata/_custom_type_script = "uid://82n088pgvl8q"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-sprite_frames = ExtResource("3_lr3sr")
+sprite_frames = ExtResource("4_c3l4m")

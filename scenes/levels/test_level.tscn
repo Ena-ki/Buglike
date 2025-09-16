@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwbsj7yjydvy0"]
+[gd_scene load_steps=3 format=3 uid="uid://bwbsj7yjydvy0"]
 
 [ext_resource type="PackedScene" uid="uid://eyrcgijxb4gq" path="res://scenes/player/player.tscn" id="1_jbqir"]
+[ext_resource type="PackedScene" uid="uid://bavmnvrdmt2ec" path="res://scenes/player/classes/warrior_player_class.tscn" id="2_warrior_class"]
 
 [node name="TestLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jbqir")]
 scale = Vector2(0.993225, 1)
 player_number = 2
+player_class_scene = ExtResource("2_warrior_class")
