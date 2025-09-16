@@ -10,3 +10,5 @@ func on_body_entered(body : Node2D):
     if body is Player :
         body.damage(damage)
         queue_free()
+    elif body is TileMapLayer:
+        queue_free()

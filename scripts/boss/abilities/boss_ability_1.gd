@@ -2,7 +2,9 @@ extends Node2D
 
 @export var projectile_scene : PackedScene
 
-var wave_density := 20
+var wave_density := 10.0
+var time_between_waves := 0.4
+var wave_amount := 5
 
 
 func execute() -> float:
@@ -11,7 +13,7 @@ func execute() -> float:
 
 
 func execute_deferred():
-  for i in range(3):
+  for i in range(wave_amount):
     for j in range(wave_density):
       var projectile_instance = projectile_scene.instantiate()
       get_tree().current_scene.add_child(projectile_instance)
@@ -21,4 +23,4 @@ func execute_deferred():
       10, 
       100.0, 
       3.0)  
-    await get_tree().create_timer(0.2).timeout
+    await get_tree().create_timer(time_between_waves).timeout

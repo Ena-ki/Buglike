@@ -10,4 +10,3 @@ func _process(delta):
     attack_cooldown += abilities[randi_range(0,abilities.size()-1)].execute()
   else:
     attack_cooldown -= delta
-  print(attack_cooldown)

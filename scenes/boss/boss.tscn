@@ -1,20 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://n12dsxsgx66h"]
+[gd_scene load_steps=6 format=3 uid="uid://n12dsxsgx66h"]
 
 [ext_resource type="Script" uid="uid://dkbqv64fktoa1" path="res://scripts/boss/boss.gd" id="1_8ftqf"]
-[ext_resource type="Texture2D" uid="uid://w0aweg2mf3o2" path="res://res/textures/fireball.png.png" id="2_atjq5"]
+[ext_resource type="SpriteFrames" uid="uid://cy3jto5il1dxk" path="res://res/sprite frames/witch.tres" id="2_0xsra"]
 [ext_resource type="PackedScene" uid="uid://cwipyu427rfsp" path="res://scenes/boss/abilities/boss_ability_1.tscn" id="3_atjq5"]
 [ext_resource type="PackedScene" uid="uid://xkne41ida8tp" path="res://scenes/boss/abilities/attacks/enemy_bullet.tscn" id="4_0xsra"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0xsra"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_atjq5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iva7r"]
 radius = 31.1448
@@ -26,9 +15,11 @@ metadata/_custom_type_script = "uid://co7l8fy5jpb4e"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_0xsra")
+sprite_frames = ExtResource("2_0xsra")
+frame_progress = 0.324774
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_iva7r")
 
 [node name="BossAbility1" parent="." instance=ExtResource("3_atjq5")]
