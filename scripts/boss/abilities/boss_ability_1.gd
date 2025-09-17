@@ -3,8 +3,10 @@ extends Node2D
 @export var projectile_scene : PackedScene
 
 var wave_density := 10.0
-var time_between_waves := 0.4
-var wave_amount := 5
+var time_between_waves := 0.2
+var wave_amount := 3
+var damage := 30.0
+var shot_speed := 100.0
 
 
 func execute() -> float:
@@ -20,7 +22,7 @@ func execute_deferred():
       projectile_instance.init_projectile(
       Vector2.UP.rotated(deg_to_rad(360 / wave_density * j + (360 / wave_density / 2 * i))),
       owner.global_position, 
-      10, 
-      100.0, 
+      damage, 
+      shot_speed, 
       3.0)  
     await get_tree().create_timer(time_between_waves).timeout
