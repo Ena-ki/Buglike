@@ -2,7 +2,7 @@ extends Entity
 
 @export var abilities : Array[Node2D] = []
 
-var attack_cooldown : float = 2
+var attack_cooldown : float = 0
 
 
 func _process(delta):

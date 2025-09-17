@@ -1,36 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp5qp4h7nvx2k"]
+[gd_scene load_steps=5 format=3 uid="uid://bp5qp4h7nvx2k"]
 
+[ext_resource type="Script" uid="uid://8ndepm6glc8c" path="res://scripts/game.gd" id="1_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://bx2nloye6f0vx" path="res://scenes/levels/level_1.tscn" id="1_sul5r"]
-
-[sub_resource type="GDScript" id="GDScript_c7aoy"]
-script/source = "extends Node
-"
+[ext_resource type="PackedScene" uid="uid://eyrcgijxb4gq" path="res://scenes/player/player.tscn" id="4_kelw5"]
+[ext_resource type="PackedScene" uid="uid://n12dsxsgx66h" path="res://scenes/boss/boss.tscn" id="4_lfrn8"]
 
 [node name="Game" type="Node"]
-script = SubResource("GDScript_c7aoy")
+script = ExtResource("1_0sr1o")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(324, 227)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch_shrink = 4
+[node name="Level1" parent="." instance=ExtResource("1_sul5r")]
+metadata/_edit_lock_ = true
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/Control/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(640, 480)
-render_target_update_mode = 4
+[node name="Player" parent="." instance=ExtResource("4_kelw5")]
+position = Vector2(272, 388)
 
-[node name="Level1" parent="CanvasLayer/Control/SubViewportContainer/SubViewport" instance=ExtResource("1_sul5r")]
+[node name="Boss" parent="." instance=ExtResource("4_lfrn8")]
+position = Vector2(360, 269)

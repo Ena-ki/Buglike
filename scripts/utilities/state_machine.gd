@@ -13,8 +13,6 @@ func _ready():
       states[child.name.to_lower()] = child
       child.transition.connect(on_state_transition)
   
-  print(owner)
-  print(states.keys())
 
   await owner.ready
   if initial_state :

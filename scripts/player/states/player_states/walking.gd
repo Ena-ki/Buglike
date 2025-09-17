@@ -6,4 +6,4 @@ func update(delta : float):
     emit_signal("transition",self, "idle")
   
   if owner.health <= 0:
-    emit_signal("transition", self, "Died")
+    emit_signal("transition", self, "died")

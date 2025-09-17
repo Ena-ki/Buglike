@@ -1,5 +1,5 @@
-class_name State
-extends Node
+@abstract
+class_name State extends Node
 
 signal transition(state, new_state_name)
 
