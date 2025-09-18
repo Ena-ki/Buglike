@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://n12dsxsgx66h"]
+[gd_scene load_steps=10 format=3 uid="uid://n12dsxsgx66h"]
 
 [ext_resource type="Script" uid="uid://dkbqv64fktoa1" path="res://scripts/boss/boss.gd" id="1_8ftqf"]
 [ext_resource type="SpriteFrames" uid="uid://cy3jto5il1dxk" path="res://res/sprite frames/witch.tres" id="2_0xsra"]
 [ext_resource type="PackedScene" uid="uid://cwipyu427rfsp" path="res://scenes/boss/abilities/boss_ability_1.tscn" id="3_atjq5"]
 [ext_resource type="PackedScene" uid="uid://xkne41ida8tp" path="res://scenes/boss/abilities/attacks/enemy_bullet.tscn" id="4_0xsra"]
+[ext_resource type="Script" uid="uid://cspsulj7rn1ts" path="res://scripts/utilities/state_machine.gd" id="5_dlpkd"]
+[ext_resource type="Script" uid="uid://crcegpih1b8uj" path="res://scripts/player/states/player_states/died.gd" id="6_7kbl1"]
+[ext_resource type="Script" uid="uid://dunlobgsiby58" path="res://scripts/player/states/player_states/walking.gd" id="7_2mupd"]
+[ext_resource type="Script" uid="uid://bodqv4t1h7xfi" path="res://scripts/player/states/player_states/idle.gd" id="8_p4gry"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iva7r"]
-radius = 31.1448
+radius = 27.294687
 
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("abilities")]
 script = ExtResource("1_8ftqf")
@@ -19,8 +23,23 @@ sprite_frames = ExtResource("2_0xsra")
 frame_progress = 0.324774
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_iva7r")
 
 [node name="BossAbility1" parent="." instance=ExtResource("3_atjq5")]
 projectile_scene = ExtResource("4_0xsra")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_dlpkd")
+metadata/_custom_type_script = "uid://cspsulj7rn1ts"
+
+[node name="Died" type="Node" parent="StateMachine"]
+script = ExtResource("6_7kbl1")
+metadata/_custom_type_script = "uid://crcegpih1b8uj"
+
+[node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("7_2mupd")
+metadata/_custom_type_script = "uid://dunlobgsiby58"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("8_p4gry")
+metadata/_custom_type_script = "uid://bodqv4t1h7xfi"

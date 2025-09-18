@@ -2,12 +2,14 @@ class_name PlayerClass extends Node2D
 
 @export_category("player abilities")
 @export var movement_ability_scene : PackedScene
+@export var dodge_ability_scene : PackedScene 
 @export var ability_1_scene : PackedScene
 @export var ability_2_scene : PackedScene
 @export var ability_3_scene : PackedScene
 
 
 var movement_ability
+var dodge_ability
 var ability_1
 var ability_2
 var ability_3

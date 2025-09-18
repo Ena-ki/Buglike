@@ -4,12 +4,14 @@ var damaged_timer : float
 
 
 func enter():
-  damaged_timer = 0.5
+  damaged_timer = 0.2
   owner.is_invunderable = true
+  owner.died.connect(on_player_died)
   
 
 func exit():
   owner.is_invunderable = false
+  owner.died.disconnect(on_player_died)
 
 
 func update(delta : float):
