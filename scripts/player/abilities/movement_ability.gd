@@ -11,3 +11,4 @@ func execute(speed : float, player_ref : CharacterBody2D, player_number : int): 
     player_number_string + "down",
   )
   player_ref.velocity = direction * speed
+  return direction

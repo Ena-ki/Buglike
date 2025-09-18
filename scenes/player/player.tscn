@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://eyrcgijxb4gq"]
+[gd_scene load_steps=9 format=3 uid="uid://eyrcgijxb4gq"]
 
 [ext_resource type="Script" uid="uid://c0gu0i0i661ml" path="res://scripts/player/player.gd" id="1_avlhq"]
+[ext_resource type="PackedScene" uid="uid://bavmnvrdmt2ec" path="res://scenes/player/classes/warrior_player_class.tscn" id="2_0owmy"]
 [ext_resource type="Script" uid="uid://cspsulj7rn1ts" path="res://scripts/utilities/state_machine.gd" id="5_qek5x"]
 [ext_resource type="Script" uid="uid://bodqv4t1h7xfi" path="res://scripts/player/states/player_states/idle.gd" id="6_5gtgg"]
 [ext_resource type="Script" uid="uid://dunlobgsiby58" path="res://scripts/player/states/player_states/walking.gd" id="7_h17s1"]
@@ -12,6 +13,8 @@ radius = 12.0416
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_avlhq")
+player_number = 2
+player_class_scene = ExtResource("2_0owmy")
 state_machine = NodePath("StateMachine")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
