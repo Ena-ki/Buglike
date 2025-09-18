@@ -2,5 +2,10 @@
 
 [ext_resource type="Script" uid="uid://m5nesy31xr2m" path="res://scripts/player/abilities/dodge_ability.gd" id="1_00w02"]
 
-[node name="DodgeAbility" type="Node2D"]
+[node name="DodgeAbility" type="Node2D" node_paths=PackedStringArray("dodge_timer")]
 script = ExtResource("1_00w02")
+dodge_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

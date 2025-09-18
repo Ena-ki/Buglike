@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
       player_class.movement_ability.execute(speed, self, player_number)
       
       if Input.is_action_just_pressed("player_" + str(player_number) + "_dodge"):
-        player_class.dodge_ability.execute(velocity)
+        player_class.dodge_ability.execute(self)
 
     if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_1"):
       player_class.ability_1.execute() 
