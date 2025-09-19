@@ -20,6 +20,7 @@ func _ready():
     current_state.enter()
   else: 
     current_state = states[states.keys()[0]]
+    print("StateMachine._ready - No Initial State, using first:", current_state.name)
     current_state.enter()
 
 

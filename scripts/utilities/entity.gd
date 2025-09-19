@@ -13,5 +13,6 @@ signal died()
 func damage(damage : float):
   health -= damage
   emit_signal("damaged", damage)
+  
   if health <= 0:
     emit_signal("died")

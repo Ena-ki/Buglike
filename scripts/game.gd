@@ -14,4 +14,3 @@ var player_2 : Player
 func _process(delta):
   #if state_machine.current_state.name == "Game"
   pass
-

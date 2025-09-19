@@ -4,7 +4,7 @@ extends Node2D
 
 # Skill properties
 const ATTACK_OFFSET = 50.0
-const KNOCKBACK_SPEED = 300.0#넉속도
+const KNOCKBACK_SPEED = 300.0#넉백속도
 const KNOCKBACK_DURATION = 0.5#넉백지속시간
 
 var is_dashing = false
