@@ -16,6 +16,8 @@ tile_set = ExtResource("1_ksju7")
 
 [node name="Player" parent="." instance=ExtResource("2_nsrm0")]
 position = Vector2(500, 200)
+scale = Vector2(0.25, 0.25)
+player_number = 1
 
 [node name="Boss" parent="." instance=ExtResource("3_nsrm0")]
 position = Vector2(200, 200)
