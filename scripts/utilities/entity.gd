@@ -12,9 +12,6 @@ signal died()
 
 func damage(damage : float):
   health -= damage
-<<<<<<< HEAD:scripts/utilities/entity.gd
-=======
   emit_signal("damaged", damage)
   if health <= 0:
     emit_signal("died")
->>>>>>> origin/tena:scripts/utilities/enitity.gd

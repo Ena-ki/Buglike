@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bavmnvrdmt2ec"]
+[gd_scene load_steps=7 format=3 uid="uid://bavmnvrdmt2ec"]
 
 [ext_resource type="Script" uid="uid://ujym8b4blw0f" path="res://scripts/player/classes/warrior_player_class.gd" id="1_h6dxo"]
 [ext_resource type="PackedScene" uid="uid://bsnchcxec6i3" path="res://scenes/player/abilities/movement_ability.tscn" id="2_lehdy"]
+[ext_resource type="PackedScene" uid="uid://b7xci2qrj283m" path="res://scenes/player/abilities/dodge_ability.tscn" id="3_lehdy"]
 [ext_resource type="PackedScene" uid="uid://d23wg70qjjnlc" path="res://scenes/player/abilities/warrior_ability_1.tscn" id="3_warrior_ability"]
 [ext_resource type="SpriteFrames" uid="uid://cyabm5lhmqg7s" path="res://res/sprite frames/mage_player_class_spriteframes.tres" id="4_73ik7"]
+[ext_resource type="PackedScene" uid="uid://hjpdram25odf" path="res://scenes/player/abilities/warrior_ability_2.tscn" id="5_ca6op"]
 
 [node name="WarriorPlayerClass" type="Node2D"]
 script = ExtResource("1_h6dxo")
 movement_ability_scene = ExtResource("2_lehdy")
+dodge_ability_scene = ExtResource("3_lehdy")
 ability_1_scene = ExtResource("3_warrior_ability")
+ability_2_scene = ExtResource("5_ca6op")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("4_73ik7")

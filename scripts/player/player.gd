@@ -6,8 +6,8 @@ class_name Player extends Entity
 
 var player_class : PlayerClass
 var speed = 100
-var is_invunderable : bool = false
-var can_move : bool = true
+
+
 var facing_direction : Vector2 = Vector2.RIGHT
 
 func _ready():
@@ -27,25 +27,37 @@ func _physics_process(delta: float) -> void:
     print(health)
 
   if state_machine.current_state.name != "Died":
-    var input_direction = Vector2.ZERO
-    if can_move:
-      # Safely call movement ability
-      if is_instance_valid(player_class.movement_ability):
-        input_direction = player_class.movement_ability.execute(speed, self, player_number)
+    var current_input_direction = Vector2.ZERO # Use a new variable for raw input
 
-      if Input.is_action_just_pressed("player_" + str(player_number) + "_dodge"):
-        if is_instance_valid(player_class.dodge_ability):
-          player_class.dodge_ability.execute(self)
+    # Always get input direction for facing, regardless of can_move
+    if is_instance_valid(player_class.movement_ability):
+      current_input_direction = player_class.movement_ability.execute(speed, self, player_number)
+      
+      if can_move: # Only apply movement if can_move is true
+        velocity = current_input_direction * speed # Apply normal movement
+      else:
+        # If can_move is false, skills are managing velocity, so ensure normal movement doesn't interfere
+        # We don't set velocity here, as skills will handle it.
+        pass # Skills will set velocity directly
 
-    # Update facing direction based on input
-    if input_direction != Vector2.ZERO:
-      facing_direction = input_direction.normalized()
+    # Update facing direction based on input (always)
+    if current_input_direction != Vector2.ZERO:
+      facing_direction = current_input_direction.normalized()
+
+    # Safely call dodge ability
+    if Input.is_action_just_pressed("player_" + str(player_number) + "_dodge"):
+      if is_instance_valid(player_class.dodge_ability):
+        player_class.dodge_ability.execute(self)
 
     # Safely call ability 1
     if Input.is_action_just_pressed("player_"+str(player_number)+"_ability_1"):
       if is_instance_valid(player_class.ability_1):
         player_class.ability_1.execute(self)
-
+    
+    # Safely call ability 2
+    if Input.is_action_just_pressed("player_"+str(player_number)+"_ability_2"):
+      if is_instance_valid(player_class.ability_2):
+        player_class.ability_2.execute(self)
   move_and_slide()
 
 
