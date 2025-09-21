@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://cfvq0lu5wudvg" path="res://scripts/player/abilities/warrior_ability_1.gd" id="1_0nex0"]
 [ext_resource type="PackedScene" uid="uid://dkeaxt3e103s5" path="res://scenes/player/abilities/warrior_ability_hitbox_1.tscn" id="2_pfkcm"]
 
-[node name="WarriorAbility1" type="Node2D"]
+[node name="WarriorAbility1" type="Node2D" node_paths=PackedStringArray("dash_timer")]
 script = ExtResource("1_0nex0")
 hitbox_scene = ExtResource("2_pfkcm")
+dash_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

@@ -1,45 +1,55 @@
 extends Node2D
 
+signal ability_finished
+
 @export var hitbox_scene : PackedScene
+@export var dash_timer : Timer
 
 # Skill properties
 const DASH_SPEED = 400.0 # 돌진 속도
-const DASH_DURATION = 0.2 # 돌진 지속 시간
+const DASH_DURATION = 0.2 # 스킬 지속시간
 
 var is_dashing = false
-var dash_timer = 0.0
 var dash_direction = Vector2.ZERO
 var player_ref : Player # Store player reference
 
 func _ready():
-  set_physics_process(true)
+  # This node's processing is driven by player.gd, not by itself.
+  set_physics_process(false)
+  if dash_timer:
+    dash_timer.timeout.connect(_on_dash_timer_timeout)
+  else:
+    push_error("Dash Timer node not assigned in warrior_ability_2.gd")
 
-func _physics_process(delta):
-  if is_dashing:
-    if dash_timer > 0:
-      player_ref.velocity = dash_direction * DASH_SPEED
-      dash_timer -= delta
-    else:
-      is_dashing = false
-      player_ref.velocity = Vector2.ZERO # Stop movement after dash
-      player_ref.can_move = true # Re-enable player movement
-
-func execute(p_ref : Player): # Type hint for clarity
+func execute(p_player : Player): # Type hint for clarity
+  if p_player.active_movement_ability:
+    return
   if not hitbox_scene:
     push_error("Hitbox scene not assigned to warrior ability 2")
     return
+  if not dash_timer:
+    push_error("Dash Timer not assigned in warrior_ability_2.gd")
+    return
 
-  self.player_ref = p_ref # Store player reference
-  player_ref.can_move = false # Disable player movement during dash
+  p_player.active_movement_ability = self
+  self.player_ref = p_player
 
   # --- Attack ---
   var hitbox_instance = hitbox_scene.instantiate()
-  hitbox_instance.creator = p_ref
+  hitbox_instance.creator = player_ref
   get_tree().current_scene.add_child(hitbox_instance)
   # Note: The hitbox scene itself should define the wide, semi-circular shape.
-  hitbox_instance.global_position = p_ref.global_position + p_ref.facing_direction * 40.0 # Adjust offset as needed
+  hitbox_instance.global_position = player_ref.global_position + player_ref.facing_direction * 40.0 # Adjust offset as needed
 
   # --- Start Movement (Forward Dash) ---
   is_dashing = true
-  dash_timer = DASH_DURATION
-  dash_direction = p_ref.facing_direction # Forward direction
+  dash_direction = player_ref.facing_direction # Forward direction
+  dash_timer.start(DASH_DURATION)
+func process_ability(p_player : Player, delta: float):
+  if is_dashing:
+    p_player.velocity = dash_direction * DASH_SPEED
+
+func _on_dash_timer_timeout():
+  is_dashing = false
+  if is_instance_valid(player_ref):
+    emit_signal("ability_finished", player_ref)
