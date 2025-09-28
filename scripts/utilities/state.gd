@@ -4,17 +4,7 @@ class_name State extends Node
 signal transition(state, new_state_name)
 
 
-func enter():
-  pass
-
-
-func exit():
-  pass
-
-
-func update(delta : float):
-  pass
-
-
-func physics_update(delta : float):
-  pass
+@abstract func enter()
+@abstract func exit()
+@abstract func update(delta : float)
+@abstract func physics_update(delta : float)

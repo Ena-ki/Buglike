@@ -1,15 +1,16 @@
-extends Node2D
+extends Ability
 
 @export var projectile_scene : PackedScene
 
-var wave_density := 10.0
-var time_between_waves := 0.2
-var wave_amount := 3
-var damage := 30.0
-var shot_speed := 100.0
+@export var wave_density := 10.0
+@export var time_between_waves := 0.2
+@export var wave_amount := 3
+@export var damage := 30.0
+@export var shot_speed := 100.0
+@export var bullet_lifetime = 10.0
 
 
-func execute() -> float:
+func execute(caster) -> float:
   call_deferred("execute_deferred")
   return 3
 
@@ -24,5 +25,5 @@ func execute_deferred():
       owner.global_position, 
       damage, 
       shot_speed, 
-      3.0)  
+      bullet_lifetime)  
     await get_tree().create_timer(time_between_waves).timeout

@@ -1,8 +1,8 @@
-extends Node2D
+extends Ability
 
 
-func execute(speed : float, player_ref : CharacterBody2D, player_number : int): # player number should be enum of PlayerNumber
-  var player_number_string = "player_" + str(player_number) + "_"
+func execute(caster : Player):
+  var player_number_string = "player_" + str(caster.player_number) + "_"
   
   var direction = Input.get_vector(
     player_number_string + "left",
@@ -10,5 +10,4 @@ func execute(speed : float, player_ref : CharacterBody2D, player_number : int): 
     player_number_string + "up",
     player_number_string + "down",
   )
-
-  return direction
+  caster.velocity = direction * caster.player_class.movement_speed

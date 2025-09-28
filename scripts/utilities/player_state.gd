@@ -1,5 +1,4 @@
-@abstract
-class_name PlayerState extends State
+@abstract class_name PlayerState extends State
 
 
 func on_player_damaged(damage):

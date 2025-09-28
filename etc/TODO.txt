@@ -1,0 +1,9 @@
+fix the game : DONE
+
+fix the dodge ability
+
+add a dodge state
+  activated from walking state
+  states are ovelapping?
+
+separate states and attributes

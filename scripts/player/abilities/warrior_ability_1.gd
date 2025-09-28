@@ -1,4 +1,4 @@
-extends Node2D
+extends Ability
 
 signal ability_finished
 
@@ -22,8 +22,8 @@ func _ready():
     push_error("Dash Timer node not assigned in warrior_ability_1.gd")
 
 
-func execute(p_player : Player): # Type hint for clarity
-  if p_player.active_movement_ability:
+func execute(player : Player):
+  if player.active_movement_ability:
     return
   if not hitbox_scene:
     push_error("Hitbox scene not assigned to warrior ability 1")
@@ -32,8 +32,8 @@ func execute(p_player : Player): # Type hint for clarity
     push_error("Dash Timer not assigned in warrior_ability_1.gd")
     return
 
-  p_player.active_movement_ability = self
-  self.player_ref = p_player
+  player.active_movement_ability = self
+  self.player_ref = player
 
   # --- Attack ---
   var hitbox_instance = hitbox_scene.instantiate()
@@ -45,9 +45,12 @@ func execute(p_player : Player): # Type hint for clarity
   is_dashing = true
   dash_direction = -player_ref.facing_direction
   dash_timer.start(DASH_DURATION)
-func process_ability(p_player : Player, delta: float):
+
+
+func process_ability(player : Player, delta: float):
   if is_dashing:
-    p_player.velocity = dash_direction * KNOCKBACK_SPEED
+    player.velocity = dash_direction * KNOCKBACK_SPEED
+
 
 func _on_dash_timer_timeout():
   is_dashing = false

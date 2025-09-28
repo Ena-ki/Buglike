@@ -1,13 +1,12 @@
 extends Projectile
 
 
-
 func _ready():
     body_entered.connect(on_body_entered)
 
 
 func on_body_entered(body : Node2D):
-    if body is Player and body.is_invunderable == false:
+    if body is Player and body.attributes["invunderable"] == false:
         body.damage(damage)
         queue_free()
     elif body is TileMapLayer:

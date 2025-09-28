@@ -1,4 +1,4 @@
-class_name Died extends PlayerState
+class_name Dodging extends PlayerState
 
 
 func enter():

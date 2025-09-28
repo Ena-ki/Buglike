@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp5qp4h7nvx2k"]
+[gd_scene load_steps=6 format=3 uid="uid://bp5qp4h7nvx2k"]
 
 [ext_resource type="Script" uid="uid://8ndepm6glc8c" path="res://scripts/game.gd" id="1_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://bx2nloye6f0vx" path="res://scenes/levels/level_1.tscn" id="1_sul5r"]
+[ext_resource type="PackedScene" uid="uid://eyrcgijxb4gq" path="res://scenes/player/classes/player.tscn" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://n12dsxsgx66h" path="res://scenes/boss/boss.tscn" id="4_kelw5"]
+[ext_resource type="PackedScene" uid="uid://n4u4nwwerpgm" path="res://scenes/player/classes/mage_player_class.tscn" id="4_lfrn8"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_0sr1o")
@@ -13,3 +16,11 @@ position = Vector2(324, 227)
 
 [node name="Level1" parent="." instance=ExtResource("1_sul5r")]
 metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("3_0sr1o")]
+position = Vector2(303, 325)
+player_number = 1
+player_class_scene = ExtResource("4_lfrn8")
+
+[node name="Boss" parent="." instance=ExtResource("4_kelw5")]
+position = Vector2(403, 200)

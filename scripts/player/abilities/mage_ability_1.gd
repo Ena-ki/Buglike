@@ -1,5 +1,5 @@
-extends Node2D
+extends Ability
 
 
-func execute():
+func execute(caster):
   print("shoot fireball")

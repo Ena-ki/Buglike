@@ -1,34 +1,29 @@
-extends Node2D
+extends Ability
 
-signal ability_finished
-
-@export var dodge_timer : Timer
-@export var dodge_speed := 400.0 # Increased speed for a better feel
-
-const DODGE_DURATION = 0.3 # 구르기 지속시간
+@export var dodge_duration_timer : Timer
+@export var dodge_cooldown_timer : Timer
+@export var dodge_speed := 250.0 
 
 var player : Player
-var dodge_direction : Vector2
 
+# sets caster's state to dodging with a signal
+# sets caster's velocity to dodging speed
+# after the dodge time runs out
 func _ready():
-  dodge_timer.timeout.connect(on_dodge_timer_timeout)
+  dodge_duration_timer.timeout.connect(on_dodge_duration_timer_timeout)
 
-func execute(p_player : Player):
-  # Don't execute if another movement ability is already active
-  if p_player.active_movement_ability:
+
+func execute(player : Player):
+  if player.velocity == Vector2.ZERO or dodge_cooldown_timer.time_left > 0.0:
     return
-  
-  # Set this ability as the active one
-  p_player.active_movement_ability = self
-  self.player = p_player
-  
-  player.is_invunderable = true
-  dodge_direction = player.facing_direction # Dodge in the direction the player is facing
-  dodge_timer.start(DODGE_DURATION)
-# This function is called by player.gd every physics frame while this is the active ability
-func process_ability(p_player : Player, delta: float):
-  p_player.velocity = dodge_direction * dodge_speed
+  self.player = player
+  player.attributes["can_move"] = false
+  player.attributes["invunderable"] = true
+  player.velocity = dodge_speed * player.velocity.normalized()
+  dodge_duration_timer.start()
+  dodge_cooldown_timer.start()
 
-func on_dodge_timer_timeout():
-  if player: # Ensure player is valid
-    emit_signal("ability_finished", player)
+
+func on_dodge_duration_timer_timeout():
+  player.attributes["can_move"] = true
+  player.attributes["invunderable"] = false
