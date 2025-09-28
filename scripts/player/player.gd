@@ -31,13 +31,13 @@ func _process(delta):
 
 
 func _physics_process(delta: float) -> void:
-  if attributes["can_move"] == true:
+  if attributes.can_move == true:
     player_class.movement_ability.execute(self)
-  move_and_slide()
+  move_and_collide(velocity * delta)
 
 
 func damage(damage : float):
-  if attributes["invunderable"] == true:
+  if attributes.invulnderable == true:
     return
   health -= damage
   emit_signal("damaged", damage)
@@ -48,16 +48,15 @@ func damage(damage : float):
 
 func on_player_damaged(damage : float):
   damage_timer.start()
-  attributes["invunderable"] = true
+  attributes.invulnderable = true
 
 
 func on_player_died():
-  attributes["dead"] = true
-  attributes["invunderable"] = true
-  attributes["can_move"] = false
+  attributes.can_move = false
+  attributes.invulnderable = true
   velocity = Vector2.ZERO
 
 
 func on_damage_timer_timeout():
-  if attributes["dead"] == false:
-    attributes["invunderable"] = false
+  if state_machine.current_state.name != "Dead":
+    attributes.invulnderable = false

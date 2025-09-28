@@ -1,12 +1,12 @@
-class_name Dodging extends PlayerState
+class_name PlayerAlive extends State
 
 
 func enter():
-  pass
+  owner.died.connect(on_owner_died)
 
 
 func exit():
-  pass
+  owner.died.disconnect(on_owner_died)
 
 
 func update(delta : float):

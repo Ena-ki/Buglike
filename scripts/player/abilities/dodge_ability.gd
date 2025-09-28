@@ -17,13 +17,13 @@ func execute(player : Player):
   if player.velocity == Vector2.ZERO or dodge_cooldown_timer.time_left > 0.0:
     return
   self.player = player
-  player.attributes["can_move"] = false
-  player.attributes["invunderable"] = true
+  player.attributes.can_move = false
+  player.attributes.invulnderable = true
   player.velocity = dodge_speed * player.velocity.normalized()
   dodge_duration_timer.start()
   dodge_cooldown_timer.start()
 
 
 func on_dodge_duration_timer_timeout():
-  player.attributes["can_move"] = true
-  player.attributes["invunderable"] = false
+  player.attributes.can_move = true
+  player.attributes.invulnderable = false

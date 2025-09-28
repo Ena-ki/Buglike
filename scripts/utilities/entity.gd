@@ -3,16 +3,17 @@
 signal damaged(damage)
 signal died()
 
-var attributes : Dictionary ={
-  "invunderable" = false,
-  "can_move" = true,
-  "dead" = false,
-}
+@export var attributes : EntityAttributes
+
 var health : float = 100
+
+
+func _ready():
+  attributes = attributes.duplicate()
 
 
 func damage(damage : float):
   health -= damage
-  emit_signal("damaged", damage)
   if health <= 0:
     emit_signal("died")
+  emit_signal("damaged", damage)
