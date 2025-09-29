@@ -4,10 +4,10 @@
 [ext_resource type="SpriteFrames" uid="uid://cy3jto5il1dxk" path="res://res/sprite frames/witch.tres" id="2_0xsra"]
 [ext_resource type="Resource" uid="uid://dtuqpgmcngu5p" path="res://resources/entity_attributes.tres" id="2_dlpkd"]
 [ext_resource type="PackedScene" uid="uid://cwipyu427rfsp" path="res://scenes/boss/abilities/boss_ability_1.tscn" id="3_atjq5"]
-[ext_resource type="PackedScene" uid="uid://xkne41ida8tp" path="res://scenes/boss/abilities/attacks/enemy_bullet.tscn" id="4_0xsra"]
 [ext_resource type="Script" uid="uid://cspsulj7rn1ts" path="res://scripts/utilities/state_machine.gd" id="5_iva7r"]
 [ext_resource type="Script" uid="uid://c582f3584wuw8" path="res://scripts/utilities/states/boss_states/boss_wandering.gd" id="6_wf233"]
 [ext_resource type="Script" uid="uid://bni4r4pl6txdw" path="res://scripts/utilities/states/boss_states/boss_attacking.gd" id="7_dlpkd"]
+[ext_resource type="PackedScene" uid="uid://b1jxdrp7idd5t" path="res://scenes/boss/abilities/boss_ability_2.tscn" id="9_2mupd"]
 [ext_resource type="Script" uid="uid://crcegpih1b8uj" path="res://scripts/utilities/states/dead.gd" id="9_7kbl1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iva7r"]
@@ -15,7 +15,7 @@ radius = 27.294687
 
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("abilities")]
 script = ExtResource("1_8ftqf")
-abilities = [NodePath("BossAbility1")]
+abilities = [NodePath("BossAbility1"), NodePath("BossAbility2")]
 attributes = ExtResource("2_dlpkd")
 metadata/_custom_type_script = "uid://co7l8fy5jpb4e"
 
@@ -28,11 +28,11 @@ frame_progress = 0.324774
 shape = SubResource("CircleShape2D_iva7r")
 
 [node name="BossAbility1" parent="." instance=ExtResource("3_atjq5")]
-projectile_scene = ExtResource("4_0xsra")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="BossAbility2" parent="." instance=ExtResource("9_2mupd")]
+
+[node name="StateMachine" type="Node" parent="."]
 script = ExtResource("5_iva7r")
-initial_state = NodePath("")
 metadata/_custom_type_script = "uid://cspsulj7rn1ts"
 
 [node name="BossAttacking" type="Node" parent="StateMachine"]
@@ -43,6 +43,6 @@ metadata/_custom_type_script = "uid://bni4r4pl6txdw"
 script = ExtResource("6_wf233")
 metadata/_custom_type_script = "uid://c582f3584wuw8"
 
-[node name="Died" type="Node" parent="StateMachine"]
+[node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("9_7kbl1")
 metadata/_custom_type_script = "uid://crcegpih1b8uj"

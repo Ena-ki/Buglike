@@ -1,5 +1,4 @@
-@abstract
-class_name Projectile extends Area2D
+@abstract class_name Projectile extends Area2D
 
 var direction : Vector2 = Vector2.ZERO
 var speed : float = 1.0
@@ -20,6 +19,9 @@ func _process(delta):
     life_time -= delta
     if life_time <= 0:
         queue_free()
-    
+    handle_bodies_inside(get_overlapping_bodies())
+
+
+@abstract func handle_bodies_inside(bodies : Array[Node2D])
 
     

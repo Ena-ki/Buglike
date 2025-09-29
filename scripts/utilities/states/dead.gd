@@ -7,7 +7,6 @@ func enter():
   owner.attributes.invulnderable = true
 
 
-
 func exit():
   pass
 

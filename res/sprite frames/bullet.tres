@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cr0i4xt2agp5r"]
+
+[ext_resource type="Texture2D" uid="uid://w0aweg2mf3o2" path="res://res/textures/fireball.png.png" id="1_mxvlb"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mxvlb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -5,7 +5,7 @@ signal died()
 
 @export var attributes : EntityAttributes
 
-var health : float = 100
+var health : float = 1000
 
 
 func _ready():
@@ -17,3 +17,4 @@ func damage(damage : float):
   if health <= 0:
     emit_signal("died")
   emit_signal("damaged", damage)
+  print(get_class(), "'s health is :", health)

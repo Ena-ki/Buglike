@@ -3,7 +3,7 @@ class_name BossAttacking extends State
 
 func enter():
   owner.died.connect(on_owner_died)
-  await owner.abilities[randi_range(0,owner.abilities.size()-1)].execute(self)
+  await owner.abilities[randi_range(0,owner.abilities.size()-1)].execute(owner)
   emit_signal("transition", self, "BossWandering")
 
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1jxdrp7idd5t"]
+
+[ext_resource type="Script" uid="uid://ca3ckvvleeahg" path="res://scripts/boss/abilities/boss_ability_2.gd" id="1_wpvn6"]
+[ext_resource type="PackedScene" uid="uid://xkne41ida8tp" path="res://scenes/utilities/enemy_bullet.tscn" id="2_hoc2c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpvn6"]
+radius = 260.0
+
+[node name="BossAbility2" type="Node2D" node_paths=PackedStringArray("player_detection_area")]
+script = ExtResource("1_wpvn6")
+projectile_scene = ExtResource("2_hoc2c")
+player_detection_area = NodePath("PlayerDetectionArea")
+shot_speed = 300.0
+
+[node name="PlayerDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea"]
+shape = SubResource("CircleShape2D_wpvn6")

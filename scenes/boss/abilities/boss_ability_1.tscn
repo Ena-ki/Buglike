@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwipyu427rfsp"]
+[gd_scene load_steps=3 format=3 uid="uid://cwipyu427rfsp"]
 
 [ext_resource type="Script" uid="uid://nufh2vjlruq2" path="res://scripts/boss/abilities/boss_ability_1.gd" id="1_vqmk8"]
+[ext_resource type="PackedScene" uid="uid://xkne41ida8tp" path="res://scenes/utilities/enemy_bullet.tscn" id="2_54a0n"]
 
 [node name="BossAbility1" type="Node2D"]
 script = ExtResource("1_vqmk8")
+projectile_scene = ExtResource("2_54a0n")
