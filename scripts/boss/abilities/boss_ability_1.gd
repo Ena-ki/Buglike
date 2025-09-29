@@ -7,7 +7,8 @@ extends Ability
 @export var wave_amount := 3
 @export var damage := 30.0
 @export var shot_speed := 100.0
-@export var bullet_lifetime = 10.0
+@export var bullet_lifetime := 10.0
+@export var angle_offset := 30.0
 
 
 func execute(caster):
@@ -15,8 +16,9 @@ func execute(caster):
     for j in range(wave_density):
       var projectile_instance = projectile_scene.instantiate()
       get_tree().current_scene.call_deferred("add_child", projectile_instance)
+
       projectile_instance.init_projectile(
-      Vector2.UP.rotated(deg_to_rad(360 / wave_density * j + (360 / wave_density / 2 * i))),
+      Vector2.UP.rotated(deg_to_rad(360 / wave_density * j + i * angle_offset)),
       owner.global_position, 
       damage, 
       shot_speed, 

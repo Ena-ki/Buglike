@@ -44,6 +44,8 @@ metadata/_custom_type_script = "uid://bni4r4pl6txdw"
 
 [node name="BossWandering" type="Node" parent="StateMachine"]
 script = ExtResource("6_wf233")
+wander_cooldown = 2.0
+wander_speed = 50.0
 metadata/_custom_type_script = "uid://c582f3584wuw8"
 
 [node name="Dead" type="Node" parent="StateMachine"]

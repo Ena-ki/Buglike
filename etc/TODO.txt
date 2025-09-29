@@ -1,9 +1,7 @@
-fix the game : DONE
+add shot spread to mage ability 1
 
-fix the dodge ability
+make character selection screen
 
-add a dodge state
-  activated from walking state
-  states are ovelapping?
+make ui not look shit
 
-separate states and attributes
+make game loop
