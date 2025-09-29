@@ -4,13 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://xkne41ida8tp" path="res://scenes/utilities/enemy_bullet.tscn" id="2_hoc2c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpvn6"]
-radius = 260.0
+radius = 442.0916
 
 [node name="BossAbility2" type="Node2D" node_paths=PackedStringArray("player_detection_area")]
 script = ExtResource("1_wpvn6")
 projectile_scene = ExtResource("2_hoc2c")
 player_detection_area = NodePath("PlayerDetectionArea")
-shot_speed = 300.0
+shot_speed = 200.0
+time_between_shots = 0.1
+shot_amount = 10
 
 [node name="PlayerDetectionArea" type="Area2D" parent="."]
 
