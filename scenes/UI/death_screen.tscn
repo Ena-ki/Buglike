@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://b527248r77k52"]
+
+[ext_resource type="Script" uid="uid://bma85833lxj23" path="res://scripts/UI/death_screen.gd" id="1_jcrgr"]
+
+[node name="DeathScreen" type="Control" node_paths=PackedStringArray("restart_button", "quit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jcrgr")
+main_menu_scene = "uid://b772bu81umnm0"
+restart_button = NodePath("VBoxContainer/HBoxContainer/RestartButton")
+quit_button = NodePath("VBoxContainer/HBoxContainer/QuitButton")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -100.0
+offset_right = 108.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "You Died"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="RestartButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Quit"

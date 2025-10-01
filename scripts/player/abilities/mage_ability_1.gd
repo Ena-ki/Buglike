@@ -12,7 +12,7 @@ extends Ability
 
 var move_direction : Vector2
 
-func execute(caster):
+func execute(_caster):
   if cooldown_timer.time_left > 0:
     return
   cooldown_timer.start()
@@ -28,7 +28,7 @@ func execute(caster):
   if closest_body:
     move_direction = (closest_body.global_position - global_position).normalized()
     var projectile_instance = projectile_scene.instantiate()
-    get_tree().current_scene.call_deferred("add_child", projectile_instance)
+    Globals.game_manager.add_child_current_scene(projectile_instance)
     projectile_instance.init_projectile(
     move_direction,
     owner.global_position, 

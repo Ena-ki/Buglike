@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://b772bu81umnm0"]
 
 [ext_resource type="Script" uid="uid://dfg457ebkency" path="res://scripts/UI/main_menu.gd" id="1_qwnig"]
-[ext_resource type="PackedScene" uid="uid://bp5qp4h7nvx2k" path="res://scenes/game/game.tscn" id="2_yonvy"]
+[ext_resource type="PackedScene" uid="uid://qkf02vsqk4sb" path="res://scenes/UI/character_select_card.tscn" id="3_5jstl"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("quit_button", "play_button")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("main_screen", "quit_button", "play_button", "character_select_screen", "player_1_card", "player_2_card")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,29 +11,84 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qwnig")
-game_scene = ExtResource("2_yonvy")
-quit_button = NodePath("VBoxContainer/QuitButton")
-play_button = NodePath("VBoxContainer/PlayButton")
+game_scene = "uid://bp5qp4h7nvx2k"
+main_screen = NodePath("MainScreen")
+quit_button = NodePath("MainScreen/VBoxContainer/QuitButton")
+play_button = NodePath("MainScreen/VBoxContainer/PlayButton")
+character_select_screen = NodePath("CharacterSelectScreen")
+player_1_card = NodePath("CharacterSelectScreen/CharacterSelectCard")
+player_2_card = NodePath("CharacterSelectScreen/CharacterSelectCard2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="MainScreen/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "BIMBA"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.526
+anchor_right = 0.5
+anchor_bottom = 0.526
+offset_left = -100.0
+offset_top = -39.360016
+offset_right = 100.0
+offset_bottom = 64.639984
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="MainScreen/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="MainScreen/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "QUIT"
+
+[node name="CharacterSelectScreen" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -150.0
+offset_right = 152.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 60
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
+[node name="CharacterSelectCard" parent="CharacterSelectScreen" instance=ExtResource("3_5jstl")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 29
-text = "PLAY"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
+[node name="CharacterSelectCard2" parent="CharacterSelectScreen" instance=ExtResource("3_5jstl")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "QUIT"
+size_flags_horizontal = 4
+player_number = 2

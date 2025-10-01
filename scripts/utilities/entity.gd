@@ -8,7 +8,7 @@ signal died()
 var health : float = 1000
 
 
-func _ready():
+func set_up_resources():
   attributes = attributes.duplicate()
 
 

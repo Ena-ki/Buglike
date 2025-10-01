@@ -37,7 +37,7 @@ func execute(player : Player): # Type hint for clarity
   # --- Attack ---
   var hitbox_instance = hitbox_scene.instantiate()
   hitbox_instance.creator = player_ref
-  get_tree().current_scene.add_child(hitbox_instance)
+  Globals.game_manager.add_child_current_scene(hitbox_instance)
   # Note: The hitbox scene itself should define the wide, semi-circular shape.
   hitbox_instance.global_position = player_ref.global_position + player_ref.facing_direction * 40.0 # Adjust offset as needed
 
@@ -45,7 +45,7 @@ func execute(player : Player): # Type hint for clarity
   is_dashing = true
   dash_direction = player_ref.facing_direction # Forward direction
   dash_timer.start(DASH_DURATION)
-func process_ability(player : Player, delta: float):
+func process_ability(player : Player, _delta: float):
   if is_dashing:
     player.velocity = dash_direction * DASH_SPEED
 

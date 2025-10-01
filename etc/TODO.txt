@@ -5,3 +5,9 @@ make character selection screen
 make ui not look shit
 
 make game loop
+
+make game ui overlay (hp, cooldowns)
+
+make game end when both players die or boss dies - partially done?
+
+add win screen

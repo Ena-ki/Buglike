@@ -1,25 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp5qp4h7nvx2k"]
+[gd_scene load_steps=7 format=3 uid="uid://bp5qp4h7nvx2k"]
 
 [ext_resource type="Script" uid="uid://8ndepm6glc8c" path="res://scripts/game.gd" id="1_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://bx2nloye6f0vx" path="res://scenes/levels/level_1.tscn" id="1_sul5r"]
+[ext_resource type="PackedScene" uid="uid://b527248r77k52" path="res://scenes/UI/death_screen.tscn" id="2_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://eyrcgijxb4gq" path="res://scenes/player/classes/player.tscn" id="3_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://n12dsxsgx66h" path="res://scenes/boss/boss.tscn" id="4_kelw5"]
 [ext_resource type="PackedScene" uid="uid://n4u4nwwerpgm" path="res://scenes/player/classes/mage_player_class.tscn" id="4_lfrn8"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" node_paths=PackedStringArray("camera", "death_screen", "boss")]
 script = ExtResource("1_0sr1o")
-
-[node name="UI" type="CanvasLayer" parent="."]
+camera = NodePath("Camera2D")
+death_screen = NodePath("Camera2D/UI/DeathScreen")
+boss = NodePath("Boss")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(324, 227)
 
+[node name="UI" type="CanvasLayer" parent="Camera2D"]
+
+[node name="DeathScreen" parent="Camera2D/UI" instance=ExtResource("2_5i0tg")]
+process_mode = 3
+visible = false
+main_menu_scene = ""
+
 [node name="Level1" parent="." instance=ExtResource("1_sul5r")]
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("3_0sr1o")]
+[node name="Player1" parent="." instance=ExtResource("3_0sr1o")]
 position = Vector2(303, 325)
 player_number = 1
+player_class_scene = ExtResource("4_lfrn8")
+
+[node name="Player2" parent="." instance=ExtResource("3_0sr1o")]
+position = Vector2(192, 276)
 player_class_scene = ExtResource("4_lfrn8")
 
 [node name="Boss" parent="." instance=ExtResource("4_kelw5")]

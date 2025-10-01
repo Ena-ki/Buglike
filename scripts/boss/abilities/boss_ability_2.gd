@@ -20,7 +20,9 @@ func execute(caster : Entity):
   centered_spread = projectile_spread - projectile_spread / 2
 
   for body in player_detection_area.get_overlapping_bodies():
-    if body != caster and (not closest or (position - body.position).length() > closest):
+    if body == caster or body is not Player or body.current_state.name == "Dead":
+      continue
+    if not closest or (position - body.position).length() > closest:
       closest = (position - body.position).length()
       closest_body = body
   
@@ -33,7 +35,7 @@ func execute(caster : Entity):
       print(projectile_move_direction)
 
       var projectile_instance = projectile_scene.instantiate()
-      get_tree().current_scene.call_deferred("add_child", projectile_instance)
+      Globals.game_manager.add_child_current_scene(projectile_instance)
 
       projectile_instance.init_projectile(
       projectile_move_direction,

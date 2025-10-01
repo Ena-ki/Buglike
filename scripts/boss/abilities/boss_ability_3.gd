@@ -14,10 +14,10 @@ func execute(caster):
   for i in range(wave_amount):
     for j in range(wave_density):
       var projectile_instance = projectile_scene.instantiate()
-      get_tree().current_scene.call_deferred("add_child", projectile_instance)
+      Globals.game_manager.add_child_current_scene(projectile_instance)
       projectile_instance.init_projectile(
       Vector2.UP.rotated(deg_to_rad(360 / wave_density * j + (360 / wave_density / 2 * i))),
-      owner.global_position, 
+      caster.global_position, 
       damage, 
       shot_speed, 
       bullet_lifetime)  

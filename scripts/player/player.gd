@@ -6,20 +6,20 @@ class_name Player extends Entity
 @export var damage_timer : Timer
 
 var player_class : PlayerClass
-
+var current_state : State: 
+  get: return state_machine.current_state
 
 func _ready():
+  health = 100
+  set_up_resources()
   damaged.connect(on_player_damaged)
   died.connect(on_player_died)
   damage_timer.timeout.connect(on_damage_timer_timeout)
   player_class = player_class_scene.instantiate()
-  add_child(player_class)  
-  
-  if not player_class_scene:
-    push_error("Player has no player_class_scene assigned!")
+  add_child(player_class)
 
 
-func _process(delta):
+func _process(_delta):
   if Input.is_action_just_pressed("player_" + str(player_number) + "_dodge"):
     player_class.dodge_ability.execute(self)
   if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_1"):
@@ -36,17 +36,17 @@ func _physics_process(delta: float) -> void:
   move_and_collide(velocity * delta)
 
 
-func damage(damage : float):
+func damage(damage_dealt : float):
   if attributes.invulnderable == true:
     return
-  health -= damage
-  emit_signal("damaged", damage)
+  health -= damage_dealt
+  emit_signal("damaged", damage_dealt)
   if health <= 0:
     emit_signal("died")
   print(health)
 
 
-func on_player_damaged(damage : float):
+func on_player_damaged(_damage_dealt : float):
   damage_timer.start()
   attributes.invulnderable = true
 
@@ -58,5 +58,5 @@ func on_player_died():
 
 
 func on_damage_timer_timeout():
-  if state_machine.current_state.name != "Dead":
+  if current_state.name != "Dead":
     attributes.invulnderable = false

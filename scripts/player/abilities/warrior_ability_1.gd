@@ -15,15 +15,13 @@ var player_ref : Player # Store player reference
 
 func _ready():
   # This node's processing is driven by player.gd, not by itself.
-  set_physics_process(false)
-  if dash_timer:
-    dash_timer.timeout.connect(_on_dash_timer_timeout)
-  else:
-    push_error("Dash Timer node not assigned in warrior_ability_1.gd")
+  dash_timer.timeout.connect(_on_dash_timer_timeout)
 
 
 func execute(player : Player):
-  if player.active_movement_ability:
+  self.process_mode = Node.PROCESS_MODE_ALWAYS
+
+  if not player.current_state.name == "Dead":
     return
   if not hitbox_scene:
     push_error("Hitbox scene not assigned to warrior ability 1")
@@ -38,13 +36,15 @@ func execute(player : Player):
   # --- Attack ---
   var hitbox_instance = hitbox_scene.instantiate()
   hitbox_instance.creator = player_ref
-  get_tree().current_scene.add_child(hitbox_instance)
+  Globals.game_manager.add_child_current_scene(hitbox_instance)
   hitbox_instance.global_position = player_ref.global_position + player_ref.facing_direction * 50.0
 
   # --- Start Movement ---
   is_dashing = true
   dash_direction = -player_ref.facing_direction
   dash_timer.start(DASH_DURATION)
+
+
 
 
 func process_ability(player : Player, delta: float):

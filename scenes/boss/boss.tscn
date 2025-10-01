@@ -14,9 +14,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_iva7r"]
 radius = 27.294687
 
-[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("abilities")]
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("abilities", "state_machine")]
 script = ExtResource("1_8ftqf")
 abilities = [NodePath("BossAbility1"), NodePath("BossAbility2"), NodePath("BossAbility3")]
+state_machine = NodePath("StateMachine")
 attributes = ExtResource("2_dlpkd")
 metadata/_custom_type_script = "uid://co7l8fy5jpb4e"
 

@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="poilgo-game"
-run/main_scene="uid://bp5qp4h7nvx2k"
+run/main_scene="uid://duwnm2g1parmr"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
 config/icon="res://res/textures/icon.svg"
 
 [autoload]
 
-Enums="*res://scripts/globals/Enums.gd"
+Enums="*res://scripts/globals/enums.gd"
+Globals="*res://scripts/globals/globals.gd"
 
 [display]
 

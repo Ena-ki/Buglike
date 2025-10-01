@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://qkf02vsqk4sb"]
+
+[ext_resource type="Script" uid="uid://ccq5qf3ab48mq" path="res://scripts/UI/select_card.gd" id="1_wv6ef"]
+
+[node name="CharacterSelectCard" type="PanelContainer" node_paths=PackedStringArray("not_joined_label", "joined_menu", "selected_class_label", "ready_label", "player_number_label")]
+custom_minimum_size = Vector2(150, 300)
+script = ExtResource("1_wv6ef")
+not_joined_label = NodePath("VBoxContainer/NotJoinedLabel")
+joined_menu = NodePath("VBoxContainer/JoinedContainer")
+selected_class_label = NodePath("VBoxContainer/JoinedContainer/ChosenClassLabel")
+ready_label = NodePath("VBoxContainer/JoinedContainer/ReadyLabel")
+player_number_label = NodePath("VBoxContainer/PlayerNumberLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PlayerNumberLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NotJoinedLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Press Q!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="JoinedContainer" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Separator1" type="Control" parent="VBoxContainer/JoinedContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/JoinedContainer"]
+layout_mode = 2
+text = "Selected Class"
+horizontal_alignment = 1
+
+[node name="ChosenClassLabel" type="Label" parent="VBoxContainer/JoinedContainer"]
+layout_mode = 2
+text = "< Mage >"
+horizontal_alignment = 1
+
+[node name="ReadyLabel" type="Label" parent="VBoxContainer/JoinedContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Not Ready! (E)"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Separator2" type="Control" parent="VBoxContainer/JoinedContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2

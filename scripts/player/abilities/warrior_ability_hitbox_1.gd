@@ -22,3 +22,5 @@ func _on_body_entered(body):
     body.damage(damage)
       # 한 번 피해를 준 후에는 히트박스를 제거하여 중복 피해를 막습니다.
     queue_free()
+
+
