@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jcrgr")
-main_menu_scene = "uid://b772bu81umnm0"
+main_menu_scene = "res://scenes/UI/main_menu.tscn"
 restart_button = NodePath("VBoxContainer/HBoxContainer/RestartButton")
 quit_button = NodePath("VBoxContainer/HBoxContainer/QuitButton")
 
