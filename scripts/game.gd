@@ -2,6 +2,7 @@ extends Node
 
 @export var camera : Camera2D
 @export var death_screen : Control
+@export var game_overlay : Control
 
 var players : Array[Player]
 @export var boss : Entity # fix
@@ -11,6 +12,7 @@ func _ready() -> void:
   for child in get_children():
     if child is Player:
       players.append(child)
+  game_overlay.set_players(players)
 
 
 func _process(_delta):

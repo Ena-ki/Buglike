@@ -22,3 +22,7 @@ func execute(caster):
       shot_speed, 
       bullet_lifetime)  
     await get_tree().create_timer(time_between_waves).timeout
+
+
+func get_cooldown():
+  return 0.0

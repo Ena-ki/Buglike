@@ -37,3 +37,7 @@ func execute(_caster):
     bullet_lifetime)  
     print(global_position)
     print(closest_body.global_position)
+
+
+func get_cooldown():
+  return cooldown_timer.time_left / cooldown_timer.wait_time

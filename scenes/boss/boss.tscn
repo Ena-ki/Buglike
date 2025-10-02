@@ -30,10 +30,13 @@ frame_progress = 0.324774
 shape = SubResource("CircleShape2D_iva7r")
 
 [node name="BossAbility1" parent="." instance=ExtResource("3_atjq5")]
+visible = false
 
 [node name="BossAbility2" parent="." instance=ExtResource("9_2mupd")]
+visible = false
 
 [node name="BossAbility3" parent="." instance=ExtResource("6_2mupd")]
+visible = false
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("5_iva7r")

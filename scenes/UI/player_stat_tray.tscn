@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds5f2040s028m"]
+
+[ext_resource type="Script" uid="uid://ddlmvstwqfpse" path="res://scripts/UI/player_stat_tray.gd" id="1_xd804"]
+[ext_resource type="PackedScene" uid="uid://dyihb8tr2750" path="res://scenes/UI/skill_icon.tscn" id="2_1grqo"]
+
+[node name="PlayerStatTray" type="PanelContainer" node_paths=PackedStringArray("container", "health_label", "skill_1", "skill_2", "skill_3", "skill_4")]
+custom_minimum_size = Vector2(0, 40)
+layout_direction = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 32.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_xd804")
+container = NodePath("HBoxContainer")
+health_label = NodePath("HBoxContainer/Label")
+skill_1 = NodePath("HBoxContainer/SkillIcon")
+skill_2 = NodePath("HBoxContainer/SkillIcon2")
+skill_3 = NodePath("HBoxContainer/SkillIcon3")
+skill_4 = NodePath("HBoxContainer/SkillIcon4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SkillIcon" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
+layout_mode = 2
+
+[node name="SkillIcon2" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
+layout_mode = 2
+
+[node name="SkillIcon3" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
+layout_mode = 2
+
+[node name="SkillIcon4" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "   : 100 "
+
+[node name="Control3" type="Control" parent="HBoxContainer"]
+layout_mode = 2

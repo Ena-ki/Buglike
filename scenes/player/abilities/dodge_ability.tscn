@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://m5nesy31xr2m" path="res://scripts/player/abilities/dodge_ability.gd" id="1_00w02"]
 
-[node name="DodgeAbility" type="Node2D" node_paths=PackedStringArray("dodge_duration_timer", "dodge_cooldown_timer")]
+[node name="DodgeAbility" type="Node2D" node_paths=PackedStringArray("duration_timer", "cooldown_timer")]
 script = ExtResource("1_00w02")
-dodge_duration_timer = NodePath("DodgeDurationTimer")
-dodge_cooldown_timer = NodePath("DodgeCooldownTimer")
+duration_timer = NodePath("DodgeDurationTimer")
+cooldown_timer = NodePath("DodgeCooldownTimer")
 
 [node name="DodgeDurationTimer" type="Timer" parent="."]
 wait_time = 0.25

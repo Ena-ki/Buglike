@@ -11,3 +11,7 @@ func execute(caster : Player):
     player_number_string + "down",
   )
   caster.velocity = direction * caster.player_class.movement_speed
+
+
+func get_cooldown():
+  return 0.0

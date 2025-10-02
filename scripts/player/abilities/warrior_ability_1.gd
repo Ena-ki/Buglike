@@ -47,7 +47,7 @@ func execute(player : Player):
 
 
 
-func process_ability(player : Player, delta: float):
+func process_ability(player : Player, _delta: float):
   if is_dashing:
     player.velocity = dash_direction * KNOCKBACK_SPEED
 
@@ -56,3 +56,7 @@ func _on_dash_timer_timeout():
   is_dashing = false
   if is_instance_valid(player_ref):
     emit_signal("ability_finished", player_ref)
+
+
+func get_cooldown():
+  return 0.0

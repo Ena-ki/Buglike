@@ -32,7 +32,6 @@ func execute(caster : Entity):
       projectile_move_direction = (closest_body.global_position - global_position).normalized()
       var random_spread_angle = randf_range(centered_spread, -centered_spread)
       projectile_move_direction = projectile_move_direction.rotated(deg_to_rad(random_spread_angle))
-      print(projectile_move_direction)
 
       var projectile_instance = projectile_scene.instantiate()
       Globals.game_manager.add_child_current_scene(projectile_instance)
@@ -45,3 +44,7 @@ func execute(caster : Entity):
       bullet_lifetime)
 
       await get_tree().create_timer(time_between_shots).timeout
+
+
+func get_cooldown():
+  return 0.0

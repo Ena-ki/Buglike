@@ -7,3 +7,10 @@ enum PlayerNumber
   PLAYER_3 = 3,
   PLAYER_4 = 4,
 }
+
+
+enum Side
+{
+  RIGHT,
+  LEFT,
+}

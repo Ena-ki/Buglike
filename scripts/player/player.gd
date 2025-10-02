@@ -20,14 +20,14 @@ func _ready():
 
 
 func _process(_delta):
-  if Input.is_action_just_pressed("player_" + str(player_number) + "_dodge"):
-    player_class.dodge_ability.execute(self)
   if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_1"):
     player_class.ability_1.execute(self)
   if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_2"):
     player_class.ability_2.execute(self)
   if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_3"):
     player_class.ability_3.execute(self)
+  if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_4"):
+    player_class.ability_4.execute(self)
 
 
 func _physics_process(delta: float) -> void:

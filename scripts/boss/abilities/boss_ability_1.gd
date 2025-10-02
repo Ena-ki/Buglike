@@ -19,9 +19,12 @@ func execute(caster):
 
       projectile_instance.init_projectile(
       Vector2.UP.rotated(deg_to_rad(360 / wave_density * j + i * angle_offset)),
-      owner.global_position, 
+      caster.global_position, 
       damage, 
       shot_speed, 
       bullet_lifetime)  
     await get_tree().create_timer(time_between_waves).timeout
 
+
+func get_cooldown():
+  return 0.0

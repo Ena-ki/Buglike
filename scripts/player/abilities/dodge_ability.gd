@@ -1,7 +1,7 @@
 extends Ability
 
-@export var dodge_duration_timer : Timer
-@export var dodge_cooldown_timer : Timer
+@export var duration_timer : Timer
+@export var cooldown_timer : Timer
 @export var dodge_speed := 250.0 
 
 var player : Player
@@ -10,20 +10,24 @@ var player : Player
 # sets caster's velocity to dodging speed
 # after the dodge time runs out
 func _ready():
-  dodge_duration_timer.timeout.connect(on_dodge_duration_timer_timeout)
+  duration_timer.timeout.connect(on_duration_timer_timeout)
 
 
-func execute(player : Player):
-  if player.velocity == Vector2.ZERO or dodge_cooldown_timer.time_left > 0.0:
+func execute(new_player : Player):
+  player = new_player
+  if player.velocity == Vector2.ZERO or cooldown_timer.time_left > 0.0:
     return
-  self.player = player
   player.attributes.can_move = false
   player.attributes.invulnderable = true
   player.velocity = dodge_speed * player.velocity.normalized()
-  dodge_duration_timer.start()
-  dodge_cooldown_timer.start()
+  duration_timer.start()
+  cooldown_timer.start()
 
 
-func on_dodge_duration_timer_timeout():
+func on_duration_timer_timeout():
   player.attributes.can_move = true
   player.attributes.invulnderable = false
+
+
+func get_cooldown():
+  return cooldown_timer.time_left / cooldown_timer.wait_time

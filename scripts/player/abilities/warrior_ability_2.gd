@@ -53,3 +53,7 @@ func _on_dash_timer_timeout():
   is_dashing = false
   if is_instance_valid(player_ref):
     emit_signal("ability_finished", player_ref)
+
+
+func get_cooldown():
+  return 0.0

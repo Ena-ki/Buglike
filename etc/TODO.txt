@@ -1,13 +1,18 @@
 add shot spread to mage ability 1
 
-make character selection screen
+make other mage abilities
+
+make character selection screen:
+  needs more than 1 class, otherwise done
 
 make ui not look shit
-
-make game loop
 
 make game ui overlay (hp, cooldowns)
 
 make game end when both players die or boss dies - partially done?
 
 add win screen
+
+make game actually spawn players and bosses
+
+rename EVERYTHING that is dodge to ability 3 and ability 3 to ability 4
