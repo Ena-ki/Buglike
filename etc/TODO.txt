@@ -1,3 +1,13 @@
+Code Refactor - Doing
+  
+  boss : 
+    I feel like player and boss should be the same, just with different teams
+    aka - make team export and based on that, make bullets instantiated damage the team
+  projectiles : 
+    make them all the same, just target different groups
+
+make boss like in ETG, move when shooting and stopping as needed
+
 add shot spread to mage ability 1
 
 make other mage abilities
@@ -6,8 +16,6 @@ make character selection screen:
   needs more than 1 class, otherwise done
 
 make ui not look shit
-
-make game ui overlay (hp, cooldowns)
 
 make game end when both players die or boss dies - partially done?
 

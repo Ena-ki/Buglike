@@ -32,6 +32,11 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="poilgo-game"
 
+[global_group]
+
+friendly_entity="for player / player friendly entities"
+hostile_entity="for hostile entities"
+
 [input]
 
 player_1_up={

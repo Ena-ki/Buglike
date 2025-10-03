@@ -1,4 +1,4 @@
-class_name PlayerAlive extends State
+class_name Alive extends State
 
 
 func enter():

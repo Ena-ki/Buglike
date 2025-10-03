@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://n12dsxsgx66h"]
+[gd_scene load_steps=14 format=3 uid="uid://n12dsxsgx66h"]
 
 [ext_resource type="Script" uid="uid://dkbqv64fktoa1" path="res://scripts/boss/boss.gd" id="1_8ftqf"]
 [ext_resource type="SpriteFrames" uid="uid://cy3jto5il1dxk" path="res://res/sprite frames/witch.tres" id="2_0xsra"]
@@ -8,14 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://csynxf8bqyebb" path="res://scenes/boss/abilities/boss_ability_3.tscn" id="6_2mupd"]
 [ext_resource type="Script" uid="uid://c582f3584wuw8" path="res://scripts/utilities/states/boss_states/boss_wandering.gd" id="6_wf233"]
 [ext_resource type="Script" uid="uid://bni4r4pl6txdw" path="res://scripts/utilities/states/boss_states/boss_attacking.gd" id="7_dlpkd"]
+[ext_resource type="PackedScene" uid="uid://6mq82mmd7kbd" path="res://scenes/boss/abilities/boss_filler_ability.tscn" id="7_xsifj"]
 [ext_resource type="PackedScene" uid="uid://b1jxdrp7idd5t" path="res://scenes/boss/abilities/boss_ability_2.tscn" id="9_2mupd"]
 [ext_resource type="Script" uid="uid://crcegpih1b8uj" path="res://scripts/utilities/states/dead.gd" id="9_7kbl1"]
+[ext_resource type="Script" uid="uid://cjpn5v1fw782h" path="res://scripts/utilities/states/alive.gd" id="11_p4gry"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iva7r"]
 radius = 27.294687
 
-[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("abilities", "state_machine")]
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("filler_ability", "abilities", "state_machine") groups=["hostile_entity"]]
 script = ExtResource("1_8ftqf")
+filler_ability = NodePath("BossFillerAbility")
 abilities = [NodePath("BossAbility1"), NodePath("BossAbility2"), NodePath("BossAbility3")]
 state_machine = NodePath("StateMachine")
 attributes = ExtResource("2_dlpkd")
@@ -38,6 +41,8 @@ visible = false
 [node name="BossAbility3" parent="." instance=ExtResource("6_2mupd")]
 visible = false
 
+[node name="BossFillerAbility" parent="." instance=ExtResource("7_xsifj")]
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("5_iva7r")
 metadata/_custom_type_script = "uid://cspsulj7rn1ts"
@@ -55,3 +60,7 @@ metadata/_custom_type_script = "uid://c582f3584wuw8"
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("9_7kbl1")
 metadata/_custom_type_script = "uid://crcegpih1b8uj"
+
+[node name="Alive" type="Node" parent="StateMachine"]
+script = ExtResource("11_p4gry")
+metadata/_custom_type_script = "uid://cjpn5v1fw782h"

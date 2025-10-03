@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://c0gu0i0i661ml" path="res://scripts/player/player.gd" id="1_ftvqt"]
 [ext_resource type="Resource" uid="uid://dtuqpgmcngu5p" path="res://resources/entity_attributes.tres" id="2_u823m"]
 [ext_resource type="Script" uid="uid://cspsulj7rn1ts" path="res://scripts/utilities/state_machine.gd" id="3_5ojmh"]
-[ext_resource type="Script" uid="uid://cjpn5v1fw782h" path="res://scripts/utilities/states/player_states/player_alive.gd" id="4_s5qfd"]
+[ext_resource type="Script" uid="uid://cjpn5v1fw782h" path="res://scripts/utilities/states/alive.gd" id="4_s5qfd"]
 [ext_resource type="Script" uid="uid://crcegpih1b8uj" path="res://scripts/utilities/states/dead.gd" id="5_ftvqt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_avlhq"]
 radius = 12.0416
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "damage_timer")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "damage_timer") groups=["friendly_entity"]]
 script = ExtResource("1_ftvqt")
 player_number = 2
 state_machine = NodePath("StateMachine")
