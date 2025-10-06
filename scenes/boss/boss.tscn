@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://n12dsxsgx66h"]
+[gd_scene load_steps=12 format=3 uid="uid://n12dsxsgx66h"]
 
 [ext_resource type="Script" uid="uid://dkbqv64fktoa1" path="res://scripts/boss/boss.gd" id="1_8ftqf"]
 [ext_resource type="SpriteFrames" uid="uid://cy3jto5il1dxk" path="res://res/sprite frames/witch.tres" id="2_0xsra"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cwipyu427rfsp" path="res://scenes/boss/abilities/boss_ability_1.tscn" id="3_atjq5"]
 [ext_resource type="Script" uid="uid://cspsulj7rn1ts" path="res://scripts/utilities/state_machine.gd" id="5_iva7r"]
 [ext_resource type="PackedScene" uid="uid://csynxf8bqyebb" path="res://scenes/boss/abilities/boss_ability_3.tscn" id="6_2mupd"]
-[ext_resource type="Script" uid="uid://c582f3584wuw8" path="res://scripts/utilities/states/boss_states/boss_wandering.gd" id="6_wf233"]
-[ext_resource type="Script" uid="uid://bni4r4pl6txdw" path="res://scripts/utilities/states/boss_states/boss_attacking.gd" id="7_dlpkd"]
 [ext_resource type="PackedScene" uid="uid://6mq82mmd7kbd" path="res://scenes/boss/abilities/boss_filler_ability.tscn" id="7_xsifj"]
 [ext_resource type="PackedScene" uid="uid://b1jxdrp7idd5t" path="res://scenes/boss/abilities/boss_ability_2.tscn" id="9_2mupd"]
 [ext_resource type="Script" uid="uid://crcegpih1b8uj" path="res://scripts/utilities/states/dead.gd" id="9_7kbl1"]
@@ -42,20 +40,12 @@ visible = false
 visible = false
 
 [node name="BossFillerAbility" parent="." instance=ExtResource("7_xsifj")]
+visible = false
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_iva7r")
+initial_state = NodePath("Alive")
 metadata/_custom_type_script = "uid://cspsulj7rn1ts"
-
-[node name="BossAttacking" type="Node" parent="StateMachine"]
-script = ExtResource("7_dlpkd")
-metadata/_custom_type_script = "uid://bni4r4pl6txdw"
-
-[node name="BossWandering" type="Node" parent="StateMachine"]
-script = ExtResource("6_wf233")
-wander_cooldown = 2.0
-wander_speed = 50.0
-metadata/_custom_type_script = "uid://c582f3584wuw8"
 
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("9_7kbl1")

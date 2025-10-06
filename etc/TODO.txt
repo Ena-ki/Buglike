@@ -1,10 +1,5 @@
 Code Refactor - Doing
   
-  boss : 
-    I feel like player and boss should be the same, just with different teams
-    aka - make team export and based on that, make bullets instantiated damage the team
-  projectiles : 
-    make them all the same, just target different groups
 
 make boss like in ETG, move when shooting and stopping as needed
 
@@ -24,3 +19,5 @@ add win screen
 make game actually spawn players and bosses
 
 rename EVERYTHING that is dodge to ability 3 and ability 3 to ability 4
+
+add player direction

@@ -10,16 +10,25 @@ var current_state : State:
   get: return state_machine.current_state
 
 func _ready():
-  health = 100
   set_up_resources()
   damaged.connect(on_player_damaged)
-  died.connect(on_player_died)
   damage_timer.timeout.connect(on_damage_timer_timeout)
   player_class = player_class_scene.instantiate()
   add_child(player_class)
+  player_class.set_up(self)
 
 
 func _process(_delta):
+  handle_abilities()
+
+
+func _physics_process(delta: float) -> void:
+  if attributes.can_move == true:
+    player_class.movement_ability.execute(self)
+  move_and_collide(velocity * delta)
+
+
+func handle_abilities():
   if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_1"):
     player_class.ability_1.execute(self)
   if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_2"):
@@ -28,12 +37,6 @@ func _process(_delta):
     player_class.ability_3.execute(self)
   if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_4"):
     player_class.ability_4.execute(self)
-
-
-func _physics_process(delta: float) -> void:
-  if attributes.can_move == true:
-    player_class.movement_ability.execute(self)
-  move_and_collide(velocity * delta)
 
 
 func damage(damage_dealt : float):
@@ -49,12 +52,6 @@ func damage(damage_dealt : float):
 func on_player_damaged(_damage_dealt : float):
   damage_timer.start()
   attributes.invulnderable = true
-
-
-func on_player_died():
-  attributes.can_move = false
-  attributes.invulnderable = true
-  velocity = Vector2.ZERO
 
 
 func on_damage_timer_timeout():

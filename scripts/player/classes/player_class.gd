@@ -8,6 +8,7 @@ class_name PlayerClass extends Node2D
 @export var ability_4 : Ability 
 @export_category("stats")
 @export var movement_speed : float = 100.0
+@export var health : int = 100
 
 
 func _ready():
@@ -16,3 +17,7 @@ func _ready():
   if not ability_2 : push_warning("no ability 2 assigned")
   if not ability_3 : push_warning("no ability 3 assigned")
   if not ability_4 : push_warning("no ability 4 assigned")
+
+
+func set_up(player : Player):
+  player.health = health

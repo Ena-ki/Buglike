@@ -12,9 +12,9 @@ func set_up_resources():
   attributes = attributes.duplicate()
 
 
-func damage(damage : float):
-  health -= damage
+func damage(damage_amount : float):
+  health -= damage_amount
   if health <= 0:
     emit_signal("died")
-  emit_signal("damaged", damage)
-  print(get_class(), "'s health is :", health)
+  emit_signal("damaged", damage_amount)
+  print(self, "'s health is :", health)

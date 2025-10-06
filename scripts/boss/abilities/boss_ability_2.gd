@@ -1,11 +1,9 @@
 extends Ability
 
+@export_category("references")
 @export var projectile_scene : PackedScene
 @export var player_detection_area : Area2D
-
-@export var damage := 30.0
-@export var shot_speed := 100.0
-@export var bullet_lifetime := 10.0
+@export_category("stats")
 @export var time_between_shots := 0.2
 @export var shot_amount := 5
 @export var projectile_spread := 30.0
@@ -14,17 +12,11 @@ var centered_spread : float
 var projectile_move_direction : Vector2
 
 func execute(caster : Entity):
-  var closest : float
   var closest_body : Node2D
 
   centered_spread = projectile_spread - projectile_spread / 2
 
-  for body in player_detection_area.get_overlapping_bodies():
-    if body == caster or body is not Player or body.current_state.name == "Dead":
-      continue
-    if not closest or (position - body.position).length() > closest:
-      closest = (position - body.position).length()
-      closest_body = body
+  closest_body = get_closest_body(caster, player_detection_area.get_overlapping_bodies())
   
 
   if closest_body:
@@ -35,16 +27,14 @@ func execute(caster : Entity):
 
       var projectile_instance = projectile_scene.instantiate()
       Globals.game_manager.add_child_current_scene(projectile_instance)
-
-      projectile_instance.init_projectile(
-      projectile_move_direction,
-      owner.global_position, 
-      damage, 
-      shot_speed, 
-      bullet_lifetime)
+      projectile_instance.global_position = caster.global_position
+      projectile_instance.direction = projectile_move_direction
 
       await get_tree().create_timer(time_between_shots).timeout
 
 
+
+
+
 func get_cooldown():
-  return 0.0
+  return 2.0

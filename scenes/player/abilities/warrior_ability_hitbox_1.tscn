@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkeaxt3e103s5"]
+[gd_scene load_steps=3 format=3 uid="uid://dkeaxt3e103s5"]
 
 [ext_resource type="Script" uid="uid://q704ocuwautq" path="res://scripts/player/abilities/warrior_ability_hitbox_1.gd" id="1_hitbox_script"]
-[ext_resource type="Texture2D" uid="uid://dd4hrw4bn21lq" path="res://res/Tiles/tile_0000.png" id="2_visual"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hitbox_shape"]
 size = Vector2(25, 20)
@@ -15,4 +14,3 @@ script = ExtResource("1_hitbox_script")
 shape = SubResource("RectangleShape2D_hitbox_shape")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_visual")

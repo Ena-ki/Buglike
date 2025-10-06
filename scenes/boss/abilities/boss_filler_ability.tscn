@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dfsqidd18iy8j" path="res://scripts/boss/abilities/boss_filler_ability.gd" id="1_odu6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_odu6c"]
-radius = 248.20154
+radius = 310.00644
 
 [node name="BossFillerAbility" type="Node2D" node_paths=PackedStringArray("cooldown_timer", "walking_timer", "detection_area")]
 script = ExtResource("1_odu6c")
@@ -17,5 +17,9 @@ detection_area = NodePath("DetectionArea")
 shape = SubResource("CircleShape2D_odu6c")
 
 [node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.373
+one_shot = true
 
 [node name="WalkingTimer" type="Timer" parent="."]
+wait_time = 0.471
+one_shot = true

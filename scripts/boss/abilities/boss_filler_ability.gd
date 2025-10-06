@@ -28,18 +28,18 @@ func on_walking_timer_timeout():
 
 func walk_to_enemy(enemy):
   if enemy:
-    var enemy_move_direction = (enemy.global_position - caster.global_position).normalized()
+    var enemy_move_direction = (enemy.position - caster.position).normalized()
     caster.velocity = enemy_move_direction * speed
   else:
-    caster.velocity = Vector2(randf(),randf()).normalized() * speed
+    caster.velocity = Vector2(randf()-0.5,randf()-0.5).normalized() * speed
   walking_timer.start()
 
 
 func get_closest_enemy():
   var bodies = detection_area.get_overlapping_bodies()
-  var out : Entity
+  var out : Entity = null
   for body in bodies :
-    if body.is_in_group("friendly_entities"):
+    if body.is_in_group("friendly_entity"):
       if not out or distance_to_caster(body) < distance_to_caster(out):
         out = body
     
