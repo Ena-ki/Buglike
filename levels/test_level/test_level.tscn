@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwbsj7yjydvy0"]
+
+[ext_resource type="PackedScene" uid="uid://eyrcgijxb4gq" path="res://objects/entities/player/player.tscn" id="1_jbqir"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jbqir")]
+scale = Vector2(0.993225, 1)

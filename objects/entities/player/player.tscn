@@ -1,0 +1,28 @@
+[gd_scene load_steps=8 format=3 uid="uid://eyrcgijxb4gq"]
+
+[ext_resource type="Script" uid="uid://c0gu0i0i661ml" path="res://objects/entities/player/player.gd" id="1_ftvqt"]
+[ext_resource type="Script" uid="uid://bgw0frv5rhioo" path="res://objects/components/health component/health_component.gd" id="2_7086t"]
+[ext_resource type="Resource" uid="uid://c717uwth2bm8n" path="res://objects/components/attribute component/entity attributes/entity_attributes.tres" id="2_am2ha"]
+[ext_resource type="Script" uid="uid://b8xir5chg381s" path="res://objects/components/ability component/ability_component.gd" id="4_fok1e"]
+[ext_resource type="Script" uid="uid://c4aqcncokg7go" path="res://objects/abilities/ability.gd" id="5_e7lpq"]
+[ext_resource type="Texture2D" uid="uid://uov6lj5x68l5" path="res://assets/textures/game_icon.png" id="5_fok1e"]
+[ext_resource type="Resource" uid="uid://0rexkqbh5osb" path="res://objects/abilities/player/movement ability/player_movement_ability.tres" id="6_eh3qd"]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ability_comp", "health") groups=["friendly_entity"]]
+script = ExtResource("1_ftvqt")
+ability_comp = NodePath("AbilityComponent")
+health = NodePath("HealthComponent")
+attributes = ExtResource("2_am2ha")
+metadata/_custom_type_script = "uid://cuablvbw21pmr"
+
+[node name="HealthComponent" type="Area2D" parent="."]
+script = ExtResource("2_7086t")
+metadata/_custom_type_script = "uid://bgw0frv5rhioo"
+
+[node name="AbilityComponent" type="Node" parent="."]
+script = ExtResource("4_fok1e")
+abilities = Array[ExtResource("5_e7lpq")]([ExtResource("6_eh3qd")])
+metadata/_custom_type_script = "uid://b8xir5chg381s"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("5_fok1e")

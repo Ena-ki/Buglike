@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="EntityAttributes" load_steps=2 format=3 uid="uid://dtuqpgmcngu5p"]
-
-[ext_resource type="Script" uid="uid://bi3m5hm5hjgc8" path="res://scripts/resources/entity_attributes.gd" id="1_wbeqg"]
-
-[resource]
-script = ExtResource("1_wbeqg")
-can_move = true
-metadata/_custom_type_script = "uid://bi3m5hm5hjgc8"

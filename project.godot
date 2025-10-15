@@ -10,16 +10,14 @@ config_version=5
 
 [application]
 
-config/name="poilgo-game"
-run/main_scene="uid://duwnm2g1parmr"
+config/name="Buglike"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
-config/icon="res://res/textures/icon.svg"
+config/icon="uid://uov6lj5x68l5"
 
 [autoload]
 
-Enums="*res://scripts/globals/enums.gd"
-Globals="*res://scripts/globals/globals.gd"
+Debug="*res://utilities/global/debug.gd"
 
 [display]
 
@@ -31,6 +29,18 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="poilgo-game"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://common/": "orange",
+"res://etc/": "teal",
+"res://levels/": "pink",
+"res://objects/": "blue",
+"res://ui/": "green",
+"res://utilities/": "purple"
+}
 
 [global_group]
 

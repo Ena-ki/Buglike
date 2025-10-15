@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="ProjectileRes" load_steps=2 format=3 uid="uid://8lbnwuk5455"]
-
-[ext_resource type="Script" uid="uid://b1umo7eg47xfr" path="res://scripts/resources/projectile_res.gd" id="1_1bmer"]
-
-[resource]
-script = ExtResource("1_1bmer")
-group = Array[String](["friendly_entity"])
-metadata/_custom_type_script = "uid://b1umo7eg47xfr"
