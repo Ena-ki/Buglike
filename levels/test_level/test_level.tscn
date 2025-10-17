@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwbsj7yjydvy0"]
+[gd_scene load_steps=3 format=3 uid="uid://bwbsj7yjydvy0"]
 
 [ext_resource type="PackedScene" uid="uid://eyrcgijxb4gq" path="res://objects/entities/player/player.tscn" id="1_jbqir"]
+[ext_resource type="PackedScene" uid="uid://n12dsxsgx66h" path="res://objects/entities/enemies/boss1/boss1.tscn" id="2_a747b"]
 
 [node name="TestLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jbqir")]
+position = Vector2(142, 111)
+scale = Vector2(0.993225, 1)
+
+[node name="Boss" parent="." instance=ExtResource("2_a747b")]
+position = Vector2(104, 49)
 scale = Vector2(0.993225, 1)

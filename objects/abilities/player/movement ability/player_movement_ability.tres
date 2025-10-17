@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="PlayerMovementAbility" load_steps=2 format=3 uid="uid://0rexkqbh5osb"]
-
-[ext_resource type="Script" uid="uid://ln7mney6evys" path="res://objects/abilities/player/movement ability/player_movement_ability.gd" id="1_h0yh7"]
-
-[resource]
-script = ExtResource("1_h0yh7")
-cooldown = 0.0
-metadata/_custom_type_script = "uid://ln7mney6evys"

@@ -10,8 +10,8 @@ func _ready():
 
 
 func on_restart_button_pressed():
-  Globals.game_manager.reload_current_scene()
+  pass
 
 
 func on_quit_button_pressed():
-  Globals.game_manager.change_scene(main_menu_scene)
+  pass

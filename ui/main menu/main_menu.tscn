@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b772bu81umnm0"]
+[gd_scene load_steps=4 format=3 uid="uid://b772bu81umnm0"]
 
-[ext_resource type="Script" uid="uid://dfg457ebkency" path="res://scripts/UI/main_menu.gd" id="1_qwnig"]
-[ext_resource type="PackedScene" uid="uid://qkf02vsqk4sb" path="res://scenes/UI/character_select_card.tscn" id="3_5jstl"]
+[ext_resource type="Script" uid="uid://dfg457ebkency" path="res://ui/main menu/main_menu.gd" id="1_qwnig"]
+[ext_resource type="Script" uid="uid://bak8y51idvq8r" path="res://ui/button/button_grab_focus.gd" id="2_cngla"]
+[ext_resource type="PackedScene" uid="uid://qkf02vsqk4sb" path="res://ui/main menu/select card/character_select_card.tscn" id="3_5jstl"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("main_screen", "quit_button", "play_button", "character_select_screen", "player_1_card", "player_2_card")]
 layout_mode = 3
@@ -62,6 +63,7 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 29
 text = "PLAY"
+script = ExtResource("2_cngla")
 
 [node name="QuitButton" type="Button" parent="MainScreen/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)

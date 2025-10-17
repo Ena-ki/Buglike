@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwm02aw26vnyt"]
+
+[ext_resource type="Script" uid="uid://ln7mney6evys" path="res://objects/abilities/player/movement ability/player_movement_ability.gd" id="1_yn35j"]
+
+[node name="PlayerMovementAbility" type="Node2D"]
+script = ExtResource("1_yn35j")
+cooldown = 0.5

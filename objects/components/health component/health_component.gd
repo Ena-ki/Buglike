@@ -7,19 +7,14 @@ signal died()
 signal revived()
 
 var is_invulnderable : bool = false
-var is_dead : bool = false :
-  set(dead_value):
-    Debug.log_warning("Do not set is_dead manualy, use revive() or kill() instead")
-var max_health : int = 10 :
-  set(new_max_health):
-    Debug.log_warning("Do not set health manualy, use set_health() instead")
-var health : int = 10 :
-  set(new_health):
-    Debug.log_warning("Do not set health manualy, use set_health() instead")
+var is_dead : bool = false
+var max_health : int = 10
+var health : int = 10
 
 
 func damage(damage_amount : int):
   set_health(health - damage_amount)
+  Debug.log(health + damage_amount, " to ", health)
 
 
 func heal(heal_amount : int):

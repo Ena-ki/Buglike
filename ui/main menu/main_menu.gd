@@ -17,7 +17,7 @@ func _process(_delta):
   if Input.is_action_just_pressed("ui_cancel") and is_on_main_screen == false:
     change_screens()
   if player_1_card.is_ready == true and player_2_card.is_ready == true:
-    Globals.game_manager.change_scene(game_scene)
+    pass
 
 
 func _ready():

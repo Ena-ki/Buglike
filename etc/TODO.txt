@@ -1,10 +1,9 @@
 Code Refactor - Doing
-  
-
-health component set fix
 
 make an enemy class
 
-doing mage ability
+add a last direction to player
 
-make a universal bullet
+fix UI
+
+make game loop architecture

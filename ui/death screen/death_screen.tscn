@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b527248r77k52"]
 
-[ext_resource type="Script" uid="uid://bma85833lxj23" path="res://scripts/UI/death_screen.gd" id="1_jcrgr"]
+[ext_resource type="Script" uid="uid://bma85833lxj23" path="res://ui/death screen/death_screen.gd" id="1_jcrgr"]
 
 [node name="DeathScreen" type="Control" node_paths=PackedStringArray("restart_button", "quit_button")]
 layout_mode = 3

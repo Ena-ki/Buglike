@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://n12dsxsgx66h"]
+[gd_scene load_steps=6 format=3 uid="uid://n12dsxsgx66h"]
 
 [ext_resource type="Script" uid="uid://dkbqv64fktoa1" path="res://objects/entities/enemies/boss1/boss1.gd" id="1_8ftqf"]
 [ext_resource type="Texture2D" uid="uid://ijrf8v5a2ib1" path="res://objects/entities/enemies/boss1/potadrick.png" id="2_6f6ph"]
+[ext_resource type="Script" uid="uid://bgw0frv5rhioo" path="res://objects/components/health component/health_component.gd" id="3_am0er"]
 
 [sub_resource type="Resource" id="Resource_l8b0y"]
 metadata/__load_path__ = "res://resources/entity_attributes.tres"
@@ -9,13 +10,21 @@ metadata/__load_path__ = "res://resources/entity_attributes.tres"
 [sub_resource type="CircleShape2D" id="CircleShape2D_iva7r"]
 radius = 34.0147
 
-[node name="Boss" type="CharacterBody2D" groups=["hostile_entity"]]
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("health") groups=["hostile_entity"]]
 script = ExtResource("1_8ftqf")
+health = NodePath("HealthComponent")
 attributes = SubResource("Resource_l8b0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iva7r")
+
+[node name="HealthComponent" type="Area2D" parent="."]
+script = ExtResource("3_am0er")
+metadata/_custom_type_script = "uid://bgw0frv5rhioo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
+shape = SubResource("CircleShape2D_iva7r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("2_6f6ph")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_iva7r")

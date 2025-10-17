@@ -1,5 +1,4 @@
 extends Ability
-class_name PlayerMovementAbility
 
 @export var movement_speed = 100.0
 

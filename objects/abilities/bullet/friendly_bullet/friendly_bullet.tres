@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BulletStats" load_steps=2 format=3 uid="uid://rx2qar5a7mba"]
+
+[ext_resource type="Script" uid="uid://bthtqymafk4m0" path="res://objects/abilities/bullet/bullet_stats.gd" id="1_lainl"]
+
+[resource]
+script = ExtResource("1_lainl")
+groups = Array[String](["hostile_entity"])
+metadata/_custom_type_script = "uid://bthtqymafk4m0"

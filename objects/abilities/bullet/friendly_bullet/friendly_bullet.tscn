@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://61jkl1qtqqsy"]
+
+[ext_resource type="Script" uid="uid://bus6lbujuo4cm" path="res://objects/abilities/bullet/bullet.gd" id="1_h5cq5"]
+[ext_resource type="Resource" uid="uid://rx2qar5a7mba" path="res://objects/abilities/bullet/friendly_bullet/friendly_bullet.tres" id="2_3nji2"]
+[ext_resource type="Texture2D" uid="uid://cw1tyrw0g6asy" path="res://assets/textures/bullet.png" id="3_lxjpr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxjpr"]
+radius = 9.055386
+
+[node name="FriendlyBullet" type="Area2D"]
+script = ExtResource("1_h5cq5")
+stats = ExtResource("2_3nji2")
+metadata/_custom_type_script = "uid://bus6lbujuo4cm"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_lxjpr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lxjpr")

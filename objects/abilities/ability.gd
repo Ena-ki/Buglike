@@ -1,4 +1,4 @@
-@abstract extends Resource
+@abstract extends Node2D
 class_name Ability
 
 @export var cooldown : float = 1.0

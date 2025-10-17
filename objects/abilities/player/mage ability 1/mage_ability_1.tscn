@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjcvxbcw3wclw"]
+
+[ext_resource type="Script" uid="uid://d1of2w7lq57tn" path="res://objects/abilities/player/mage ability 1/mage_ability_1.gd" id="1_lfffy"]
+[ext_resource type="PackedScene" uid="uid://61jkl1qtqqsy" path="res://objects/abilities/bullet/friendly_bullet/friendly_bullet.tscn" id="2_a7fdt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lfffy"]
+radius = 280.6439
+
+[node name="MageAbility1" type="Node2D" node_paths=PackedStringArray("aim_area")]
+visible = false
+script = ExtResource("1_lfffy")
+aim_area = NodePath("Area2D")
+bullet_scene = ExtResource("2_a7fdt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_lfffy")
