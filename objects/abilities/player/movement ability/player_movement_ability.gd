@@ -14,4 +14,5 @@ func _execute(caster : Entity) -> void:
     player_number_string + "up",
     player_number_string + "down",
   )
+    
   caster.velocity = direction * movement_speed

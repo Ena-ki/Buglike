@@ -16,6 +16,7 @@ func _process(_delta):
       ability_comp.abilities[i].execute(self)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_update(delta: float) -> void:
   ability_comp.abilities[0].execute(self)
   move_and_collide(delta * velocity)
+  

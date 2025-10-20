@@ -2,7 +2,7 @@ Code Refactor - Doing
 
 make an enemy class
 
-add a last direction to player
+add a last direction to player -> 완료
 
 fix UI
 
