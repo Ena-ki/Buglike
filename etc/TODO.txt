@@ -6,4 +6,12 @@ add a last direction to player
 
 fix UI
 
-make game loop architecture
+fix weird collisions between entities
+
+doing -> make game loop architecture
+
+  game and room should be different -> game should be player only
+
+  level should have player spawners
+
+  make ability component independent1

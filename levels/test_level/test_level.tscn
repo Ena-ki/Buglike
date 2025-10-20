@@ -12,3 +12,6 @@ scale = Vector2(0.993225, 1)
 [node name="Boss" parent="." instance=ExtResource("2_a747b")]
 position = Vector2(104, 49)
 scale = Vector2(0.993225, 1)
+
+[node name="Player2" parent="." instance=ExtResource("1_jbqir")]
+player_number = 2

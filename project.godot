@@ -19,6 +19,7 @@ config/icon="uid://uov6lj5x68l5"
 [autoload]
 
 Debug="*res://utilities/global/debug.gd"
+GameData="*res://utilities/glue/game/game_data.gd"
 
 [display]
 

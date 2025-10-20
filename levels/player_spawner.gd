@@ -1,0 +1,2 @@
+class_name PlayerSpawner
+extends Node2D

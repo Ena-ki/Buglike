@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3t2ruo0h65a6"]
+
+[ext_resource type="Script" uid="uid://dqw6d470qcoc4" path="res://utilities/glue/game/game.gd" id="1_pgre0"]
+[ext_resource type="PackedScene" uid="uid://eyrcgijxb4gq" path="res://objects/entities/player/player.tscn" id="2_r8cnt"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_pgre0")
+player_scene = ExtResource("2_r8cnt")
