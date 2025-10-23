@@ -1,19 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://eyrcgijxb4gq"]
+[gd_scene load_steps=6 format=3 uid="uid://eyrcgijxb4gq"]
 
 [ext_resource type="Script" uid="uid://c0gu0i0i661ml" path="res://objects/entities/player/player.gd" id="1_ftvqt"]
 [ext_resource type="Script" uid="uid://bgw0frv5rhioo" path="res://objects/components/health component/health_component.gd" id="2_7086t"]
 [ext_resource type="Resource" uid="uid://c717uwth2bm8n" path="res://objects/components/attribute component/entity attributes/entity_attributes.tres" id="2_am2ha"]
-[ext_resource type="Script" uid="uid://b8xir5chg381s" path="res://objects/components/ability component/ability_component.gd" id="4_fok1e"]
-[ext_resource type="PackedScene" uid="uid://bjcvxbcw3wclw" path="res://objects/abilities/player/mage ability 1/mage_ability_1.tscn" id="5_e7lpq"]
 [ext_resource type="Texture2D" uid="uid://uov6lj5x68l5" path="res://assets/textures/game_icon.png" id="5_fok1e"]
-[ext_resource type="PackedScene" uid="uid://cwm02aw26vnyt" path="res://objects/abilities/player/movement ability/player_movement_ability.tscn" id="6_eh3qd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opdhy"]
-radius = 12.0
+radius = 12.0415945
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ability_comp", "health") groups=["friendly_entity"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health") groups=["friendly_entity"]]
 script = ExtResource("1_ftvqt")
-ability_comp = NodePath("AbilityComponent")
 health = NodePath("HealthComponent")
 attributes = ExtResource("2_am2ha")
 metadata/_custom_type_script = "uid://cuablvbw21pmr"
@@ -27,17 +23,6 @@ metadata/_custom_type_script = "uid://bgw0frv5rhioo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
 shape = SubResource("CircleShape2D_opdhy")
-
-[node name="AbilityComponent" type="Node2D" parent="." node_paths=PackedStringArray("abilities")]
-script = ExtResource("4_fok1e")
-abilities = [NodePath("PlayerMovementAbility"), NodePath("MageAbility1")]
-metadata/_custom_type_script = "uid://b8xir5chg381s"
-
-[node name="MageAbility1" parent="AbilityComponent" instance=ExtResource("5_e7lpq")]
-cooldown = 0.5
-
-[node name="PlayerMovementAbility" parent="AbilityComponent" instance=ExtResource("6_eh3qd")]
-cooldown = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("5_fok1e")

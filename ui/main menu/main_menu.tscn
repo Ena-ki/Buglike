@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://b772bu81umnm0"]
 
 [ext_resource type="Script" uid="uid://dfg457ebkency" path="res://ui/main menu/main_menu.gd" id="1_qwnig"]
-[ext_resource type="Script" uid="uid://bak8y51idvq8r" path="res://ui/button/button_grab_focus.gd" id="2_cngla"]
-[ext_resource type="PackedScene" uid="uid://qkf02vsqk4sb" path="res://ui/main menu/select card/character_select_card.tscn" id="3_5jstl"]
+[ext_resource type="Script" uid="uid://bak8y51idvq8r" path="res://ui/utilities/button_grab_focus/button_grab_focus.gd" id="2_cngla"]
+[ext_resource type="PackedScene" uid="uid://08qbsg4jcjna" path="res://ui/main menu/select screen/select_screen.tscn" id="3_cngla"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("main_screen", "quit_button", "play_button", "character_select_screen", "player_1_card", "player_2_card")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("main_screen", "select_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,11 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_qwnig")
 game_scene = "uid://d3t2ruo0h65a6"
 main_screen = NodePath("MainScreen")
-quit_button = NodePath("MainScreen/VBoxContainer/QuitButton")
-play_button = NodePath("MainScreen/VBoxContainer/PlayButton")
-character_select_screen = NodePath("CharacterSelectScreen")
-player_1_card = NodePath("CharacterSelectScreen/CharacterSelectCard")
-player_2_card = NodePath("CharacterSelectScreen/CharacterSelectCard2")
+select_screen = NodePath("SelectScreen")
 
 [node name="MainScreen" type="Control" parent="."]
 layout_mode = 1
@@ -71,26 +67,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "QUIT"
 
-[node name="CharacterSelectScreen" type="HBoxContainer" parent="."]
+[node name="SelectScreen" parent="." instance=ExtResource("3_cngla")]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = -150.0
-offset_right = 152.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 60
 
-[node name="CharacterSelectCard" parent="CharacterSelectScreen" instance=ExtResource("3_5jstl")]
-layout_mode = 2
-
-[node name="CharacterSelectCard2" parent="CharacterSelectScreen" instance=ExtResource("3_5jstl")]
-layout_mode = 2
-size_flags_horizontal = 4
-player_number = 2
+[connection signal="pressed" from="MainScreen/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainScreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="go_back" from="SelectScreen" to="." method="_on_select_screen_go_back"]

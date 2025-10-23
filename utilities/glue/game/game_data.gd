@@ -1,10 +1,7 @@
 extends Node
 
-enum PlayerCount{
-  ONE_PLAYER = 1,
-  TWO_PLAYERS = 2,
-}
+var main_menu_path : String = "res://ui/main menu/main_menu.tscn"
 
-var player_count : PlayerCount = PlayerCount.ONE_PLAYER
-var level_scene : PackedScene
-var ability_component_scenes : Array[PackedScene]
+var players : Array[bool] = [false, false]
+var ability_component_paths : Array[String] = ["",""]
+var level_scene_path : String = ""

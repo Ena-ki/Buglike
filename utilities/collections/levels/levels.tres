@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Collection" load_steps=2 format=3 uid="uid://dy635dhk0nfmj"]
+
+[ext_resource type="Script" uid="uid://bsqndkin6npyu" path="res://utilities/collections/collection.gd" id="1_ik5uk"]
+
+[resource]
+script = ExtResource("1_ik5uk")
+paths = Array[String](["uid://bwbsj7yjydvy0", "uid://bx2nloye6f0vx"])
+names = Array[String](["Test Level", "Level 1"])
+metadata/_custom_type_script = "uid://bsqndkin6npyu"

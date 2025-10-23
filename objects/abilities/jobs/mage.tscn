@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://jfqvomhe37on"]
+
+[ext_resource type="Script" uid="uid://b8xir5chg381s" path="res://objects/components/ability component/ability_component.gd" id="1_x6y74"]
+[ext_resource type="PackedScene" uid="uid://cwm02aw26vnyt" path="res://objects/abilities/player/movement ability/player_movement_ability.tscn" id="2_k7n1d"]
+[ext_resource type="PackedScene" uid="uid://bjcvxbcw3wclw" path="res://objects/abilities/player/mage ability 1/mage_ability_1.tscn" id="3_owhai"]
+
+[node name="Mage" type="Node2D" node_paths=PackedStringArray("abilities")]
+script = ExtResource("1_x6y74")
+abilities = [NodePath("PlayerMovementAbility"), NodePath("MageAbility1")]
+metadata/_custom_type_script = "uid://b8xir5chg381s"
+
+[node name="PlayerMovementAbility" parent="." instance=ExtResource("2_k7n1d")]
+
+[node name="MageAbility1" parent="." instance=ExtResource("3_owhai")]

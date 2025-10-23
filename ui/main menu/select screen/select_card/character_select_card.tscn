@@ -1,15 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://qkf02vsqk4sb"]
+[gd_scene load_steps=3 format=3 uid="uid://qkf02vsqk4sb"]
 
-[ext_resource type="Script" uid="uid://ccq5qf3ab48mq" path="res://scripts/UI/select_card.gd" id="1_wv6ef"]
+[ext_resource type="Script" uid="uid://ccq5qf3ab48mq" path="res://ui/main menu/select screen/select_card/select_card.gd" id="1_wv6ef"]
+[ext_resource type="Resource" uid="uid://cwrba8agn6xgf" path="res://utilities/collections/jobs/jobs.tres" id="2_sadqo"]
 
-[node name="CharacterSelectCard" type="PanelContainer" node_paths=PackedStringArray("not_joined_label", "joined_menu", "selected_class_label", "ready_label", "player_number_label")]
+[node name="CharacterSelectCard" type="PanelContainer" node_paths=PackedStringArray("player_label", "not_joined_panel", "joined_panel", "chosen_job_label")]
 custom_minimum_size = Vector2(150, 300)
 script = ExtResource("1_wv6ef")
-not_joined_label = NodePath("VBoxContainer/NotJoinedLabel")
-joined_menu = NodePath("VBoxContainer/JoinedContainer")
-selected_class_label = NodePath("VBoxContainer/JoinedContainer/ChosenClassLabel")
-ready_label = NodePath("VBoxContainer/JoinedContainer/ReadyLabel")
-player_number_label = NodePath("VBoxContainer/PlayerNumberLabel")
+player_label = NodePath("VBoxContainer/PlayerNumberLabel")
+not_joined_panel = NodePath("VBoxContainer/NotJoinedLabel")
+joined_panel = NodePath("VBoxContainer/JoinedContainer")
+chosen_job_label = NodePath("VBoxContainer/JoinedContainer/ChosenClassLabel")
+jobs = ExtResource("2_sadqo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -49,14 +50,3 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "< Mage >"
 horizontal_alignment = 1
-
-[node name="ReadyLabel" type="Label" parent="VBoxContainer/JoinedContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Not Ready! (E)"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Separator2" type="Control" parent="VBoxContainer/JoinedContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2

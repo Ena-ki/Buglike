@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Collection" load_steps=2 format=3 uid="uid://cwrba8agn6xgf"]
+
+[ext_resource type="Script" uid="uid://bsqndkin6npyu" path="res://utilities/collections/collection.gd" id="1_1xp8u"]
+
+[resource]
+script = ExtResource("1_1xp8u")
+paths = Array[String](["uid://jfqvomhe37on"])
+names = Array[String](["Mage"])
+metadata/_custom_type_script = "uid://bsqndkin6npyu"

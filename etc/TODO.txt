@@ -1,6 +1,4 @@
-Code Refactor - Doing
-
-make an enemy class
+add abilities to boss
 
 add a last direction to player
 
@@ -10,8 +8,10 @@ fix weird collisions between entities
 
 doing -> make game loop architecture
 
+  where should all of the levels and jobs be stored?
+
   game and room should be different -> game should be player only
 
   level should have player spawners
 
-  make ability component independent1
+  make ability component independent
