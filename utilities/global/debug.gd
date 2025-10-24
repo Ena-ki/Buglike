@@ -10,7 +10,7 @@ func log(...args):
   print_rich("[color=gray] Log : ", top_stack.source, top_stack.line, " — ", message, "[/color]")
 
 
-func log_warning(...args):
+func warning(...args):
   var message = ""
   for i in args:
     message += str(i)
@@ -19,7 +19,7 @@ func log_warning(...args):
   print_rich("[color=orange] Warning : ", top_stack.source, top_stack.line, " — ", message, "[/color]")
 
 
-func log_error(...args):
+func error(...args):
   var message = ""
   for i in args:
     message += str(i)
