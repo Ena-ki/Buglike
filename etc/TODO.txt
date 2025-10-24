@@ -15,3 +15,5 @@ doing -> make game loop architecture
   level should have player spawners
 
   make ability component independent
+
+  level spawners are nodes and in level there is an export var for an array of spawners and every spawner has a single var which is a player number
