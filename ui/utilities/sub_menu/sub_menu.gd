@@ -1,4 +1,4 @@
-@abstract class_name SubMenu
+class_name SubMenu
 extends Control
 
 @warning_ignore("UNUSED_SIGNAL")

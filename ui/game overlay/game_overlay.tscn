@@ -1,32 +1,26 @@
 [gd_scene load_steps=3 format=3 uid="uid://deu4e5okmwivp"]
 
-[ext_resource type="Script" uid="uid://c7nhytl5o5eqm" path="res://scripts/UI/game_overlay.gd" id="1_3j1fm"]
-[ext_resource type="PackedScene" uid="uid://ds5f2040s028m" path="res://scenes/UI/player_stat_tray.tscn" id="2_ufij1"]
+[ext_resource type="Script" uid="uid://c7nhytl5o5eqm" path="res://ui/game overlay/game_overlay.gd" id="1_3j1fm"]
+[ext_resource type="PackedScene" uid="uid://clfe7cgv7umdd" path="res://ui/game overlay/pause menu/pause_menu.tscn" id="2_23k0l"]
 
-[node name="GameOverlay" type="Control" node_paths=PackedStringArray("player_1_tray", "player_2_tray")]
+[node name="GameOverlay" type="Control"]
 layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 script = ExtResource("1_3j1fm")
-player_1_tray = NodePath("PlayerStatTray")
-player_2_tray = NodePath("PlayerStatTray2")
 
-[node name="PlayerStatTray" parent="." instance=ExtResource("2_ufij1")]
+[node name="PauseMenu" parent="." instance=ExtResource("2_23k0l")]
 layout_mode = 1
-offset_top = -40.0
-offset_right = 214.0
 
-[node name="PlayerStatTray2" parent="." instance=ExtResource("2_ufij1")]
+[node name="OverlayScreen" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -214.0
-offset_top = -40.0
-offset_right = 0.0
-grow_horizontal = 0
-tray_side = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="go_back" from="PauseMenu" to="." method="_on_pause_menu_go_back"]

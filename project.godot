@@ -49,6 +49,10 @@ folder_colors={
 friendly_entity="for player / player friendly entities"
 hostile_entity="for hostile entities"
 
+[gui]
+
+theme/custom="uid://cip1l42n2aksq"
+
 [input]
 
 player_1_up={

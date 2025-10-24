@@ -1,30 +1,32 @@
 extends Control
 
-var player_count := 1
+signal unpaused()
+signal paused()
 
-@export var player_1_tray : Control
-@export var player_2_tray : Control
+@export var overlay_screen : Control
+@export var pause_screen : SubMenu
 
-var players : Array[Player] : set = set_players
-
-
-func _ready():
-  await owner.ready 
-  for player in players:
-    if player.player_number == 1:
-      if player_1_tray.player:
-        push_error("game_overlay.gd: cannot assign player 1")
-      player_1_tray.player = player
-    
-    elif player.player_number == 2:
-      if player_2_tray.player:
-        push_error("game_overlay.gd: cannot assign player 2")
-      player_2_tray.player = player
-
-  player_1_tray.set_up()
-  player_2_tray.set_up()
-    
+var _active_screen : Control
 
 
-func set_players(new_players : Array[Player]) -> void:
-  players = new_players
+func _process(_delta) -> void:
+  if Input.is_action_just_pressed("ui_menu"):
+    if _active_screen == pause_screen:
+      switch_screen(overlay_screen)
+      emit_signal("unpaused")
+    else:
+      switch_screen(pause_screen)
+      emit_signal("paused")
+
+
+func switch_screen(new_screen : Control) -> void:
+  if new_screen == _active_screen:
+    return
+  _active_screen.visible = false
+  _active_screen = new_screen
+  _active_screen.visible = true
+
+
+func _on_pause_menu_go_back() -> void:
+  switch_screen(overlay_screen)
+  emit_signal("unpaused")

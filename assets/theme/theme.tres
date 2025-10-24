@@ -1,6 +1,48 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cip1l42n2aksq"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cip1l42n2aksq"]
 
+[ext_resource type="Texture2D" uid="uid://plf5slxkwrot" path="res://assets/ui/ui.tres" id="1_ny3hw"]
 [ext_resource type="FontFile" uid="uid://dldderskrj2lc" path="res://assets/Monocraft.ttc" id="1_r3pl3"]
+[ext_resource type="Texture2D" uid="uid://bos6a3v13bwv4" path="res://assets/ui/ui_v1.png" id="2_enqth"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_enqth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enqth"]
+atlas = ExtResource("2_enqth")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_10c53"]
+texture = SubResource("AtlasTexture_enqth")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny3hw"]
+atlas = ExtResource("2_enqth")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_enqth"]
+texture = SubResource("AtlasTexture_ny3hw")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3pl3"]
+bg_color = Color(0.8513405, 0.6000326, 0.47792113, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3vf3"]
+texture = ExtResource("1_ny3hw")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [resource]
 default_font = ExtResource("1_r3pl3")
+Button/styles/focus = SubResource("StyleBoxEmpty_enqth")
+Button/styles/hover = SubResource("StyleBoxTexture_10c53")
+Button/styles/normal = SubResource("StyleBoxTexture_enqth")
+Button/styles/pressed = SubResource("StyleBoxFlat_r3pl3")
+Panel/styles/panel = SubResource("StyleBoxFlat_r3pl3")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_r3vf3")

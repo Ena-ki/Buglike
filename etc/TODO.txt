@@ -4,10 +4,18 @@ add a last direction to player
 
 fix UI
 
+make ui theme
+
 fix weird collisions between entities
 
 doing -> make game loop architecture
 
   add a way to go to the main menu
 
-  add camera in the middle of players
+  make a pause menu - done ish
+
+  fix game overlay
+
+  game.gd -> put players in game_data
+
+  when quitting game, wipe out all references, cause there is a bunch of dangling pointers
