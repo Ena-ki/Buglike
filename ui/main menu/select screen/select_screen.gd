@@ -13,7 +13,7 @@ func _on_start_button_pressed() -> void:
 
 
 func check_players_ready() -> bool:
-  for i in GameData.players:
+  for i in GameData.players_ready:
     if i == true:
       return true
   return false

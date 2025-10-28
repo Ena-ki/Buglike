@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds5f2040s028m"]
 
-[ext_resource type="Script" uid="uid://ddlmvstwqfpse" path="res://ui/game overlay/player stat tray/player_stat_tray.gd" id="1_xd804"]
-[ext_resource type="PackedScene" uid="uid://dyihb8tr2750" path="res://ui/game overlay/skill icon/skill_icon.tscn" id="2_1grqo"]
+[ext_resource type="Script" uid="uid://ddlmvstwqfpse" path="res://ui/game overlay/hud/player stat tray/player_stat_tray.gd" id="1_xd804"]
+[ext_resource type="PackedScene" uid="uid://dyihb8tr2750" path="res://ui/game overlay/hud/player stat tray/skill icon/skill_icon.tscn" id="2_1grqo"]
 
-[node name="PlayerStatTray" type="PanelContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="PlayerStatTray" type="PanelContainer" node_paths=PackedStringArray("skill_icons", "health_label")]
+custom_minimum_size = Vector2(200, 0)
 layout_direction = 2
 anchors_preset = 2
 anchor_top = 1.0
@@ -15,6 +15,8 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_xd804")
+skill_icons = [NodePath("HBoxContainer/SkillIcon"), NodePath("HBoxContainer/SkillIcon2"), NodePath("HBoxContainer/SkillIcon3"), NodePath("HBoxContainer/SkillIcon4")]
+health_label = NodePath("HBoxContainer/Label")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 32)
@@ -25,23 +27,20 @@ layout_mode = 2
 
 [node name="SkillIcon" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
 layout_mode = 2
-texture = null
 
 [node name="SkillIcon2" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
 layout_mode = 2
-texture = null
 
 [node name="SkillIcon3" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
 layout_mode = 2
-texture = null
 
 [node name="SkillIcon4" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
 layout_mode = 2
-texture = null
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = " hp  : 100 "
+theme_override_font_sizes/font_size = 18
+text = "10"
 
 [node name="Control3" type="Control" parent="HBoxContainer"]
 layout_mode = 2

@@ -1,6 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dvwaxeycvuvk6"]
 
-[ext_resource type="Shader" uid="uid://c2fnrtce7t3mf" path="res://scripts/shaders/skill_icon.gdshader" id="1_76s0c"]
+[ext_resource type="Shader" uid="uid://c2fnrtce7t3mf" path="res://assets/shaders/skill icon recharge/skill_icon.gdshader" id="1_76s0c"]
 
 [resource]
 shader = ExtResource("1_76s0c")
+shader_parameter/cooldown = 0.0

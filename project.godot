@@ -51,6 +51,8 @@ hostile_entity="for hostile entities"
 
 [gui]
 
+theme/default_font_antialiasing=0
+theme/default_font_multichannel_signed_distance_field=true
 theme/custom="uid://cip1l42n2aksq"
 
 [input]

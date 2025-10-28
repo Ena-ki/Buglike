@@ -6,11 +6,10 @@
 
 [node name="Mage" type="Node2D" node_paths=PackedStringArray("abilities")]
 script = ExtResource("1_x6y74")
-abilities = [NodePath("PlayerMovementAbility"), NodePath("MageAbility1")]
+abilities = [NodePath("PlayerMovementAbility"), NodePath("MageAbility1"), null, null, null]
 metadata/_custom_type_script = "uid://b8xir5chg381s"
 
 [node name="PlayerMovementAbility" parent="." instance=ExtResource("2_k7n1d")]
 cooldown = 0.0
 
 [node name="MageAbility1" parent="." instance=ExtResource("3_owhai")]
-cooldown = 0.5

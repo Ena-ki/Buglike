@@ -25,10 +25,15 @@ func _change_player_number_text():
 
 
 func _process(_delta) -> void:
+  if is_visible_in_tree() == false:
+    if _active_panel == joined_panel:
+      _switch_panel()
+    return
+
   if Input.is_action_just_pressed("player_" + str(player_number) + "_ability_1"):
     _switch_panel()
   
-  if GameData.players[player_number - 1] == false:
+  if GameData.players_ready[player_number - 1] == false:
     return
 
   if Input.is_action_just_pressed("player_" + str(player_number) + "_left"):
@@ -48,13 +53,13 @@ func _change_job_name(job_number : int = _active_job) -> void:
 
 
 func _switch_panel():
-  if GameData.players[player_number - 1] == true:
+  if GameData.players_ready[player_number - 1] == true:
     joined_panel.visible = false
     not_joined_panel.visible = true
     _active_panel = not_joined_panel
-    GameData.players[player_number - 1] = false
+    GameData.players_ready[player_number - 1] = false
   else:
     joined_panel.visible = true
     not_joined_panel.visible = false
     _active_panel = joined_panel
-    GameData.players[player_number - 1] = true
+    GameData.players_ready[player_number - 1] = true

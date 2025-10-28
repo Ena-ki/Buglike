@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://deu4e5okmwivp"]
+[gd_scene load_steps=4 format=3 uid="uid://deu4e5okmwivp"]
 
 [ext_resource type="Script" uid="uid://c7nhytl5o5eqm" path="res://ui/game overlay/game_overlay.gd" id="1_3j1fm"]
 [ext_resource type="PackedScene" uid="uid://clfe7cgv7umdd" path="res://ui/game overlay/pause menu/pause_menu.tscn" id="2_23k0l"]
+[ext_resource type="PackedScene" uid="uid://7kwac231wv7x" path="res://ui/game overlay/hud/hud.tscn" id="3_fsix8"]
 
-[node name="GameOverlay" type="Control"]
+[node name="GameOverlay" type="Control" node_paths=PackedStringArray("pause_menu", "hud")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,16 +13,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3j1fm")
+pause_menu = NodePath("PauseMenu")
+hud = NodePath("Hud")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_23k0l")]
+visible = false
 layout_mode = 1
 
-[node name="OverlayScreen" type="Control" parent="."]
+[node name="Hud" parent="." instance=ExtResource("3_fsix8")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 12
+anchor_top = 1.0
+grow_vertical = 0
 
 [connection signal="go_back" from="PauseMenu" to="." method="_on_pause_menu_go_back"]

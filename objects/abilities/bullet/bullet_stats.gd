@@ -5,4 +5,4 @@ extends Resource
 @export var damage : int = 1
 @export var groups : Array[String]
 @export var direction : Vector2
-@export var lifetime : float = 10.0
+@export var lifetime : float = 4.0

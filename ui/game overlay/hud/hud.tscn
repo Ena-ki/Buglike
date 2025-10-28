@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://7kwac231wv7x"]
+
+[ext_resource type="Script" uid="uid://hac1sulxbvkg" path="res://ui/game overlay/hud/hud.gd" id="1_s3ox7"]
+[ext_resource type="PackedScene" uid="uid://ds5f2040s028m" path="res://ui/game overlay/hud/player stat tray/player_stat_tray.tscn" id="2_laala"]
+
+[node name="Hud" type="Control" node_paths=PackedStringArray("trays")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+script = ExtResource("1_s3ox7")
+trays = [NodePath("PlayerStatTray"), NodePath("PlayerStatTray2")]
+
+[node name="PlayerStatTray" parent="." instance=ExtResource("2_laala")]
+layout_mode = 1
+offset_top = -48.0
+offset_right = 200.0
+
+[node name="PlayerStatTray2" parent="." instance=ExtResource("2_laala")]
+layout_direction = 3
+layout_mode = 1
+offset_top = -48.0
+offset_right = 200.0

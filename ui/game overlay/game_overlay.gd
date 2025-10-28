@@ -1,32 +1,39 @@
 extends Control
 
-signal unpaused()
-signal paused()
+@export var pause_menu : Control
+@export var hud : Control
 
-@export var overlay_screen : Control
-@export var pause_screen : SubMenu
-
-var _active_screen : Control
+var _players : Array[Player] = []
+@onready var _active_screen : Control = hud
 
 
-func _process(_delta) -> void:
-  if Input.is_action_just_pressed("ui_menu"):
-    if _active_screen == pause_screen:
-      switch_screen(overlay_screen)
-      emit_signal("unpaused")
-    else:
-      switch_screen(pause_screen)
-      emit_signal("paused")
-
-
-func switch_screen(new_screen : Control) -> void:
-  if new_screen == _active_screen:
+func _process(_delta: float) -> void:
+  if _players.is_empty():
     return
-  _active_screen.visible = false
-  _active_screen = new_screen
-  _active_screen.visible = true
+
+  if Input.is_action_just_pressed("ui_cancel"):
+    if _active_screen == hud:
+      switch_screen(pause_menu)
+      owner.process_mode = Node.PROCESS_MODE_DISABLED
+    else:
+      switch_screen(hud)
+      owner.process_mode = Node.PROCESS_MODE_INHERIT
+  
+  hud.update(_players)
+
+
+func set_up(new_players : Array[Player]):
+  _players = new_players
 
 
 func _on_pause_menu_go_back() -> void:
-  switch_screen(overlay_screen)
-  emit_signal("unpaused")
+  switch_screen(hud)
+  owner.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+
+func switch_screen(new_screen : Control) -> void:
+  if new_screen != _active_screen:
+    _active_screen.visible = false
+    _active_screen = new_screen
+    _active_screen.visible = true

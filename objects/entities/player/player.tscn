@@ -8,8 +8,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_opdhy"]
 radius = 12.0415945
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health") groups=["friendly_entity"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "health") groups=["friendly_entity"]]
 script = ExtResource("1_ftvqt")
+health_component = NodePath("HealthComponent")
 health = NodePath("HealthComponent")
 attributes = ExtResource("2_am2ha")
 metadata/_custom_type_script = "uid://cuablvbw21pmr"

@@ -2,7 +2,6 @@ extends Control
 @export_custom(PROPERTY_HINT_FILE, "*.tscn") var game_scene : String
 
 @export var main_screen : Control
-
 @export var select_screen : SubMenu
 
 var _active_screen : Control
@@ -10,6 +9,7 @@ var _active_screen : Control
 
 func _ready():
   _active_screen = main_screen
+  GameData.wipe()
 
 
 func _on_select_screen_go_back() -> void:

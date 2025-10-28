@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://dvwaxeycvuvk6" path="res://assets/shaders/skill icon recharge/skill_icon.tres" id="1_abufs"]
 [ext_resource type="Texture2D" uid="uid://uov6lj5x68l5" path="res://assets/textures/game_icon.png" id="2_mv6t3"]
-[ext_resource type="Script" uid="uid://bp5kglqsccqbs" path="res://ui/game overlay/skill icon/skill_icon.gd" id="3_rq7eb"]
+[ext_resource type="Script" uid="uid://bp5kglqsccqbs" path="res://ui/game overlay/hud/player stat tray/skill icon/skill_icon.gd" id="3_rq7eb"]
 
 [node name="SkillIcon" type="TextureRect"]
 material = ExtResource("1_abufs")

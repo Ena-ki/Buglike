@@ -1,6 +1,8 @@
 class_name Bullet
 extends Area2D
 
+signal hit()
+
 @export var stats : BulletStats
 @export var body_check_time : float = 0.3
 var body_check_timer : float = 0.3
@@ -21,8 +23,8 @@ func _process(delta):
       var bodies = get_overlapping_bodies()
       for body in bodies :
         if body is Entity:
+          emit_signal("hit")
           damage_entity(body)
-
 
   global_position += stats.direction * stats.speed * delta
   stats.lifetime -= delta
@@ -46,7 +48,6 @@ func damage_entity(body):
 
   body.health.damage(stats.damage)
   queue_free()
-
 
 
 func check_body_in_group(body : Entity, groups : Array[String]) -> bool:

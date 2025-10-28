@@ -1,7 +1,5 @@
 extends Ability
 
-@export var movement_speed = 100.0
-
 
 func _execute(caster : Entity) -> void:
   if caster.attributes.legs_occupied == true:
@@ -14,4 +12,4 @@ func _execute(caster : Entity) -> void:
     player_number_string + "up",
     player_number_string + "down",
   )
-  caster.velocity = direction * movement_speed
+  caster.velocity = direction * caster.attributes.movement_speed
