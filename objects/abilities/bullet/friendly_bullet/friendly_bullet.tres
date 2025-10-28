@@ -5,5 +5,4 @@
 [resource]
 script = ExtResource("1_lainl")
 speed = 150.0
-groups = Array[String](["hostile_entity"])
 metadata/_custom_type_script = "uid://bthtqymafk4m0"

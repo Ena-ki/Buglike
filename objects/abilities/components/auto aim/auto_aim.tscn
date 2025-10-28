@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drohbe4s20776"]
+
+[ext_resource type="Script" uid="uid://c2si43wkucsrj" path="res://objects/abilities/components/auto aim/auto_aim.gd" id="1_oi1cw"]
+
+[node name="AutoAim" type="Area2D"]
+script = ExtResource("1_oi1cw")

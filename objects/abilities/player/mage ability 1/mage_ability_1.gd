@@ -1,32 +1,21 @@
 extends Ability
 
-@export var aim_area : Area2D
+@export_category("references")
+@export var auto_aim : AutoAimComponent
+@export var bullet_spawner : BulletSpawnerComponent
 @export var bullet_scene : PackedScene
+@export_category("stats")
+@export var damage : int = 1
+@export var bullet_speed : float = 100.0
 
 
 func _execute(caster : Entity):
-  var closest_body = find_closest_enemy(
-      aim_area.get_overlapping_bodies(), caster)
+  var closest_body = auto_aim.get_closest_enemy(caster)
+  var bullet : Bullet = null
 
   if closest_body != null:
-    instanciate_scene(closest_body.global_position, caster.global_position)
-    
-
-
-func instanciate_scene(body_pos, caster_pos):
-  var bullet_instance = bullet_scene.instantiate()
-  bullet_instance.stats.direction = (body_pos - caster_pos).normalized()
-  bullet_instance.global_position = caster_pos
-  get_tree().current_scene.add_child(bullet_instance)
+    bullet = bullet_spawner.spawn(bullet_scene, caster, closest_body.position)
   
-
-func find_closest_enemy(bodies : Array[Node2D], caster : Entity) -> Enemy:
-  var closest_distance : float = 0
-  var closest_body : Entity = null
-  for body in bodies:
-    if body is not Entity or caster == body:
-      continue
-    if closest_body == null or body.global_position.distance_to(caster.global_position) < closest_distance:
-      closest_body = body
-      closest_distance = body.global_position.distance_to(caster.global_position)
-  return closest_body
+  bullet.stats.speed = bullet_speed
+  bullet.stats.damage = damage
+    

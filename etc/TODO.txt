@@ -2,36 +2,10 @@ add abilities to boss
 
 add a last direction to player
 
-when quitting game, wipe out all references, cause there is a bunch of dangling pointers
-
-fix UI
-
-make ui theme
+I think there is a giant security risk so prob need to check that out on utube before trying to fix it
 
 fix weird collisions between entities
 
-doing -> make game loop architecture
+make health display not numbers
 
-  add a way to go to the main menu
-
-  make a pause menu - done ish
-
-  fix game overlay
-
-  game.gd -> put players in game_data
-
-  player code refactor
-
-  make it so that in ability component when there is no ability then there is a dummy ability
-
-  make game instantiate game overlay
-
-  I think there is a giant security risk so prob need to check that out on utube before trying to fix it
-
-  make health display not numbers
-
-  put icons into abilities
-
-  mage ability shoots another player
-
-  can select before pressing play
+add ability components(auto aim)

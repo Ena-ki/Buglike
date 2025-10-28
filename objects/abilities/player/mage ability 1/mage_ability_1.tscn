@@ -1,18 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjcvxbcw3wclw"]
+[gd_scene load_steps=6 format=3 uid="uid://bjcvxbcw3wclw"]
 
 [ext_resource type="Script" uid="uid://d1of2w7lq57tn" path="res://objects/abilities/player/mage ability 1/mage_ability_1.gd" id="1_lfffy"]
 [ext_resource type="PackedScene" uid="uid://61jkl1qtqqsy" path="res://objects/abilities/bullet/friendly_bullet/friendly_bullet.tscn" id="2_a7fdt"]
+[ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="3_bavr1"]
+[ext_resource type="PackedScene" uid="uid://cejfe0bghpig5" path="res://objects/abilities/components/bullet spawner/bullet_spawner.tscn" id="4_6f4rn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lfffy"]
-radius = 280.6439
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bavr1"]
+size = Vector2(500, 500)
 
-[node name="MageAbility1" type="Node2D" node_paths=PackedStringArray("aim_area")]
-visible = false
+[node name="MageAbility1" type="Node2D" node_paths=PackedStringArray("auto_aim", "bullet_spawner")]
 script = ExtResource("1_lfffy")
-aim_area = NodePath("Area2D")
+auto_aim = NodePath("AutoAim")
+bullet_spawner = NodePath("BulletSpawner")
 bullet_scene = ExtResource("2_a7fdt")
+damage = 2
+bullet_speed = 200.0
+cooldown = 0.2
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AutoAim" parent="." instance=ExtResource("3_bavr1")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_lfffy")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutoAim"]
+shape = SubResource("RectangleShape2D_bavr1")
+
+[node name="BulletSpawner" parent="." instance=ExtResource("4_6f4rn")]

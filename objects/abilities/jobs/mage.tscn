@@ -13,3 +13,4 @@ metadata/_custom_type_script = "uid://b8xir5chg381s"
 cooldown = 0.0
 
 [node name="MageAbility1" parent="." instance=ExtResource("3_owhai")]
+cooldown = null
