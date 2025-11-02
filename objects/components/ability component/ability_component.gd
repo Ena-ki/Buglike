@@ -4,16 +4,18 @@ class_name AbilityComponent
 @export var abilities : Array[Ability]
 
 func _ready():
-  for ability in abilities:
-    if ability != null:
-      ability = ability.duplicate()
+  for i in range(abilities.size()):
+    if abilities[i] != null:
+      # ability from 1 to 4 fix please god i want to die it's like 5 degrees outside and i'm fucking freezing here
+      if i > 0 and i < 5:
+        abilities[i].slot = i as Ability.AbilitySlot
 
 
 func _process(delta):
-  for ability in abilities:
-    if ability == null:
+  for i in range(abilities.size()):
+    if abilities[i] == null:
       continue
-    if ability.cooldown_left > 0.0:
-      ability.cooldown_left -= delta
-    if ability.is_active:
-      ability.update(delta)
+    if abilities[i].cooldown_left > 0.0 and not abilities[i].is_active:
+      abilities[i].cooldown_left -= delta
+    if abilities[i].is_active:
+      abilities[i].update(delta)

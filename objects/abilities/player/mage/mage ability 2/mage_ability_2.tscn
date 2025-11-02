@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0w5q14ngsa6c"]
+
+[ext_resource type="Script" uid="uid://f3jbm36qd1wi" path="res://objects/abilities/player/mage/mage ability 2/mage_ability_2.gd" id="1_sbwl6"]
+[ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="2_ngd51"]
+[ext_resource type="PackedScene" uid="uid://cw8h1ihg73kyl" path="res://objects/abilities/components/bullet maker/bullet_maker.tscn" id="3_ngd51"]
+[ext_resource type="PackedScene" uid="uid://df16ylsr1jx2j" path="res://objects/abilities/damage area/bullet/explosive bullet/explosive_bullet.tscn" id="5_ukex0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1hf2"]
+size = Vector2(500, 500)
+
+[node name="MageAbility2" type="Node2D" node_paths=PackedStringArray("auto_aim", "bullet_maker")]
+script = ExtResource("1_sbwl6")
+auto_aim = NodePath("AutoAim")
+bullet_maker = NodePath("BulletMaker")
+takes_arms = true
+
+[node name="AutoAim" parent="." instance=ExtResource("2_ngd51")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutoAim"]
+shape = SubResource("RectangleShape2D_x1hf2")
+
+[node name="BulletMaker" parent="." instance=ExtResource("3_ngd51")]
+bullet_scene = ExtResource("5_ukex0")

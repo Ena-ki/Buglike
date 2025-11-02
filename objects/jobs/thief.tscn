@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx0o8m2qsm07s"]
+
+[ext_resource type="Script" uid="uid://b8xir5chg381s" path="res://objects/components/ability component/ability_component.gd" id="1_m6por"]
+[ext_resource type="PackedScene" uid="uid://cwm02aw26vnyt" path="res://objects/abilities/player/utility/movement ability/player_movement_ability.tscn" id="2_hu3ww"]
+
+[node name="Thief" type="Node2D" node_paths=PackedStringArray("abilities")]
+script = ExtResource("1_m6por")
+abilities = [NodePath("PlayerMovementAbility"), null, null, null, null]
+metadata/_custom_type_script = "uid://b8xir5chg381s"
+
+[node name="PlayerMovementAbility" parent="." instance=ExtResource("2_hu3ww")]
+cooldown = 0.0

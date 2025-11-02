@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://didrvsxb8yqos"]
+
+[ext_resource type="Script" uid="uid://dqrkxloo0lgrm" path="res://objects/abilities/player/mage/mage ability 3/mage_ability_3.gd" id="1_awnxa"]
+[ext_resource type="PackedScene" uid="uid://cw8h1ihg73kyl" path="res://objects/abilities/components/bullet maker/bullet_maker.tscn" id="2_xtfvr"]
+[ext_resource type="PackedScene" uid="uid://df16ylsr1jx2j" path="res://objects/abilities/damage area/bullet/explosive bullet/explosive_bullet.tscn" id="3_1low6"]
+
+[node name="MageAbility3" type="Node2D" node_paths=PackedStringArray("bullet_maker")]
+script = ExtResource("1_awnxa")
+bullet_maker = NodePath("BulletMaker")
+
+[node name="BulletMaker" parent="." instance=ExtResource("2_xtfvr")]
+bullet_scene = ExtResource("3_1low6")

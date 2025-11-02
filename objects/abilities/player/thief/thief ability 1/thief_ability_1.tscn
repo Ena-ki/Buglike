@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://cho5roqryo240"]
+
+[ext_resource type="Script" uid="uid://dess4n2mgrfo5" path="res://objects/abilities/player/thief/thief ability 1/thief_ability_1.gd" id="1_wsb87"]
+[ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="2_qr0kp"]
+[ext_resource type="PackedScene" uid="uid://cw8h1ihg73kyl" path="res://objects/abilities/components/bullet maker/bullet_maker.tscn" id="3_gbcen"]
+[ext_resource type="PackedScene" uid="uid://bmgtdwhtyah0b" path="res://objects/abilities/damage area/bullet/knife/knife.tscn" id="4_onjq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymy51"]
+size = Vector2(500, 500)
+
+[node name="ThiefAbility1" type="Node2D"]
+script = ExtResource("1_wsb87")
+
+[node name="AutoAim" parent="." instance=ExtResource("2_qr0kp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutoAim"]
+shape = SubResource("RectangleShape2D_ymy51")
+
+[node name="BulletMaker" parent="." instance=ExtResource("3_gbcen")]
+bullet_scene = ExtResource("4_onjq0")

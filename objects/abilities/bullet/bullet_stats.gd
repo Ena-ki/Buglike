@@ -1,8 +1,0 @@
-class_name BulletStats
-extends Resource
-
-@export var speed : float = 100
-@export var damage : int = 1
-@export var groups : Array[StringName]
-@export var direction : Vector2
-@export var lifetime : float = 4.0

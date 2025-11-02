@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfmqma3fd1682"]
+
+[ext_resource type="Script" uid="uid://fhnias3ba6o2" path="res://objects/abilities/damage area/explosion/explosion.gd" id="1_dshem"]
+[ext_resource type="Texture2D" uid="uid://c8gc7obt7gxu" path="res://assets/textures/explos.png" id="2_wtbph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dshem"]
+radius = 33.0
+
+[node name="Explosion" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_dshem")
+sprite = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://ccngnn1nghf5r"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_wtbph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dshem")
+
+[connection signal="hit" from="." to="." method="_on_hit"]

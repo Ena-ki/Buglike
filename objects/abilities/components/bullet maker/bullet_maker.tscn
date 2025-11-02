@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw8h1ihg73kyl"]
+
+[ext_resource type="Script" uid="uid://dgoesr7vfjgk2" path="res://objects/abilities/components/bullet maker/bullet_maker.gd" id="1_8qsws"]
+
+[node name="BulletMaker" type="Node"]
+script = ExtResource("1_8qsws")

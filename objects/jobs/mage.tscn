@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://jfqvomhe37on"]
+
+[ext_resource type="Script" uid="uid://b8xir5chg381s" path="res://objects/components/ability component/ability_component.gd" id="1_x6y74"]
+[ext_resource type="PackedScene" uid="uid://cwm02aw26vnyt" path="res://objects/abilities/player/utility/movement ability/player_movement_ability.tscn" id="2_k7n1d"]
+[ext_resource type="PackedScene" uid="uid://c8hmfvadfwbob" path="res://objects/abilities/player/utility/dash/dash.tscn" id="3_evnvq"]
+[ext_resource type="PackedScene" uid="uid://bjcvxbcw3wclw" path="res://objects/abilities/player/mage/mage ability 1/mage_ability_1.tscn" id="3_owhai"]
+[ext_resource type="PackedScene" uid="uid://d0w5q14ngsa6c" path="res://objects/abilities/player/mage/mage ability 2/mage_ability_2.tscn" id="4_g7edt"]
+[ext_resource type="PackedScene" uid="uid://didrvsxb8yqos" path="res://objects/abilities/player/mage/mage ability 3/mage_ability_3.tscn" id="6_2wcgm"]
+
+[node name="Mage" type="Node2D" node_paths=PackedStringArray("abilities")]
+script = ExtResource("1_x6y74")
+abilities = [NodePath("PlayerMovementAbility"), NodePath("MageAbility1"), NodePath("MageAbility2"), NodePath("Dash"), NodePath("MageAbility3")]
+metadata/_custom_type_script = "uid://b8xir5chg381s"
+
+[node name="PlayerMovementAbility" parent="." instance=ExtResource("2_k7n1d")]
+cooldown = 0.0
+
+[node name="MageAbility1" parent="." instance=ExtResource("3_owhai")]
+cooldown = 1.0
+
+[node name="MageAbility2" parent="." instance=ExtResource("4_g7edt")]
+
+[node name="Dash" parent="." instance=ExtResource("3_evnvq")]
+dash_speed = 2.0
+dash_duration = 0.35
+
+[node name="MageAbility3" parent="." instance=ExtResource("6_2wcgm")]
+spins = 2
+shots_in_spin = 16
+time_between_shots = 0.02

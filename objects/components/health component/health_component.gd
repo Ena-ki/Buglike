@@ -6,7 +6,6 @@ signal damaged(damage_amount)
 signal died()
 signal revived()
 
-var is_invulnderable : bool = false
 var is_dead : bool = false
 var max_health : int = 10
 var health : int = 10
