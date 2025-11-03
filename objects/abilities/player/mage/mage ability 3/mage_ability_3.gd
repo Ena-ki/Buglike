@@ -15,7 +15,7 @@ func _execute(caster: Entity) -> void:
   for i in range(spins):
     for j in range(shots_in_spin):
       var shot_direction = Vector2.UP.rotated(deg_to_rad(360.0 / shots_in_spin * j + 15.0 * i))
-      var bullet = bullet_maker.make_bullet(caster, caster.position + shot_direction)
+      var bullet = bullet_maker.make_bullet(caster, shot_direction)
       bullet.speed = bullet_speed
       bullet.damage = 0
       await get_tree().create_timer(time_between_shots).timeout

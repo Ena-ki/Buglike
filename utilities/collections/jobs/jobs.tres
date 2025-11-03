@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_1xp8u")
-paths = Array[String](["uid://jfqvomhe37on"])
-names = Array[String](["Mage"])
+paths = Array[String](["uid://jfqvomhe37on", "uid://cx0o8m2qsm07s"])
+names = Array[String](["Mage", "Thief"])
 metadata/_custom_type_script = "uid://bsqndkin6npyu"

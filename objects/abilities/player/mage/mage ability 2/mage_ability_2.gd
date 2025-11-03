@@ -7,6 +7,7 @@ extends Ability
 @export var max_charge : float = 1.0
 @export var charge_speed : float = 1.0
 @export var damage : int = 2
+@export var shot_speed : float = 100.0
 
 var _caster : Player 
 var _charge : float = 0
@@ -36,8 +37,10 @@ func update(delta : float):
 
 func shoot():
   var closest_enemy = auto_aim.get_closest_enemy(_caster)
-  var bullet = bullet_maker.make_bullet(_caster, closest_enemy.position)
+  var bullet = bullet_maker.make_bullet(_caster, closest_enemy.position - _caster.position)
   bullet.damage = 0
+  bullet.explosion_damage = damage
+  bullet.speed = shot_speed
   clean_up()
 
 

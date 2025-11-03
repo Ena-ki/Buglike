@@ -18,7 +18,7 @@ var slot := AbilitySlot.NO_SLOT
 var cooldown_left : float = 0.0
 var is_active : bool = false
 
-@abstract func _execute(caster : Entity)
+@abstract func _execute(caster : Entity) -> void
 
 
 func execute(caster : Entity):

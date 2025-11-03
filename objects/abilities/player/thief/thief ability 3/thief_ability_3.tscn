@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvvgvyu4sscvn"]
+
+[ext_resource type="Script" uid="uid://piu035s5g2pl" path="res://objects/abilities/player/thief/thief ability 3/thief_ability_3.gd" id="1_0s3bs"]
+[ext_resource type="PackedScene" uid="uid://dyfir6rmxs513" path="res://objects/abilities/damage area/explosion/thief poof/thief_poof.tscn" id="2_tolb6"]
+
+[node name="ThiefAbility3" type="Node2D"]
+script = ExtResource("1_0s3bs")
+thief_poof_scene = ExtResource("2_tolb6")

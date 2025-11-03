@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2551j538qksd"]
+
+[ext_resource type="Script" uid="uid://ciwmyiyj5btqt" path="res://objects/abilities/damage area/explosion/swing/swing.gd" id="1_0sd21"]
+[ext_resource type="Texture2D" uid="uid://ba64rh3mo4l4e" path="res://assets/textures/swing.png" id="2_0sd21"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvfpr"]
+radius = 33.0
+
+[node name="Swing" type="Area2D"]
+script = ExtResource("1_0sd21")
+explosion_duration = 0.2
+metadata/_custom_type_script = "uid://fhnias3ba6o2"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_0sd21")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yvfpr")
+
+[connection signal="hit" from="." to="." method="_on_hit"]

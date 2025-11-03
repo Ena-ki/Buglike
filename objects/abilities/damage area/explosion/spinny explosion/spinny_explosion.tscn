@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7mt2um42khcc"]
+
+[ext_resource type="Script" uid="uid://cx4wl8igkd34n" path="res://objects/abilities/damage area/explosion/spinny explosion/spinny_explosion.gd" id="1_gflbv"]
+[ext_resource type="Texture2D" uid="uid://c8gc7obt7gxu" path="res://assets/textures/explos.png" id="2_gflbv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rm55a"]
+radius = 33.0
+
+[node name="SpinnyExplosion" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_gflbv")
+sprite = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://ccngnn1nghf5r"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_gflbv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rm55a")
+
+[connection signal="hit" from="." to="." method="_on_hit"]

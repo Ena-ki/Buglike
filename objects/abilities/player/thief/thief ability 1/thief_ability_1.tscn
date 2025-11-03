@@ -8,8 +8,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymy51"]
 size = Vector2(500, 500)
 
-[node name="ThiefAbility1" type="Node2D"]
+[node name="ThiefAbility1" type="Node2D" node_paths=PackedStringArray("auto_aim", "bullet_maker")]
 script = ExtResource("1_wsb87")
+auto_aim = NodePath("AutoAim")
+bullet_maker = NodePath("BulletMaker")
+bullet_speed = 250.0
+takes_arms = true
 
 [node name="AutoAim" parent="." instance=ExtResource("2_qr0kp")]
 

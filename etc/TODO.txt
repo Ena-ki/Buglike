@@ -10,8 +10,4 @@ make health display not numbers
 
 rn movement ability is first and then other 4 abilities go, fix it in the tray and in the internals
 
-take out damage component from the bullet, so that you can use it in any other class
-
-make a global timer that ticks 20 tps for events that require shit like fuck also damage area
-
 make health a node and not an area?

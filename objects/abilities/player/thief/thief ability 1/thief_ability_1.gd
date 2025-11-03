@@ -9,15 +9,19 @@ extends Ability
 @export var shot_number : int = 3
 @export var spread : float = 15.0
 
-var cur_shot_number : int = 0
+var cur_shot_number : int = 2
 
 
 func _execute(caster : Entity) -> void:
   cur_shot_number = (cur_shot_number + 1) % shot_number
 
   var closest_body = auto_aim.get_closest_enemy(caster)
-  if closest_body != null:
-
-    var start_rotation = spread * cur_shot_number / 2
-    for i in range(cur_shot_number + 1):
-      pass
+  if closest_body == null:
+    return
+  var shot_direction = closest_body.position - caster.position
+  for i in range(cur_shot_number + 1):
+    var shot_rotation = deg_to_rad((spread * cur_shot_number) / 2 - i * spread)
+    var bullet = bullet_maker.make_bullet(caster, shot_direction.rotated(shot_rotation))
+    bullet.speed = bullet_speed
+    bullet.damage = damage
+  
