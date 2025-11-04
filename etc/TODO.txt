@@ -14,12 +14,18 @@ make health a node and not an area?
 
 
 Until this week:
-  animation component
-  boss ai
-  player i frames
-  death
-  level
+  animation component - done
+  boss ai - doing finish by wednessday
+  player i frames - 1 hour max finish by wednessday
+  death - 2 hours maybe
+  level - like a day of efficient work
 
+in general:
+  intro with tutorial
+  better ui 
+  game loop
+  make game not look like shit
+  white outline on skills
 
 boss:
   more attacks

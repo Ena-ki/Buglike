@@ -1,10 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://n12dsxsgx66h"]
+[gd_scene load_steps=26 format=3 uid="uid://n12dsxsgx66h"]
 
 [ext_resource type="Script" uid="uid://dkbqv64fktoa1" path="res://objects/entities/enemies/boss1/boss1.gd" id="1_8ftqf"]
 [ext_resource type="Texture2D" uid="uid://ijrf8v5a2ib1" path="res://objects/entities/enemies/boss1/potadrick.png" id="2_6f6ph"]
 [ext_resource type="Script" uid="uid://bgw0frv5rhioo" path="res://objects/components/health component/health_component.gd" id="3_am0er"]
 [ext_resource type="PackedScene" uid="uid://qc0n244mwxxh" path="res://objects/abilities/boss/boss1/boss_1_job.tscn" id="4_x2xf4"]
 [ext_resource type="Script" uid="uid://rp607k45hxx" path="res://objects/components/animation_component.gd" id="5_bv12d"]
+[ext_resource type="Script" uid="uid://byorg3dsxyjni" path="res://objects/abilities/components/object pool/object_pool.gd" id="6_eeun6"]
+[ext_resource type="PackedScene" uid="uid://b4ma425opii5u" path="res://objects/abilities/damage area/bullet/enemy bullet/enemy_bullet.tscn" id="7_pdwrm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iva7r"]
 radius = 34.0147
@@ -156,9 +158,10 @@ nodes/attack/position = Vector2(208, 64)
 "nodes/attack anim/position" = Vector2(32, 384)
 node_connections = [&"output", 0, &"attack", &"walk", 0, &"idle anim", &"walk", 1, &"walk anim", &"hit", 0, &"walk", &"hit", 1, &"hit anim", &"roll", 0, &"hit", &"roll", 1, &"roll anim", &"attack", 0, &"roll", &"attack", 1, &"attack anim"]
 
-[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("anims", "health", "ability_component") groups=["hostile_entity"]]
+[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("anims", "object_pool", "health", "ability_component") groups=["hostile_entity"]]
 script = ExtResource("1_8ftqf")
 anims = NodePath("AnimationTree")
+object_pool = NodePath("ObjectPool")
 health = NodePath("HealthComponent")
 ability_component = NodePath("Boss1Job")
 
@@ -200,3 +203,8 @@ parameters/attack/request = 0
 script = ExtResource("5_bv12d")
 blend_speed = 5.0
 sprite = NodePath("../Sprite2D")
+
+[node name="ObjectPool" type="Node" parent="."]
+script = ExtResource("6_eeun6")
+object_scene = ExtResource("7_pdwrm")
+metadata/_custom_type_script = "uid://byorg3dsxyjni"

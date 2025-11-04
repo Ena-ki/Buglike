@@ -37,6 +37,8 @@ func on_tick_timeout():
 
 
 func on_damage_area_body_entered(body : Node2D):
+  if is_visible_in_tree() == false:
+    return
   if check_body(body) == false:
     return
   _bodies_inside.append(body)
@@ -44,6 +46,8 @@ func on_damage_area_body_entered(body : Node2D):
 
 
 func on_damage_area_body_exited(body : Node2D):
+  if is_visible_in_tree() == false:
+    return
   _bodies_inside.find(body)
 
 

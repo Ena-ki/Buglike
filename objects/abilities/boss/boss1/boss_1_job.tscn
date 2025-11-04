@@ -1,11 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://qc0n244mwxxh"]
+[gd_scene load_steps=5 format=3 uid="uid://qc0n244mwxxh"]
 
 [ext_resource type="Script" uid="uid://b8xir5chg381s" path="res://objects/components/ability component/ability_component.gd" id="1_ju2tr"]
 [ext_resource type="PackedScene" uid="uid://yfefmg4ar5b0" path="res://objects/abilities/boss/boss1/ability 1/boss_1_ability_1.tscn" id="2_oe62g"]
+[ext_resource type="PackedScene" uid="uid://ck2x2pyjjb1xo" path="res://objects/abilities/boss/boss1/ability 2/boss 1 ability 2.tscn" id="3_5abv7"]
+[ext_resource type="PackedScene" uid="uid://cijffj7qgtn50" path="res://objects/abilities/boss/boss1/ability 3/boss_1_ability_3.tscn" id="4_7b5uf"]
 
 [node name="Boss1Job" type="Node2D" node_paths=PackedStringArray("abilities")]
 script = ExtResource("1_ju2tr")
-abilities = [NodePath("Boss1Ability1")]
+abilities = [NodePath("Boss1Ability1"), NodePath("Boss1Ability2"), NodePath("Boss1Ability3")]
 metadata/_custom_type_script = "uid://b8xir5chg381s"
 
 [node name="Boss1Ability1" parent="." instance=ExtResource("2_oe62g")]
+bullet_speed = 90.0
+cooldown = 1.0
+takes_arms = false
+takes_legs = false
+is_attack = true
+
+[node name="Boss1Ability2" parent="." instance=ExtResource("3_5abv7")]
+
+[node name="Boss1Ability3" parent="." instance=ExtResource("4_7b5uf")]

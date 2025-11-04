@@ -29,4 +29,6 @@ func _extra_checks(body : Node2D) -> bool:
 
 
 func _die():
+
+  Debug.log("yes")
   queue_free()

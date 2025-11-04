@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cijffj7qgtn50"]
+
+[ext_resource type="Script" uid="uid://bb0nxxitrfq4w" path="res://objects/abilities/boss/boss1/ability 3/boss_1_ability_3.gd" id="1_yr8l1"]
+[ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="2_cos55"]
+[ext_resource type="PackedScene" uid="uid://6b286qh8qqy3" path="res://objects/abilities/damage area/bullet/enemy explosive bullet/enemy_explosive_bullet.tscn" id="2_sgl4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgl4h"]
+size = Vector2(500, 500)
+
+[node name="Boss1Ability3" type="Node2D" node_paths=PackedStringArray("auto_aim")]
+script = ExtResource("1_yr8l1")
+explosive_bullet = ExtResource("2_sgl4h")
+auto_aim = NodePath("AutoAim")
+
+[node name="AutoAim" parent="." instance=ExtResource("2_cos55")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutoAim"]
+shape = SubResource("RectangleShape2D_sgl4h")

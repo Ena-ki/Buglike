@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck2x2pyjjb1xo"]
+[gd_scene load_steps=2 format=3 uid="uid://ck2x2pyjjb1xo"]
 
-[ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="1_7kx52"]
-[ext_resource type="PackedScene" uid="uid://cw8h1ihg73kyl" path="res://objects/abilities/components/bullet maker/bullet_maker.tscn" id="2_aygi8"]
+[ext_resource type="Script" uid="uid://dw3hn6chy5qyg" path="res://objects/abilities/boss/boss1/ability 2/boss_1_ability_2.gd" id="1_muqby"]
 
 [node name="Boss1Ability2" type="Node2D"]
-
-[node name="BulletMaker" parent="." instance=ExtResource("2_aygi8")]
-
-[node name="AutoAim" parent="." instance=ExtResource("1_7kx52")]
+script = ExtResource("1_muqby")
