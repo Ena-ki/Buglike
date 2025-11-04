@@ -9,7 +9,7 @@ func update(ability : Ability):
   if ability.icon != null and texture != ability.icon:
     texture = ability.icon
   var cooldown = ability.cooldown_left / ability.cooldown
-  material.set_shader_parameter("cooldown", clamp(cooldown,0.0,1.0))
+  material.set_shader_parameter("cooldown", cooldown)
 
 
 func find_closest_enemy(bodies : Array[Node2D], caster : Entity) -> Enemy:

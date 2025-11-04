@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjcvxbcw3wclw"]
+[gd_scene load_steps=7 format=3 uid="uid://bjcvxbcw3wclw"]
 
 [ext_resource type="Script" uid="uid://d1of2w7lq57tn" path="res://objects/abilities/player/mage/mage ability 1/mage_ability_1.gd" id="1_lfffy"]
+[ext_resource type="Texture2D" uid="uid://bl6jd6nfalwh0" path="res://objects/abilities/player/mage/mage ability 1/skill1.png" id="2_7c3hw"]
 [ext_resource type="PackedScene" uid="uid://dck8roha5txi2" path="res://objects/abilities/damage area/bullet/bullet.tscn" id="2_bavr1"]
 [ext_resource type="PackedScene" uid="uid://cw8h1ihg73kyl" path="res://objects/abilities/components/bullet maker/bullet_maker.tscn" id="3_6f4rn"]
 [ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="3_bavr1"]
@@ -14,6 +15,7 @@ auto_aim = NodePath("AutoAim")
 bullet_maker = NodePath("BulletMaker")
 damage = 2
 bullet_speed = 200.0
+icon = ExtResource("2_7c3hw")
 cooldown = 0.2
 takes_arms = true
 

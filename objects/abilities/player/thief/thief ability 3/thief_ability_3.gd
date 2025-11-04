@@ -4,7 +4,7 @@ extends Ability
 @export var duration : float = 1.0
 @export var thief_poof_scene : PackedScene
 
-# makes you faster and invulnderable for short time and deletes projectiles on return(like judashada)
+
 func _execute(caster : Entity) -> void:
   caster.movement_speed *= movement_speed_mult
   caster.is_invulnderable = true

@@ -6,10 +6,10 @@ enum PlayerNumber{
   PLAYER_2 = 2,
 }
 
-@export var health_component : HealthComponent
+@export var anims : AnimationComponent
 
 var player_number : PlayerNumber = PlayerNumber.PLAYER_1
-var ability_component
+
 
 func _process(_delta):
   for i in range(1, 5):
@@ -22,7 +22,7 @@ func _physics_update(_delta: float) -> void:
 
 
 func execute_ability(ability_number : int):
-  if ability_component:
+  if ability_component.abilities[ability_number]:
     ability_component.abilities[ability_number].execute(self)
   else:
     Debug.log("no ability found")

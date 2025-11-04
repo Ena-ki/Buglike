@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8hmfvadfwbob"]
+[gd_scene load_steps=3 format=3 uid="uid://c8hmfvadfwbob"]
 
 [ext_resource type="Script" uid="uid://dfdbi03cxq2mm" path="res://objects/abilities/player/utility/dash/dash.gd" id="1_wbw6v"]
+[ext_resource type="Texture2D" uid="uid://1yftlj8l2ad4" path="res://objects/abilities/player/utility/dash/skill7.png" id="2_rdq27"]
 
 [node name="Dash" type="Node2D"]
 script = ExtResource("1_wbw6v")
+icon = ExtResource("2_rdq27")
 takes_legs = true
+is_attack = false

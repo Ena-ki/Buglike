@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://qc0n244mwxxh"]
+
+[ext_resource type="Script" uid="uid://b8xir5chg381s" path="res://objects/components/ability component/ability_component.gd" id="1_ju2tr"]
+[ext_resource type="PackedScene" uid="uid://yfefmg4ar5b0" path="res://objects/abilities/boss/boss1/ability 1/boss_1_ability_1.tscn" id="2_oe62g"]
+
+[node name="Boss1Job" type="Node2D" node_paths=PackedStringArray("abilities")]
+script = ExtResource("1_ju2tr")
+abilities = [NodePath("Boss1Ability1")]
+metadata/_custom_type_script = "uid://b8xir5chg381s"
+
+[node name="Boss1Ability1" parent="." instance=ExtResource("2_oe62g")]

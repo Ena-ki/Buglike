@@ -1,14 +1,14 @@
 extends Area2D
 class_name HealthComponent
 
-signal healed(heal_amount)
-signal damaged(damage_amount)
+signal healed(heal_amount : int)
+signal damaged(damage_amount : int)
 signal died()
 signal revived()
 
 var is_dead : bool = false
-var max_health : int = 10
-var health : int = 10
+var max_health : int = 100
+var health : int = 100
 
 
 func damage(damage_amount : int):

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://yfefmg4ar5b0"]
+
+[ext_resource type="Script" uid="uid://c7nxuplxayvqg" path="res://objects/abilities/boss/boss1/ability 1/boss_1_ability_1.gd" id="1_qytul"]
+[ext_resource type="PackedScene" uid="uid://b4ma425opii5u" path="res://objects/abilities/damage area/bullet/enemy bullet/enemy_bullet.tscn" id="3_36i8v"]
+
+[node name="Boss1Ability1" type="Node2D"]
+script = ExtResource("1_qytul")
+bullet_scene = ExtResource("3_36i8v")
+bullets_in_wave = 50

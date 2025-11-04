@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cho5roqryo240"]
+[gd_scene load_steps=7 format=3 uid="uid://cho5roqryo240"]
 
 [ext_resource type="Script" uid="uid://dess4n2mgrfo5" path="res://objects/abilities/player/thief/thief ability 1/thief_ability_1.gd" id="1_wsb87"]
+[ext_resource type="Texture2D" uid="uid://b7ubn4hh2n2pe" path="res://objects/abilities/player/thief/thief ability 1/skill4.png" id="2_gbcen"]
 [ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="2_qr0kp"]
 [ext_resource type="PackedScene" uid="uid://cw8h1ihg73kyl" path="res://objects/abilities/components/bullet maker/bullet_maker.tscn" id="3_gbcen"]
 [ext_resource type="PackedScene" uid="uid://bmgtdwhtyah0b" path="res://objects/abilities/damage area/bullet/knife/knife.tscn" id="4_onjq0"]
@@ -13,6 +14,7 @@ script = ExtResource("1_wsb87")
 auto_aim = NodePath("AutoAim")
 bullet_maker = NodePath("BulletMaker")
 bullet_speed = 250.0
+icon = ExtResource("2_gbcen")
 takes_arms = true
 
 [node name="AutoAim" parent="." instance=ExtResource("2_qr0kp")]

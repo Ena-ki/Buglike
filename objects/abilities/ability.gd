@@ -13,6 +13,7 @@ enum AbilitySlot{
 @export var cooldown : float = 1.0
 @export var takes_arms : bool = false
 @export var takes_legs : bool = false
+@export var is_attack : bool = true
 
 var slot := AbilitySlot.NO_SLOT
 var cooldown_left : float = 0.0
@@ -28,6 +29,9 @@ func execute(caster : Entity):
     return
   if takes_legs and caster.legs_occupied:
     return
+
+  if is_attack == true and caster is Entity:
+    caster.anims["parameters/attack/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
   _execute(caster)
   if cooldown > 0.05:
     cooldown_left = cooldown

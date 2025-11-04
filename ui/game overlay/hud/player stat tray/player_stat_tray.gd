@@ -9,4 +9,4 @@ func update(player : Player):
     if player.ability_component.abilities[i + 1] == null:
       continue
     skill_icons[i].update(player.ability_component.abilities[i + 1])
-  health_label.text = str(player.health_component.health)
+  health_label.text = str(player.health.health)

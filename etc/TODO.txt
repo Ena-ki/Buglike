@@ -11,3 +11,18 @@ make health display not numbers
 rn movement ability is first and then other 4 abilities go, fix it in the tray and in the internals
 
 make health a node and not an area?
+
+
+Until this week:
+  animation component
+  boss ai
+  player i frames
+  death
+  level
+
+
+boss:
+  more attacks
+  sprite
+  walking logic -> doma
+  fix atlas textures shader icon shit bitch

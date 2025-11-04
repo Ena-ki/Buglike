@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddf0lnlgpgb6t"]
+[gd_scene load_steps=6 format=3 uid="uid://ddf0lnlgpgb6t"]
 
 [ext_resource type="Script" uid="uid://cpl0mpkp0fchv" path="res://objects/abilities/player/thief/thief ability 2/thief_ability_2.gd" id="1_emjsq"]
 [ext_resource type="PackedScene" uid="uid://b2551j538qksd" path="res://objects/abilities/damage area/explosion/swing/swing.tscn" id="2_5ls86"]
 [ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="2_x7cep"]
+[ext_resource type="Texture2D" uid="uid://cd748fyeqqekq" path="res://objects/abilities/player/thief/thief ability 2/skill5.png" id="3_bmgek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ls86"]
 size = Vector2(200, 200)
@@ -13,6 +14,7 @@ auto_aim = NodePath("AutoAim")
 swing_scene = ExtResource("2_5ls86")
 swing_range = 40.0
 swing_linger_time = 0.2
+icon = ExtResource("3_bmgek")
 takes_arms = true
 
 [node name="AutoAim" parent="." instance=ExtResource("2_x7cep")]

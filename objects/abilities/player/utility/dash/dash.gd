@@ -14,6 +14,8 @@ func _execute(caster : Entity) -> void:
   caster.legs_occupied = true
   is_active = true
   caster.is_invulnderable = true
+  if _caster is Player:
+    _caster.anims.set("parameters/roll/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 
 func update(_delta : float) -> void:

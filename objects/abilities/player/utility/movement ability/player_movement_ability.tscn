@@ -6,3 +6,4 @@
 script = ExtResource("1_yn35j")
 cooldown = 0.5
 takes_legs = true
+is_attack = false

@@ -37,6 +37,9 @@ func update(delta : float):
 
 func shoot():
   var closest_enemy = auto_aim.get_closest_enemy(_caster)
+  if closest_enemy == null:
+    clean_up()
+    return
   var bullet = bullet_maker.make_bullet(_caster, closest_enemy.position - _caster.position)
   bullet.damage = 0
   bullet.explosion_damage = damage

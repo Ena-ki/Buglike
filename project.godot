@@ -13,7 +13,6 @@ config_version=5
 config/name="Buglike"
 run/main_scene="uid://b772bu81umnm0"
 config/features=PackedStringArray("4.5", "Forward Plus")
-run/max_fps=60
 config/icon="uid://uov6lj5x68l5"
 
 [autoload]

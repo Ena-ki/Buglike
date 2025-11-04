@@ -14,15 +14,19 @@ func _process(delta : float) -> void:
   position += direction * delta * speed
   lifetime -= delta
   if lifetime <= 0:
-    queue_free()
+    _die()
   update(delta)
 
 
 func _on_hit(_body : Entity) -> void:
-  queue_free()
+  _die()
 
 
 func _extra_checks(body : Node2D) -> bool:
   if body is TileMapLayer:
-    queue_free()
+    _die()
   return true
+
+
+func _die():
+  queue_free()

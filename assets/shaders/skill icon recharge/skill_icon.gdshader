@@ -7,9 +7,8 @@ void vertex() {
 }
 
 void fragment() {
-	vec2 uv = UV;
-	if (uv.y < cooldown){
-		COLOR = COLOR * 0.3;
+	if (UV.y < cooldown){
+		COLOR.rgb *= 0.3;
 	}
 }
 
