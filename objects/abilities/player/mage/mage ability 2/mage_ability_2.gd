@@ -16,6 +16,7 @@ var _charge : float = 0
 func _execute(caster : Entity):
   if caster != _caster:
     _caster = caster
+  _caster.velocity = Vector2.ZERO
   if _caster is Player:
     is_active = true
     _caster.arms_occupied = true

@@ -12,6 +12,7 @@ func _execute(caster : Entity) -> void:
   var thief_poof = thief_poof_scene.instantiate() as Explosion
   thief_poof.groups = caster.get_groups()
   caster.add_child(thief_poof)
+  await thief_poof.tree_exited
   clean_up(caster)
 
 

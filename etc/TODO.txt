@@ -15,8 +15,8 @@ make health a node and not an area?
 
 Until this week:
   animation component - done
-  boss ai - doing finish by wednessday
-  player i frames - 1 hour max finish by wednessday
+  boss ai - kinda done
+  player i frames - done
   death - 2 hours maybe
   level - like a day of efficient work
 
@@ -26,9 +26,3 @@ in general:
   game loop
   make game not look like shit
   white outline on skills
-
-boss:
-  more attacks
-  sprite
-  walking logic -> doma
-  fix atlas textures shader icon shit bitch

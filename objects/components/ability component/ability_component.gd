@@ -2,8 +2,10 @@ extends Node2D
 class_name AbilityComponent
 
 @export var abilities : Array[Ability]
+@export var sprite : Texture2D
 
-func _ready():
+func _ready() -> void:
+  call_deferred("set_texture")
   for i in range(abilities.size()):
     if abilities[i] != null:
       # ability from 1 to 4 fix please god i want to die it's like 5 degrees outside and i'm fucking freezing here
@@ -11,7 +13,7 @@ func _ready():
         abilities[i].slot = i as Ability.AbilitySlot
 
 
-func _process(delta):
+func _process(delta) -> void:
   for i in range(abilities.size()):
     if abilities[i] == null:
       continue
@@ -19,3 +21,10 @@ func _process(delta):
       abilities[i].cooldown_left -= delta
     if abilities[i].is_active:
       abilities[i].update(delta)
+
+
+func set_texture() -> void:
+  Debug.log(owner)
+  if sprite != null and owner is Entity:
+    owner.sprite.texture = sprite
+  

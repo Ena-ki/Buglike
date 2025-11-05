@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx0o8m2qsm07s"]
+[gd_scene load_steps=8 format=3 uid="uid://cx0o8m2qsm07s"]
 
 [ext_resource type="Script" uid="uid://b8xir5chg381s" path="res://objects/components/ability component/ability_component.gd" id="1_m6por"]
 [ext_resource type="PackedScene" uid="uid://cwm02aw26vnyt" path="res://objects/abilities/player/utility/movement ability/player_movement_ability.tscn" id="2_hu3ww"]
+[ext_resource type="Texture2D" uid="uid://cqqpw835wwy4k" path="res://objects/jobs/Sprite-0002.png" id="2_ucfwg"]
 [ext_resource type="PackedScene" uid="uid://cho5roqryo240" path="res://objects/abilities/player/thief/thief ability 1/thief_ability_1.tscn" id="3_ynhu2"]
 [ext_resource type="PackedScene" uid="uid://ddf0lnlgpgb6t" path="res://objects/abilities/player/thief/thief ability 2/thief_ability_2.tscn" id="4_n8w8f"]
 [ext_resource type="PackedScene" uid="uid://c8hmfvadfwbob" path="res://objects/abilities/player/utility/dash/dash.tscn" id="5_fs1tp"]
@@ -10,6 +11,7 @@
 [node name="Thief" type="Node2D" node_paths=PackedStringArray("abilities")]
 script = ExtResource("1_m6por")
 abilities = [NodePath("PlayerMovementAbility"), NodePath("ThiefAbility1"), NodePath("ThiefAbility2"), NodePath("Dash"), NodePath("ThiefAbility3")]
+sprite = ExtResource("2_ucfwg")
 metadata/_custom_type_script = "uid://b8xir5chg381s"
 
 [node name="PlayerMovementAbility" parent="." instance=ExtResource("2_hu3ww")]
@@ -20,5 +22,6 @@ cooldown = 0.0
 [node name="ThiefAbility2" parent="." instance=ExtResource("4_n8w8f")]
 
 [node name="Dash" parent="." instance=ExtResource("5_fs1tp")]
+dash_speed = 2.0
 
 [node name="ThiefAbility3" parent="." instance=ExtResource("6_v6lmy")]

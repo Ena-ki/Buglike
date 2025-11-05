@@ -1,14 +1,16 @@
 extends Explosion
 
 
-func _extra_checks(body : Node2D) -> bool:
-  if body is DamageArea and _is_in_same_group(self.get_groups(), body):
-    body.queue_free()
-  for i in range(_tagged_entities.size()):
-    if _tagged_entities[i] == body:
-      return false
-  return true
-
-
 func _on_animated_sprite_2d_animation_finished() -> void:
   queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+  if area is not DamageArea:
+    return
+  print("yes")
+  var group_arr := self.get_groups()
+  for i in range(group_arr.size()):
+    if area.is_in_group(group_arr[i]):
+      return
+  area._die()

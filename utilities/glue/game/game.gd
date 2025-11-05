@@ -32,8 +32,9 @@ func _add_players() -> void:
     player_instance.global_position = get_player_spawnpoint(i + 1)
     _level_instance.add_child(player_instance)
 
-    var ability_instance = load(GameData.ability_component_paths[i]).instantiate()
-    player_instance.add_child(ability_instance) 
+    var ability_instance = load(GameData.ability_component_paths[i]).instantiate() as AbilityComponent
+    player_instance.add_child(ability_instance)
+    ability_instance.owner = player_instance
     player_instance.ability_component = ability_instance
 
     players[i] = player_instance

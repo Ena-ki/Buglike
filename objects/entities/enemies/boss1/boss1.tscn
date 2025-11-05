@@ -158,12 +158,13 @@ nodes/attack/position = Vector2(208, 64)
 "nodes/attack anim/position" = Vector2(32, 384)
 node_connections = [&"output", 0, &"attack", &"walk", 0, &"idle anim", &"walk", 1, &"walk anim", &"hit", 0, &"walk", &"hit", 1, &"hit anim", &"roll", 0, &"hit", &"roll", 1, &"roll anim", &"attack", 0, &"roll", &"attack", 1, &"attack anim"]
 
-[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("anims", "object_pool", "health", "ability_component") groups=["hostile_entity"]]
+[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("anims", "object_pool", "health", "ability_component", "sprite") groups=["hostile_entity"]]
 script = ExtResource("1_8ftqf")
 anims = NodePath("AnimationTree")
 object_pool = NodePath("ObjectPool")
 health = NodePath("HealthComponent")
 ability_component = NodePath("Boss1Job")
+sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_iva7r")
@@ -181,6 +182,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_6f6ph")
 
 [node name="Boss1Job" parent="." instance=ExtResource("4_x2xf4")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

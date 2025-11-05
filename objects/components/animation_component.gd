@@ -13,7 +13,7 @@ var _current_anim : Animations = Animations.IDLE
 func _process(delta) -> void:
   if owner.velocity.x < 0:
     sprite.flip_h = true
-  else:
+  elif owner.velocity.x > 0:
     sprite.flip_h = false
 
   _handle_anims()

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd1b4s7i20m6f"]
+
+[ext_resource type="Script" uid="uid://bckvjhxyfhceg" path="res://objects/abilities/boss/movement/enemy_movement_ability.gd" id="1_xtopt"]
+[ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="2_uyplq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyplq"]
+size = Vector2(500, 500)
+
+[node name="EnemyMovementAbility" type="Node2D" node_paths=PackedStringArray("auto_aim")]
+script = ExtResource("1_xtopt")
+auto_aim = NodePath("AutoAim")
+takes_legs = true
+is_attack = false
+
+[node name="AutoAim" parent="." instance=ExtResource("2_uyplq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutoAim"]
+shape = SubResource("RectangleShape2D_uyplq")

@@ -4,6 +4,8 @@ class_name Entity
 @export var health : HealthComponent
 @export var movement_speed : float = 100.0
 @export var ability_component : AbilityComponent
+@export var sprite : Sprite2D
+
 var legs_occupied : bool = false
 var arms_occupied : bool = false
 var is_invulnderable : bool = false
