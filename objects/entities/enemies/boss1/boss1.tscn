@@ -158,22 +158,15 @@ nodes/attack/position = Vector2(208, 64)
 "nodes/attack anim/position" = Vector2(32, 384)
 node_connections = [&"output", 0, &"attack", &"walk", 0, &"idle anim", &"walk", 1, &"walk anim", &"hit", 0, &"walk", &"hit", 1, &"hit anim", &"roll", 0, &"hit", &"roll", 1, &"roll anim", &"attack", 0, &"roll", &"attack", 1, &"attack anim"]
 
-[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("anims", "object_pool", "health", "ability_component", "sprite") groups=["hostile_entity"]]
+[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("object_pool", "health", "anims", "ability_component", "sprite") groups=["hostile_entity"]]
 script = ExtResource("1_8ftqf")
-anims = NodePath("AnimationTree")
 object_pool = NodePath("ObjectPool")
 health = NodePath("HealthComponent")
+anims = NodePath("AnimationTree")
 ability_component = NodePath("Boss1Job")
 sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_iva7r")
-
-[node name="HealthComponent" type="Area2D" parent="."]
-script = ExtResource("3_am0er")
-metadata/_custom_type_script = "uid://bgw0frv5rhioo"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
 shape = SubResource("CircleShape2D_iva7r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -210,3 +203,9 @@ sprite = NodePath("../Sprite2D")
 script = ExtResource("6_eeun6")
 object_scene = ExtResource("7_pdwrm")
 metadata/_custom_type_script = "uid://byorg3dsxyjni"
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_am0er")
+metadata/_custom_type_script = "uid://bgw0frv5rhioo"
+
+[connection signal="damaged" from="HealthComponent" to="AnimationTree" method="_on_health_component_damaged"]

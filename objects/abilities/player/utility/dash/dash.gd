@@ -5,7 +5,6 @@ extends Ability
 
 var dash_duration_remains : float
 var _caster : Player 
-var _uninvul := true
 
 
 func _execute(caster : Entity) -> void:
@@ -14,9 +13,7 @@ func _execute(caster : Entity) -> void:
     _caster = caster
   caster.legs_occupied = true
   is_active = true
-  if _caster.is_invulnderable:
-    _uninvul = false
-  caster.is_invulnderable = true
+  caster.health.set_invulnderable(dash_duration)
   if _caster is Player:
     _caster.anims.set("parameters/roll/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
@@ -31,7 +28,4 @@ func update(_delta : float) -> void:
 func _clean_up():
   is_active = false
   _caster.legs_occupied = false
-  if _uninvul:
-    _caster.is_invulnderable = false
-  _uninvul = true
   _caster.velocity = Vector2.ZERO

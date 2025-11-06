@@ -7,7 +7,7 @@ extends Ability
 
 func _execute(caster : Entity) -> void:
   caster.movement_speed *= movement_speed_mult
-  caster.is_invulnderable = true
+  caster.health.set_invulnderable(duration + 0.1)
   await get_tree().create_timer(duration).timeout
   var thief_poof = thief_poof_scene.instantiate() as Explosion
   thief_poof.groups = caster.get_groups()
@@ -18,4 +18,3 @@ func _execute(caster : Entity) -> void:
 
 func clean_up(caster : Entity) -> void:
   caster.movement_speed /= movement_speed_mult
-  caster.is_invulnderable = false

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://drajylb4ymcd6"]
+
+[ext_resource type="Script" uid="uid://bf4okt7fl41kx" path="res://objects/components/revive_circle/revive_circle.gd" id="1_gg12o"]
+[ext_resource type="Texture2D" uid="uid://dsb6gvj22kq3r" path="res://objects/components/revive_circle/circ.png" id="1_xier2"]
+[ext_resource type="Texture2D" uid="uid://souxjkgns0a3" path="res://objects/components/revive_circle/part.png" id="2_gg12o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xier2"]
+radius = 31.06445
+
+[node name="ReviveCircle" type="Area2D" node_paths=PackedStringArray("progress_bar", "particles")]
+script = ExtResource("1_gg12o")
+progress_bar = NodePath("ProgressBar")
+particles = NodePath("CPUParticles2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xier2")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 24
+texture = ExtResource("2_gg12o")
+lifetime = 2.0
+emission_shape = 1
+emission_sphere_radius = 33.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 5.0
+scale_amount_max = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_xier2")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = -44.0
+offset_top = -67.0
+offset_right = 56.0
+offset_bottom = -38.0
+max_value = 1.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

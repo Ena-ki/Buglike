@@ -13,6 +13,8 @@ func _execute(caster : Entity) -> void:
   var closest_body = auto_aim.get_closest_enemy(caster)
   if closest_body != null:
     walk_dir = (closest_body.position - caster.position).normalized()
+  if walk_dir == Vector2.ZERO:
+    walk_dir = Vector2.UP.rotated(randf_range(0,6.283))
   dash_duration_remains = dash_duration
   if _caster != caster:
     _caster = caster
@@ -25,10 +27,7 @@ func update(_delta : float) -> void:
   if dash_duration_remains <= 0:
     _clean_up()
     return
-  if walk_dir != Vector2.ZERO:
-    _caster.velocity = walk_dir * dash_speed * _caster.movement_speed
-  else:
-    _caster.velocity = Vector2.UP.rotated(randf_range(0,6.283)) * dash_speed * _caster.movement_speed
+  _caster.velocity = walk_dir * dash_speed * _caster.movement_speed
 
 
 func _clean_up():

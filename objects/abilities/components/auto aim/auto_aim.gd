@@ -9,6 +9,8 @@ func get_closest_enemy(caster : Entity) -> Entity:
   for body in get_overlapping_bodies():
     if body is not Entity or _is_in_same_group(caster.get_groups(), body):
       continue
+    if body.health == null or body.health.is_dead or body.is_invulnderable:
+      continue
     
     current_distance = (global_position - body.global_position).length()
     if closest_body == null or closest_distance < current_distance:

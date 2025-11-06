@@ -1,16 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://eyrcgijxb4gq"]
+[gd_scene load_steps=26 format=3 uid="uid://eyrcgijxb4gq"]
 
-[ext_resource type="Shader" uid="uid://dgtbwqks2a8fq" path="res://objects/entities/player/player.gdshader" id="1_fok1e"]
 [ext_resource type="Script" uid="uid://c0gu0i0i661ml" path="res://objects/entities/player/player.gd" id="1_ftvqt"]
 [ext_resource type="Script" uid="uid://bgw0frv5rhioo" path="res://objects/components/health component/health_component.gd" id="2_7086t"]
 [ext_resource type="Texture2D" uid="uid://cqqpw835wwy4k" path="res://objects/jobs/Sprite-0002.png" id="3_am2ha"]
+[ext_resource type="Shader" uid="uid://dgtbwqks2a8fq" path="res://objects/entities/entity.gdshader" id="3_fok1e"]
 [ext_resource type="Script" uid="uid://rp607k45hxx" path="res://objects/components/animation_component.gd" id="4_am2ha"]
+[ext_resource type="PackedScene" uid="uid://drajylb4ymcd6" path="res://objects/components/revive_circle/revive_circle.tscn" id="6_e7lpq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opdhy"]
 radius = 12.0415945
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fok1e"]
-shader = ExtResource("1_fok1e")
+resource_local_to_scene = true
+shader = ExtResource("3_fok1e")
 shader_parameter/is_invulnderable = 0
 
 [sub_resource type="Animation" id="Animation_am2ha"]
@@ -138,7 +140,7 @@ animation = &"walk"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_fok1e"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_g5vne"]
-graph_offset = Vector2(-322.32184, 36.37494)
+graph_offset = Vector2(-337.0023, 32.12441)
 nodes/output/position = Vector2(400, 64)
 nodes/walk/node = SubResource("AnimationNodeBlend2_fok1e")
 nodes/walk/position = Vector2(-320, 64)
@@ -160,22 +162,26 @@ nodes/attack/position = Vector2(208, 64)
 "nodes/attack anim/position" = Vector2(32, 384)
 node_connections = [&"output", 0, &"attack", &"walk", 0, &"idle anim", &"walk", 1, &"walk anim", &"hit", 0, &"walk", &"hit", 1, &"hit anim", &"roll", 0, &"hit", &"roll", 1, &"roll anim", &"attack", 0, &"roll", &"attack", 1, &"attack anim"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anims", "health", "sprite") groups=["friendly_entity"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health", "anims", "sprite") groups=["friendly_entity"]]
 script = ExtResource("1_ftvqt")
-anims = NodePath("AnimationTree")
 health = NodePath("HealthComponent")
+anims = NodePath("AnimationTree")
 sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://cuablvbw21pmr"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_opdhy")
 
-[node name="HealthComponent" type="Area2D" parent="."]
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("2_7086t")
+i_frame_duration = 0.5
+sprite = NodePath("../Sprite2D")
 metadata/_custom_type_script = "uid://bgw0frv5rhioo"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
-shape = SubResource("CircleShape2D_opdhy")
+[node name="ReviveCircle" parent="." node_paths=PackedStringArray("health") instance=ExtResource("6_e7lpq")]
+visible = false
+health = NodePath("../HealthComponent")
+time_to_revive = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_fok1e")
@@ -205,5 +211,4 @@ script = ExtResource("4_am2ha")
 blend_speed = 5.0
 sprite = NodePath("../Sprite2D")
 
-[connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
 [connection signal="damaged" from="HealthComponent" to="AnimationTree" method="_on_health_component_damaged"]
