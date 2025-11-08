@@ -163,6 +163,7 @@ nodes/attack/position = Vector2(208, 64)
 node_connections = [&"output", 0, &"attack", &"walk", 0, &"idle anim", &"walk", 1, &"walk anim", &"hit", 0, &"walk", &"hit", 1, &"hit anim", &"roll", 0, &"hit", &"roll", 1, &"roll anim", &"attack", 0, &"roll", &"attack", 1, &"attack anim"]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health", "anims", "sprite") groups=["friendly_entity"]]
+collision_mask = 2
 script = ExtResource("1_ftvqt")
 health = NodePath("HealthComponent")
 anims = NodePath("AnimationTree")
@@ -181,12 +182,10 @@ metadata/_custom_type_script = "uid://bgw0frv5rhioo"
 [node name="ReviveCircle" parent="." node_paths=PackedStringArray("health") instance=ExtResource("6_e7lpq")]
 visible = false
 health = NodePath("../HealthComponent")
-time_to_revive = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_fok1e")
 rotation = 0.2617994
-scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_am2ha")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

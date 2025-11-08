@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uov6lj5x68l5"
-path="res://.godot/imported/game_icon.png-ac0bb745cd03fcdd6f5b794cb23f8100.ctex"
+uid="uid://cyy5q8ge8r465"
+path="res://.godot/imported/Keyboard Letters and Symbols.png-74ae36fb4896c5945cda87d6a45faaed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/game_icon.png"
-dest_files=["res://.godot/imported/game_icon.png-ac0bb745cd03fcdd6f5b794cb23f8100.ctex"]
+source_file="res://assets/textures/keyboard buttons/Keyboard Letters and Symbols.png"
+dest_files=["res://.godot/imported/Keyboard Letters and Symbols.png-74ae36fb4896c5945cda87d6a45faaed.ctex"]
 
 [params]
 

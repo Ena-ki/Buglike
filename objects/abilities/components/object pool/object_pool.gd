@@ -17,20 +17,20 @@ func _process(_delta: float) -> void:
   if pool[pool.size()-1] != null:
     process_mode = Node.PROCESS_MODE_DISABLED
     return
-  var root_scene = get_tree().current_scene
+  var root_scene = get_tree().current_scene.level
   for i in range(object_load_speed):
     if _load_pointer > pool.size() - 1:
       return
     pool[_load_pointer] = object_scene.instantiate()
     pool[_load_pointer].hide()
-    pool[_load_pointer].set_process(false)
+    pool[_load_pointer].call_deferred("set", "process_mode", Node.PROCESS_MODE_DISABLED)
     root_scene.add_child(pool[_load_pointer])
     _load_pointer += 1
 
 
 func _pull_from_pool() -> Node2D:
   var object := pool[_object_pointer]
-  object.set_process(true)
+  object.call_deferred("set", "process_mode", Node.PROCESS_MODE_INHERIT)
   object.show()
   if _object_pointer < pool_size-1:
     _object_pointer += 1 

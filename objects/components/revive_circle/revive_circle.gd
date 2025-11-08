@@ -1,5 +1,4 @@
 extends Area2D
-
 @export var progress_bar : ProgressBar
 @export var health : HealthComponent
 @export var particles : CPUParticles2D
@@ -13,7 +12,7 @@ func _ready() -> void:
   if health:
     health.died.connect(on_health_died)
   set_process(false)
-  #visible = false
+  visible = false
 
 
 func _process(delta: float) -> void:

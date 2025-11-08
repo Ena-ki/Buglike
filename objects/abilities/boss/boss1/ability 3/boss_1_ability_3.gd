@@ -13,10 +13,10 @@ func _execute(caster : Entity) -> void:
     return
   var shoot_dir = (closest_enemy.position - caster.position).normalized()
   var bullet = explosive_bullet.instantiate() as Bullet
-  bullet.groups = caster.get_groups()
+  bullet.add_to_groups(caster.get_groups())
   bullet.position = caster.position
   bullet.direction = shoot_dir
   bullet.lifetime = 1.5
   bullet.speed = bullet_speed
   bullet.caster = caster
-  get_tree().current_scene.add_child(bullet)
+  get_tree().current_scene.level.add_child(bullet)

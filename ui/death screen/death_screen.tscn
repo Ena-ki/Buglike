@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bma85833lxj23" path="res://ui/death screen/death_screen.gd" id="1_jcrgr"]
 
 [node name="DeathScreen" type="Control" node_paths=PackedStringArray("restart_button", "quit_button")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jcrgr")
-main_menu_scene = "res://scenes/UI/main_menu.tscn"
 restart_button = NodePath("VBoxContainer/HBoxContainer/RestartButton")
 quit_button = NodePath("VBoxContainer/HBoxContainer/QuitButton")
 

@@ -4,7 +4,6 @@ extends Area2D
 signal hit(body : Entity)
 
 @export var damage : int = 1
-@export var groups : Array[StringName]
 
 var _bodies_inside : Array[Entity] = []
 
@@ -51,6 +50,11 @@ func on_damage_area_body_exited(body : Node2D):
   _bodies_inside.find(body)
 
 
+func add_to_groups(groups : Array[StringName]) -> void:
+  for i in range(groups.size()):
+    add_to_group(groups[i])
+
+
 func _damage_entity(body: Node2D , damage_amount: int):
   emit_signal("hit", body)
   body.health.damage(damage_amount)
@@ -61,16 +65,15 @@ func check_body(body : Node2D) -> bool:
     return false
   if body is not Entity:
     return false
-  if _is_in_same_group(groups, body):
+  if is_in_same_group(get_groups(), body):
     return false
   if body.health == null or body.health.is_dead or body.is_invulnderable:
     return false
   return true
 
 
-func _is_in_same_group(group_arr: Array[StringName], body: Entity) -> bool:
+func is_in_same_group(group_arr: Array[StringName], body: Node2D) -> bool:
   for i in range(group_arr.size()):
     if body.is_in_group(group_arr[i]):
       return true
   return false
-  

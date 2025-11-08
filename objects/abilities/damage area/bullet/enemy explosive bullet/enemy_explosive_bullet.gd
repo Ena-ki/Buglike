@@ -11,7 +11,7 @@ func _exit_tree() -> void:
   for i in range(explosion_bullets):
     var bullet_dir := Vector2.UP.rotated(deg_to_rad(spread_angle * i))
     var bullet = caster.object_pool._pull_from_pool()
-    bullet.groups = bullet_groups
+    bullet.add_to_groups(bullet_groups)
     bullet.position = position
     bullet.direction = bullet_dir
     bullet.lifetime = 3

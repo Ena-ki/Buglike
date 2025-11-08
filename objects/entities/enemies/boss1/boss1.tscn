@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://n12dsxsgx66h"]
+[gd_scene load_steps=28 format=3 uid="uid://n12dsxsgx66h"]
 
 [ext_resource type="Script" uid="uid://dkbqv64fktoa1" path="res://objects/entities/enemies/boss1/boss1.gd" id="1_8ftqf"]
 [ext_resource type="Texture2D" uid="uid://ijrf8v5a2ib1" path="res://objects/entities/enemies/boss1/potadrick.png" id="2_6f6ph"]
+[ext_resource type="Shader" uid="uid://dgtbwqks2a8fq" path="res://objects/entities/entity.gdshader" id="2_pdwrm"]
 [ext_resource type="Script" uid="uid://bgw0frv5rhioo" path="res://objects/components/health component/health_component.gd" id="3_am0er"]
 [ext_resource type="PackedScene" uid="uid://qc0n244mwxxh" path="res://objects/abilities/boss/boss1/boss_1_job.tscn" id="4_x2xf4"]
 [ext_resource type="Script" uid="uid://rp607k45hxx" path="res://objects/components/animation_component.gd" id="5_bv12d"]
@@ -10,6 +11,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iva7r"]
 radius = 34.0147
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vp0mb"]
+shader = ExtResource("2_pdwrm")
+shader_parameter/is_invulnderable = 0
 
 [sub_resource type="Animation" id="Animation_am2ha"]
 length = 0.001
@@ -159,6 +164,7 @@ nodes/attack/position = Vector2(208, 64)
 node_connections = [&"output", 0, &"attack", &"walk", 0, &"idle anim", &"walk", 1, &"walk anim", &"hit", 0, &"walk", &"hit", 1, &"hit anim", &"roll", 0, &"hit", &"roll", 1, &"roll anim", &"attack", 0, &"roll", &"attack", 1, &"attack anim"]
 
 [node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("object_pool", "health", "anims", "ability_component", "sprite") groups=["hostile_entity"]]
+collision_mask = 2
 script = ExtResource("1_8ftqf")
 object_pool = NodePath("ObjectPool")
 health = NodePath("HealthComponent")
@@ -170,6 +176,7 @@ sprite = NodePath("Sprite2D")
 shape = SubResource("CircleShape2D_iva7r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vp0mb")
 rotation = 0.2617994
 scale = Vector2(2, 2)
 texture = ExtResource("2_6f6ph")
@@ -206,6 +213,8 @@ metadata/_custom_type_script = "uid://byorg3dsxyjni"
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_am0er")
+max_health = 100
+health = 1
 metadata/_custom_type_script = "uid://bgw0frv5rhioo"
 
 [connection signal="damaged" from="HealthComponent" to="AnimationTree" method="_on_health_component_damaged"]

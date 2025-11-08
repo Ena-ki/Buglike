@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://df16ylsr1jx2j"]
 
 [ext_resource type="Script" uid="uid://c8niv55x07bb" path="res://objects/abilities/damage area/bullet/explosive bullet/explosive_bullet.gd" id="1_5m4x4"]
-[ext_resource type="Texture2D" uid="uid://cw1tyrw0g6asy" path="res://assets/textures/bullet.png" id="2_5m4x4"]
+[ext_resource type="Texture2D" uid="uid://cw1tyrw0g6asy" path="res://assets/textures/base/bullet.png" id="2_5m4x4"]
 [ext_resource type="PackedScene" uid="uid://cfmqma3fd1682" path="res://objects/abilities/damage area/explosion/explosion.tscn" id="2_abu1w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_abu1w"]

@@ -9,8 +9,8 @@ signal revived()
 @export var i_frame_duration : float = 0
 @export var sprite : Sprite2D
 
-var max_health : int = 50
-var health : int = 5
+@export var max_health : int = 50
+@export var health : int = 5
 
 var is_dead : bool = false :
   set(val):
@@ -29,18 +29,16 @@ var _invulnderable_timer : float = 0
 
 func _process(delta: float) -> void:
   if _invulnderable_timer > 0:
-    Debug.log(_invulnderable_timer)
     _invulnderable_timer -= delta
   elif _invulnderable_timer < 0:
     _invulnderable_timer = 0
-  if is_invulnderable and _invulnderable_timer < 0:
+  if is_invulnderable and _invulnderable_timer <= 0:
     is_invulnderable = false
 
 
 func damage(damage_amount : int):
   set_health(health - damage_amount)
   set_invulnderable(i_frame_duration)
-  Debug.log(health + damage_amount, " to ", health)
 
 
 func heal(heal_amount : int):
@@ -86,6 +84,8 @@ func set_health(new_health):
 
 
 func set_invulnderable(time : float):
+  if time == 0:
+    return
   _invulnderable_timer += time
   if is_invulnderable == false:
     is_invulnderable = true

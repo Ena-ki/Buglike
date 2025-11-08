@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmgtdwhtyah0b"]
 
 [ext_resource type="Script" uid="uid://c60ph6xl8e1iy" path="res://objects/abilities/damage area/bullet/knife/knife.gd" id="1_glskf"]
-[ext_resource type="Texture2D" uid="uid://ctvcf2lqs2piy" path="res://assets/textures/knife.png" id="2_glskf"]
+[ext_resource type="Texture2D" uid="uid://ctvcf2lqs2piy" path="res://assets/textures/base/knife.png" id="2_glskf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glskf"]
 radius = 5.0

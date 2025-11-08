@@ -18,6 +18,6 @@ func _execute(caster : Entity) -> void:
   var swing = swing_scene.instantiate() as Explosion
   swing.position = swing_dir * swing_range
   swing.rotation = swing_dir.angle() + deg_to_rad(90.0)
-  swing.groups = caster.get_groups()
+  swing.add_to_groups(caster.get_groups())
   swing.explosion_duration = swing_linger_time
   caster.add_child(swing)

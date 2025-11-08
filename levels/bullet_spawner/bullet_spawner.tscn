@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1vkuh7p4eg4u"]
+
+[ext_resource type="Script" uid="uid://brrturnw6785p" path="res://levels/bullet_spawner/bullet_spawner.gd" id="1_idoxk"]
+
+[node name="BulletSpawner" type="Node2D" groups=["hostile_entity"]]
+script = ExtResource("1_idoxk")

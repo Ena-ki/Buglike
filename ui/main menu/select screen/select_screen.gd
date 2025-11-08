@@ -8,7 +8,6 @@ func _process(_delta) -> void:
 func _on_start_button_pressed() -> void:
   if check_players_ready() == false:
     return
-    
   get_tree().change_scene_to_file(GameData.game_path)
 
 

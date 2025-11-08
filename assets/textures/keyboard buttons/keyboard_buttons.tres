@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://gwf78kb3dnl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c3pjk"]
+load_path = "res://.godot/imported/Keyboard Letters and Symbols.png-74ae36fb4896c5945cda87d6a45faaed.ctex"
+
+[resource]
+atlas = SubResource("CompressedTexture2D_c3pjk")
+region = Rect2(112, 32, 16, 16)

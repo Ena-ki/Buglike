@@ -15,7 +15,7 @@ func _execute(caster : Entity) -> void:
   for i in range(bullets_in_wave):
     var bullet_dir := Vector2.UP.rotated(deg_to_rad(spread_angle * i))
     var bullet := caster.object_pool._pull_from_pool() as Bullet
-    bullet.groups = bullet_groups
+    bullet.add_to_groups(bullet_groups) 
     bullet.position = caster.position
     bullet.direction = bullet_dir
     bullet.speed = bullet_speed

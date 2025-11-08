@@ -1,6 +1,5 @@
 extends Control
 
-@export_custom(PROPERTY_HINT_FILE, "*.tscn") var main_menu_scene : String
 @export var restart_button : Button
 @export var quit_button : Button
 
@@ -10,8 +9,8 @@ func _ready():
 
 
 func on_restart_button_pressed():
-  pass
+  get_tree().change_scene_to_file(GameData.game_path)
 
 
 func on_quit_button_pressed():
-  pass
+  get_tree().change_scene_to_file(GameData.main_menu_path)

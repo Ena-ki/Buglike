@@ -2,5 +2,5 @@ extends Bullet
 
 
 func _die():
-  set_process(false)
+  call_deferred("set", "process_mode", Node.PROCESS_MODE_DISABLED)
   hide()

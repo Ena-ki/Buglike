@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=17 format=3 uid="uid://cip1l42n2aksq"]
 
 [ext_resource type="Texture2D" uid="uid://plf5slxkwrot" path="res://assets/ui/ui.tres" id="1_ny3hw"]
-[ext_resource type="FontFile" uid="uid://dldderskrj2lc" path="res://assets/Monocraft.ttc" id="1_r3pl3"]
 [ext_resource type="Texture2D" uid="uid://bos6a3v13bwv4" path="res://assets/ui/ui_v1.png" id="2_enqth"]
+[ext_resource type="FontFile" uid="uid://bf7lla1ai31du" path="res://assets/Galmuri11.ttf" id="3_enqth"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_enqth"]
 
@@ -72,7 +72,7 @@ texture_margin_right = 8.0
 texture_margin_bottom = 5.0
 
 [resource]
-default_font = ExtResource("1_r3pl3")
+default_font = ExtResource("3_enqth")
 Button/styles/focus = SubResource("StyleBoxEmpty_enqth")
 Button/styles/hover = SubResource("StyleBoxTexture_10c53")
 Button/styles/normal = SubResource("StyleBoxTexture_enqth")

@@ -1,4 +1,7 @@
 class_name Level
 extends Node2D
 
-@export var spawners : Array[PlayerSpawner] = []
+@warning_ignore("UNUSED_SIGNAL")
+signal beaten()
+
+@export var player_spawners : Array[PlayerSpawner] = []

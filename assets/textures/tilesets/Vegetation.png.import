@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k4bw708lf20f"
-path="res://.godot/imported/enebullet.png-1cfd3cba7d22f15795a361191cf2336b.ctex"
+uid="uid://dn7vxtgml88wx"
+path="res://.godot/imported/Vegetation.png-c425284d2b4fa685d73bc85190dc1faf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/enebullet.png"
-dest_files=["res://.godot/imported/enebullet.png-1cfd3cba7d22f15795a361191cf2336b.ctex"]
+source_file="res://assets/textures/tilesets/Vegetation.png"
+dest_files=["res://.godot/imported/Vegetation.png-c425284d2b4fa685d73bc85190dc1faf.ctex"]
 
 [params]
 
