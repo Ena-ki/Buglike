@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cfmqma3fd1682" path="res://objects/abilities/damage area/explosion/explosion.tscn" id="2_abu1w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_abu1w"]
-radius = 16.0
+radius = 10.049875
 
 [node name="ExplosiveBullet" type="Area2D"]
 script = ExtResource("1_5m4x4")
@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://bnq1fk0f2sdqw"
 shape = SubResource("CircleShape2D_abu1w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.8, 1.8)
+scale = Vector2(1.3, 1.3)
 texture = ExtResource("2_5m4x4")
 
 [connection signal="hit" from="." to="." method="_on_hit"]

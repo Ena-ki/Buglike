@@ -9,12 +9,11 @@ extends Ability
 
 
 func _execute(caster : Entity):
-  Debug.log("yes")
   var closest_body = auto_aim.get_closest_enemy(caster)
-  Debug.log(closest_body)
+  var bullet : Bullet
   if closest_body == null:
-    return
-  var bullet = bullet_maker.make_bullet(caster, closest_body.position - caster.position)
-  Debug.log(bullet)
+    bullet = bullet_maker.make_bullet(caster, caster.look_direction)
+  else:
+    bullet = bullet_maker.make_bullet(caster, closest_body.position - caster.position)
   bullet.speed = bullet_speed
   bullet.damage = damage

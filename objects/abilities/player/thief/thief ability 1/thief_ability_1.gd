@@ -16,9 +16,11 @@ func _execute(caster : Entity) -> void:
   cur_shot_number = (cur_shot_number + 1) % shot_number
 
   var closest_body = auto_aim.get_closest_enemy(caster)
+  var shot_direction : Vector2
   if closest_body == null:
-    return
-  var shot_direction = closest_body.position - caster.position
+    shot_direction = caster.look_direction
+  else:
+    shot_direction = closest_body.position - caster.position
   for i in range(cur_shot_number + 1):
     var shot_rotation = deg_to_rad((spread * cur_shot_number) / 2 - i * spread)
     var bullet = bullet_maker.make_bullet(caster, shot_direction.rotated(shot_rotation))

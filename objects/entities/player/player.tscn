@@ -140,7 +140,7 @@ animation = &"walk"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_fok1e"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_g5vne"]
-graph_offset = Vector2(-337.0023, 32.12441)
+graph_offset = Vector2(-283.2, 48)
 nodes/output/position = Vector2(400, 64)
 nodes/walk/node = SubResource("AnimationNodeBlend2_fok1e")
 nodes/walk/position = Vector2(-320, 64)
@@ -163,6 +163,7 @@ nodes/attack/position = Vector2(208, 64)
 node_connections = [&"output", 0, &"attack", &"walk", 0, &"idle anim", &"walk", 1, &"walk anim", &"hit", 0, &"walk", &"hit", 1, &"hit anim", &"roll", 0, &"hit", &"roll", 1, &"roll anim", &"attack", 0, &"roll", &"attack", 1, &"attack anim"]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health", "anims", "sprite") groups=["friendly_entity"]]
+z_index = 3
 collision_mask = 2
 script = ExtResource("1_ftvqt")
 health = NodePath("HealthComponent")
@@ -184,6 +185,7 @@ visible = false
 health = NodePath("../HealthComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
 material = SubResource("ShaderMaterial_fok1e")
 rotation = 0.2617994
 texture = ExtResource("3_am2ha")

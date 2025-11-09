@@ -45,10 +45,12 @@ func on_damage_area_body_entered(body : Node2D):
 
 
 func on_damage_area_body_exited(body : Node2D):
+  if check_body(body) == false:
+    return
   if is_visible_in_tree() == false:
     return
   _bodies_inside.find(body)
-
+ 
 
 func add_to_groups(groups : Array[StringName]) -> void:
   for i in range(groups.size()):

@@ -23,7 +23,6 @@ visible = false
 cooldown = 1.0
 
 [node name="MageAbility2" parent="." instance=ExtResource("4_g7edt")]
-visible = false
 shot_speed = 200.0
 
 [node name="Dash" parent="." instance=ExtResource("3_evnvq")]

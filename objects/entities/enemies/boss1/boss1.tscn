@@ -163,9 +163,10 @@ nodes/attack/position = Vector2(208, 64)
 "nodes/attack anim/position" = Vector2(32, 384)
 node_connections = [&"output", 0, &"attack", &"walk", 0, &"idle anim", &"walk", 1, &"walk anim", &"hit", 0, &"walk", &"hit", 1, &"hit anim", &"roll", 0, &"hit", &"roll", 1, &"roll anim", &"attack", 0, &"roll", &"attack", 1, &"attack anim"]
 
-[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("object_pool", "health", "anims", "ability_component", "sprite") groups=["hostile_entity"]]
+[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("bar", "object_pool", "health", "anims", "ability_component", "sprite") groups=["hostile_entity"]]
 collision_mask = 2
 script = ExtResource("1_8ftqf")
+bar = NodePath("ProgressBar")
 object_pool = NodePath("ObjectPool")
 health = NodePath("HealthComponent")
 anims = NodePath("AnimationTree")
@@ -214,7 +215,22 @@ metadata/_custom_type_script = "uid://byorg3dsxyjni"
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_am0er")
 max_health = 100
-health = 1
+health = 100
 metadata/_custom_type_script = "uid://bgw0frv5rhioo"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = -0.75000006
+anchor_right = 1.7500001
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 38.0
+offset_right = 50.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+max_value = 1.0
+value = 1.0
 
 [connection signal="damaged" from="HealthComponent" to="AnimationTree" method="_on_health_component_damaged"]

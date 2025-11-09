@@ -23,12 +23,17 @@ func _ready():
   health.revived.connect(on_health_revived)
 
 
-func on_health_died(): # on this do rivive
+func on_health_died(): # on this do revive
+  on_death()
   is_invulnderable = false
   sprite.material.set_shader_parameter("is_invulnderable", 2)
   set_process(false)
   set_physics_process(false)
   anims.active = false
+ 
+
+func on_death():
+  pass
 
 
 func on_health_revived():
@@ -36,6 +41,10 @@ func on_health_revived():
   set_process(true)
   set_physics_process(true)
   anims.active = true
+
+
+func on_revive():
+  pass
 
 
 func _physics_process(delta: float) -> void:

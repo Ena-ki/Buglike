@@ -4,14 +4,14 @@
 [ext_resource type="SpriteFrames" uid="uid://us2l4wwlmtud" path="res://objects/abilities/damage area/explosion/thief poof/fshoo.tres" id="2_743ja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_743ja"]
-radius = 70.0
+radius = 34.132095
 
 [node name="ThiefPoof" type="Area2D"]
 script = ExtResource("1_743ja")
 metadata/_custom_type_script = "uid://fhnias3ba6o2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_743ja")
 autoplay = "default"
 

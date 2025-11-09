@@ -1,25 +1,130 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0w5q14ngsa6c"]
+[gd_scene load_steps=21 format=3 uid="uid://d0w5q14ngsa6c"]
 
 [ext_resource type="Script" uid="uid://f3jbm36qd1wi" path="res://objects/abilities/player/mage/mage ability 2/mage_ability_2.gd" id="1_sbwl6"]
 [ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="2_ngd51"]
 [ext_resource type="Texture2D" uid="uid://bcanj1ch8pbv5" path="res://objects/abilities/player/mage/mage ability 2/skill2.png" id="2_ular7"]
 [ext_resource type="PackedScene" uid="uid://cw8h1ihg73kyl" path="res://objects/abilities/components/bullet maker/bullet_maker.tscn" id="3_ngd51"]
 [ext_resource type="PackedScene" uid="uid://df16ylsr1jx2j" path="res://objects/abilities/damage area/bullet/explosive bullet/explosive_bullet.tscn" id="5_ukex0"]
+[ext_resource type="Texture2D" uid="uid://bevl8p0hc8cev" path="res://objects/abilities/player/mage/mage ability 2/fshoo.png" id="6_qy2iy"]
+[ext_resource type="Texture2D" uid="uid://h5ycisr65x2c" path="res://objects/abilities/player/mage/mage ability 2/glimmer.png" id="7_3k3pg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1hf2"]
 size = Vector2(500, 500)
 
-[node name="MageAbility2" type="Node2D" node_paths=PackedStringArray("auto_aim", "bullet_maker")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k3pg"]
+atlas = ExtResource("6_qy2iy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ekd"]
+atlas = ExtResource("6_qy2iy")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apof2"]
+atlas = ExtResource("6_qy2iy")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvi1j"]
+atlas = ExtResource("6_qy2iy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_170f4"]
+atlas = ExtResource("6_qy2iy")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yfex"]
+atlas = ExtResource("6_qy2iy")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shy4s"]
+atlas = ExtResource("6_qy2iy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x16h8"]
+atlas = ExtResource("6_qy2iy")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1d0s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k3pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0ekd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apof2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvi1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_170f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yfex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shy4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x16h8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1d0s"]
+atlas = ExtResource("7_3k3pg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdero"]
+atlas = ExtResource("7_3k3pg")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1kyw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1d0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdero")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="MageAbility2" type="Node2D" node_paths=PackedStringArray("auto_aim", "bullet_maker", "foosh", "glimmer")]
 script = ExtResource("1_sbwl6")
 auto_aim = NodePath("AutoAim")
 bullet_maker = NodePath("BulletMaker")
+foosh = NodePath("foosh")
+glimmer = NodePath("glimmer")
 icon = ExtResource("2_ular7")
 takes_arms = true
+is_attack = false
 
 [node name="AutoAim" parent="." instance=ExtResource("2_ngd51")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AutoAim"]
+visible = false
 shape = SubResource("RectangleShape2D_x1hf2")
 
 [node name="BulletMaker" parent="." instance=ExtResource("3_ngd51")]
 bullet_scene = ExtResource("5_ukex0")
+
+[node name="foosh" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_m1d0s")
+frame = 7
+frame_progress = 1.0
+
+[node name="glimmer" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_c1kyw")
+frame_progress = 0.9429383

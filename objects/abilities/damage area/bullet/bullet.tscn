@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dck8roha5txi2"]
 
 [ext_resource type="Script" uid="uid://bnq1fk0f2sdqw" path="res://objects/abilities/damage area/bullet/bullet.gd" id="1_3vfve"]
-[ext_resource type="Texture2D" uid="uid://cw1tyrw0g6asy" path="res://assets/textures/base/bullet.png" id="2_3vfve"]
+[ext_resource type="Texture2D" uid="uid://wq6tnvxpdx76" path="res://objects/abilities/damage area/bullet/bullet.png" id="2_3vfve"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vfve"]
-radius = 16.0
+radius = 8.0
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_3vfve")
@@ -14,7 +14,6 @@ metadata/_custom_type_script = "uid://ccngnn1nghf5r"
 shape = SubResource("CircleShape2D_3vfve")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_3vfve")
 
 [connection signal="hit" from="." to="." method="_on_hit"]

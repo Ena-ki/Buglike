@@ -8,11 +8,12 @@ rn movement ability is first and then other 4 abilities go, fix it in the tray a
 
 
 Until this week:
-  level - like a day of efficient work
   fix the fucking ui -> a day +
   componentize the game systems
-  
+  thief ability 4 icon
 
+Until next week:
+  make ui not look ass
 
 in general:
   boss spawner - done

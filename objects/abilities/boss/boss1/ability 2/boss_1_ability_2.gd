@@ -12,6 +12,8 @@ func _execute(caster : Entity) -> void:
   var bullet_groups = caster.get_groups()
   var spread_angle := 360.0 / STREAMS
   for i in range(20):
+    if caster.health.is_dead:
+      return
     for j in range(STREAMS):
       var bullet_dir := Vector2.UP.rotated(deg_to_rad(spread_angle * j + i * 15))
       var bullet := caster.object_pool._pull_from_pool() as Bullet

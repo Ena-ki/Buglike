@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://djmgueks55gms"]
+
+[ext_resource type="Script" uid="uid://dut04dlmm2303" path="res://objects/abilities/player/thief/thief ability 4/thief_ability_4.gd" id="1_nexkj"]
+[ext_resource type="PackedScene" uid="uid://cw8h1ihg73kyl" path="res://objects/abilities/components/bullet maker/bullet_maker.tscn" id="2_6krg3"]
+[ext_resource type="Texture2D" uid="uid://183rcm76001" path="res://objects/abilities/player/thief/thief ability 4/skill8.png" id="2_a26as"]
+[ext_resource type="PackedScene" uid="uid://cj5jvkm0i85pw" path="res://objects/abilities/damage area/bullet/bomb/bomb.tscn" id="3_g8wjm"]
+
+[node name="ThiefAbility4" type="Node2D" node_paths=PackedStringArray("bullet_maker")]
+script = ExtResource("1_nexkj")
+bullet_maker = NodePath("BulletMaker")
+bullet_lifetime = 1.0
+icon = ExtResource("2_a26as")
+
+[node name="BulletMaker" parent="." instance=ExtResource("2_6krg3")]
+bullet_scene = ExtResource("3_g8wjm")

@@ -10,6 +10,7 @@ var _current_ability : Ability = null
 
 
 func _process(delta) -> void:
+  update(delta)
   if _current_ability and _current_ability.is_active :
     return
   _skill_cooldown -= delta
@@ -26,3 +27,7 @@ func _process(delta) -> void:
     var ability = ability_component.abilities[0]
     ability.execute(self)
     _movement_cooldown = ability.cooldown + base_cooldown
+
+
+func update(delta: float) -> void:
+  pass
