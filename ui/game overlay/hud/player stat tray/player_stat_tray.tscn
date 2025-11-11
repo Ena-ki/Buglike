@@ -1,46 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds5f2040s028m"]
+[gd_scene load_steps=5 format=3 uid="uid://ds5f2040s028m"]
 
 [ext_resource type="Script" uid="uid://ddlmvstwqfpse" path="res://ui/game overlay/hud/player stat tray/player_stat_tray.gd" id="1_xd804"]
 [ext_resource type="PackedScene" uid="uid://dyihb8tr2750" path="res://ui/game overlay/hud/player stat tray/skill icon/skill_icon.tscn" id="2_1grqo"]
 
-[node name="PlayerStatTray" type="PanelContainer" node_paths=PackedStringArray("skill_icons", "health_label")]
-custom_minimum_size = Vector2(200, 0)
-layout_direction = 2
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lft3o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lft3o"]
+bg_color = Color(0.6117647, 0.85882354, 0.2627451, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 2.0
+expand_margin_bottom = 3.0
+anti_aliasing = false
+
+[node name="PlayerStatTray" type="PanelContainer" node_paths=PackedStringArray("skill_icons", "health_bar")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -32.0
-offset_right = 32.0
+offset_top = -57.0
+offset_right = 160.0
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_xd804")
-skill_icons = [NodePath("HBoxContainer/SkillIcon"), NodePath("HBoxContainer/SkillIcon2"), NodePath("HBoxContainer/SkillIcon3"), NodePath("HBoxContainer/SkillIcon4")]
-health_label = NodePath("HBoxContainer/Label")
+skill_icons = [NodePath("VBoxContainer/HBoxContainer/SkillIcon"), NodePath("VBoxContainer/HBoxContainer/SkillIcon2"), NodePath("VBoxContainer/HBoxContainer/SkillIcon3"), NodePath("VBoxContainer/HBoxContainer/SkillIcon4")]
+health_bar = NodePath("VBoxContainer/ProgressBar")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 32)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="HBoxContainer"]
+[node name="SkillIcon" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_1grqo")]
 layout_mode = 2
 
-[node name="SkillIcon" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
+[node name="SkillIcon2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_1grqo")]
 layout_mode = 2
 
-[node name="SkillIcon2" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
+[node name="SkillIcon3" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_1grqo")]
 layout_mode = 2
 
-[node name="SkillIcon3" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
+[node name="SkillIcon4" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_1grqo")]
 layout_mode = 2
 
-[node name="SkillIcon4" parent="HBoxContainer" instance=ExtResource("2_1grqo")]
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "10"
-
-[node name="Control3" type="Control" parent="HBoxContainer"]
-layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_lft3o")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lft3o")
+max_value = 1.0
+value = 1.0
+show_percentage = false

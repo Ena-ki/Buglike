@@ -10,17 +10,18 @@ rn movement ability is first and then other 4 abilities go, fix it in the tray a
 Until this week:
   fix the fucking ui -> a day +
   componentize the game systems
-  thief ability 4 icon
 
 Until next week:
-  make ui not look ass
+  make boss appearance animation
+  make camera follow boss too
+  music
+  remove self damage -> done
+  halve boss hp when solo -> done
+  win screen -> done
+  mage ability 3 make it into a shotgun
+  swing animation
 
 in general:
-  boss spawner - done
-  intro with tutorial
   better ui 
-  game loop - done
-  make game not look like shit
   white outline on skills and players
 
-  in player we have -> animation, abilities, health, sprite, random ass vars

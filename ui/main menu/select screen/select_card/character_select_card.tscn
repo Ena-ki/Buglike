@@ -3,13 +3,16 @@
 [ext_resource type="Script" uid="uid://ccq5qf3ab48mq" path="res://ui/main menu/select screen/select_card/select_card.gd" id="1_wv6ef"]
 [ext_resource type="Resource" uid="uid://cwrba8agn6xgf" path="res://utilities/collections/jobs/jobs.tres" id="2_sadqo"]
 
-[node name="CharacterSelectCard" type="PanelContainer" node_paths=PackedStringArray("player_label", "not_joined_panel", "joined_panel", "chosen_job_label")]
-custom_minimum_size = Vector2(150, 300)
+[node name="CharacterSelectCard" type="PanelContainer" node_paths=PackedStringArray("player_label", "not_joined_panel", "joined_panel", "chosen_job_label", "job_texture", "skill_textures", "skill_labels")]
+custom_minimum_size = Vector2(180, 330)
 script = ExtResource("1_wv6ef")
 player_label = NodePath("VBoxContainer/PlayerNumberLabel")
 not_joined_panel = NodePath("VBoxContainer/NotJoinedLabel")
 joined_panel = NodePath("VBoxContainer/JoinedContainer")
 chosen_job_label = NodePath("VBoxContainer/JoinedContainer/ChosenClassLabel")
+job_texture = NodePath("VBoxContainer/JoinedContainer/player_rect")
+skill_textures = [NodePath("VBoxContainer/JoinedContainer/HBoxContainer/TextureRect2"), NodePath("VBoxContainer/JoinedContainer/HBoxContainer2/TextureRect2"), NodePath("VBoxContainer/JoinedContainer/HBoxContainer3/TextureRect2"), NodePath("VBoxContainer/JoinedContainer/HBoxContainer4/TextureRect2")]
+skill_labels = [NodePath("VBoxContainer/JoinedContainer/HBoxContainer/Label"), NodePath("VBoxContainer/JoinedContainer/HBoxContainer2/Label"), NodePath("VBoxContainer/JoinedContainer/HBoxContainer3/Label"), NodePath("VBoxContainer/JoinedContainer/HBoxContainer4/Label")]
 jobs = ExtResource("2_sadqo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -41,18 +44,6 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Separator1" type="Control" parent="VBoxContainer/JoinedContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/JoinedContainer"]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "Selected"
-horizontal_alignment = 1
-autowrap_mode = 3
-
 [node name="ChosenClassLabel" type="Label" parent="VBoxContainer/JoinedContainer"]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
@@ -60,3 +51,61 @@ theme_override_font_sizes/font_size = 18
 text = "< Mage >"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="player_rect" type="TextureRect" parent="VBoxContainer/JoinedContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/JoinedContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/JoinedContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/JoinedContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "파이어볼"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/JoinedContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/JoinedContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/JoinedContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "파이어볼"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/JoinedContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/JoinedContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/JoinedContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "파이어볼"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/JoinedContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/JoinedContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/JoinedContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "파이어볼"

@@ -1,7 +1,7 @@
 extends Control
 
 @export var skill_icons : Array[TextureRect] = [null,null,null,null]
-@export var health_label : Label
+@export var health_bar : ProgressBar
 
 
 func update(player : Player):
@@ -9,4 +9,4 @@ func update(player : Player):
     if player.ability_component.abilities[i + 1] == null:
       continue
     skill_icons[i].update(player.ability_component.abilities[i + 1])
-  health_label.text = str(player.health.health)
+  health_bar.value = float(player.health.health) / player.health.max_health

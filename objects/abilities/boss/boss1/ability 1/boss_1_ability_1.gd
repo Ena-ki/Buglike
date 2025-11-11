@@ -19,4 +19,4 @@ func _execute(caster : Entity) -> void:
     bullet.position = caster.position
     bullet.direction = bullet_dir
     bullet.speed = bullet_speed
-    bullet.lifetime = 3
+    bullet.lifetime = 5

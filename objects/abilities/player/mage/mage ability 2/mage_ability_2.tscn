@@ -103,6 +103,7 @@ auto_aim = NodePath("AutoAim")
 bullet_maker = NodePath("BulletMaker")
 foosh = NodePath("foosh")
 glimmer = NodePath("glimmer")
+ability_name = "explosive bolt"
 icon = ExtResource("2_ular7")
 takes_arms = true
 is_attack = false
@@ -125,6 +126,7 @@ frame_progress = 1.0
 [node name="glimmer" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 1
-scale = Vector2(2, 2)
+position = Vector2(0, 7)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_c1kyw")
 frame_progress = 0.9429383

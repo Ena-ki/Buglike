@@ -8,6 +8,7 @@
 [node name="MageAbility3" type="Node2D" node_paths=PackedStringArray("bullet_maker")]
 script = ExtResource("1_awnxa")
 bullet_maker = NodePath("BulletMaker")
+ability_name = "explosive barrage"
 icon = ExtResource("2_1low6")
 
 [node name="BulletMaker" parent="." instance=ExtResource("2_xtfvr")]

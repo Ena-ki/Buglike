@@ -7,4 +7,5 @@
 [node name="ThiefAbility3" type="Node2D"]
 script = ExtResource("1_0s3bs")
 thief_poof_scene = ExtResource("2_tolb6")
+ability_name = "smoke screen"
 icon = ExtResource("3_gxusu")

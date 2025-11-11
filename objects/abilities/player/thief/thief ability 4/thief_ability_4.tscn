@@ -9,6 +9,7 @@
 script = ExtResource("1_nexkj")
 bullet_maker = NodePath("BulletMaker")
 bullet_lifetime = 1.0
+ability_name = "bombastik"
 icon = ExtResource("2_a26as")
 
 [node name="BulletMaker" parent="." instance=ExtResource("2_6krg3")]

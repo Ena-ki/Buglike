@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://drohbe4s20776" path="res://objects/abilities/components/auto aim/auto_aim.tscn" id="2_uyplq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyplq"]
-size = Vector2(500, 500)
+size = Vector2(1400, 750)
 
 [node name="EnemyMovementAbility" type="Node2D" node_paths=PackedStringArray("auto_aim")]
 script = ExtResource("1_xtopt")

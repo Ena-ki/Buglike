@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://8b71ajv6v0se"]
+[gd_scene load_steps=4 format=3 uid="uid://8b71ajv6v0se"]
 
 [ext_resource type="Script" uid="uid://cqks8c78ge0kd" path="res://ui/win screen/win_screen.gd" id="1_pge7v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pge7v"]
+bg_color = Color(0.9137255, 0.39607844, 0.34901962, 0.5686275)
+
+[sub_resource type="Gradient" id="Gradient_pge7v"]
+offsets = PackedFloat32Array(0.114285715, 0.19285715, 0.32142857, 0.51785713, 0.69285715, 0.8642857, 1)
+colors = PackedColorArray(0, 1, 0.16666651, 1, 0, 0.9000001, 1, 1, 1, 0.9333334, 0, 1, 1, 0, 0.2166667, 1, 0.9333334, 0, 1, 1, 0, 0.0666666, 1, 1, 1, 1, 1, 1)
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -18,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pge7v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -55,6 +63,119 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(440, 57)
+amount = 64
+lifetime = 1.29
+explosiveness = 0.93
+randomness = 1.0
+lifetime_randomness = 0.48
+emission_shape = 4
+emission_points = PackedVector2Array()
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_max = 217.65
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_pge7v")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(587, 61)
+amount = 64
+lifetime = 1.29
+preprocess = 1.11
+explosiveness = 0.93
+randomness = 1.0
+lifetime_randomness = 0.48
+emission_shape = 4
+emission_points = PackedVector2Array()
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_max = 217.65
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_pge7v")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2(112, 189)
+amount = 64
+lifetime = 1.29
+preprocess = 1.11
+explosiveness = 0.93
+randomness = 1.0
+lifetime_randomness = 0.48
+emission_shape = 4
+emission_points = PackedVector2Array()
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_max = 217.65
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_pge7v")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="."]
+position = Vector2(532, 205)
+amount = 64
+lifetime = 1.29
+preprocess = 4.07
+explosiveness = 0.93
+randomness = 1.0
+lifetime_randomness = 0.48
+emission_shape = 4
+emission_points = PackedVector2Array()
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_max = 217.65
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_pge7v")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="."]
+position = Vector2(213, 58)
+amount = 64
+lifetime = 1.29
+preprocess = 3.07
+explosiveness = 0.93
+randomness = 1.0
+lifetime_randomness = 0.48
+emission_shape = 4
+emission_points = PackedVector2Array()
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_max = 217.65
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_pge7v")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="CPUParticles2D6" type="CPUParticles2D" parent="."]
+position = Vector2(55, 33)
+amount = 64
+lifetime = 1.29
+preprocess = 1.11
+explosiveness = 0.93
+randomness = 1.0
+lifetime_randomness = 0.48
+emission_shape = 4
+emission_points = PackedVector2Array()
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_max = 217.65
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_pge7v")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

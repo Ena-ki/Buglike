@@ -18,9 +18,13 @@ var look_direction : Vector2
 
 
 func _ready():
-  pass
+  on_ready()
   health.died.connect(on_health_died)
   health.revived.connect(on_health_revived)
+
+
+func on_ready():
+  pass
 
 
 func on_health_died(): # on this do revive

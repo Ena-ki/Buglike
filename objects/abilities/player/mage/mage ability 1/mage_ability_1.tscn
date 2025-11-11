@@ -15,6 +15,7 @@ auto_aim = NodePath("AutoAim")
 bullet_maker = NodePath("BulletMaker")
 damage = 2
 bullet_speed = 200.0
+ability_name = "fireball"
 icon = ExtResource("2_7c3hw")
 cooldown = 0.2
 takes_arms = true

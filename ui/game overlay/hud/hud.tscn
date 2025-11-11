@@ -16,11 +16,14 @@ trays = [NodePath("PlayerStatTray"), NodePath("PlayerStatTray2")]
 
 [node name="PlayerStatTray" parent="." instance=ExtResource("2_laala")]
 layout_mode = 1
-offset_top = -48.0
-offset_right = 200.0
+offset_top = -57.0
 
 [node name="PlayerStatTray2" parent="." instance=ExtResource("2_laala")]
-layout_direction = 3
 layout_mode = 1
-offset_top = -48.0
-offset_right = 200.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = -57.0
+offset_right = 0.0
+grow_horizontal = 0

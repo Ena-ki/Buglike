@@ -16,7 +16,7 @@ func _execute(caster : Entity) -> void:
   bullet.add_to_groups(caster.get_groups())
   bullet.position = caster.position
   bullet.direction = shoot_dir
-  bullet.lifetime = 1.5
+  bullet.lifetime = 5
   bullet.speed = bullet_speed
   bullet.caster = caster
   get_tree().current_scene.level.add_child(bullet)

@@ -9,6 +9,7 @@ enum AbilitySlot{
   SLOT_4 = 4,
 }
 
+@export var ability_name : String = "shitfuck"
 @export var icon : Texture2D 
 @export var cooldown : float = 1.0
 @export var takes_arms : bool = false

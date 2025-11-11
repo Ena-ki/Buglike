@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://08qbsg4jcjna"]
+[gd_scene load_steps=7 format=3 uid="uid://08qbsg4jcjna"]
 
 [ext_resource type="Script" uid="uid://bpohgpjygmpjs" path="res://ui/main menu/select screen/select_screen.gd" id="1_fbcxr"]
 [ext_resource type="PackedScene" uid="uid://qkf02vsqk4sb" path="res://ui/main menu/select screen/select_card/character_select_card.tscn" id="1_y5kws"]
+[ext_resource type="Shader" uid="uid://bj7lydjngfcgj" path="res://assets/shaders/panel_slide.gdshader" id="2_ilgn4"]
 [ext_resource type="Theme" uid="uid://cip1l42n2aksq" path="res://assets/theme/theme.tres" id="3_361jh"]
-[ext_resource type="PackedScene" uid="uid://dm6pdcusrknl" path="res://ui/main menu/select screen/level_picker/level_picker.tscn" id="3_ey7er"]
 [ext_resource type="Script" uid="uid://bak8y51idvq8r" path="res://ui/utilities/button_grab_focus/button_grab_focus.gd" id="4_18ffd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rr82m"]
+shader = ExtResource("2_ilgn4")
 
 [node name="SelectScreen" type="Control"]
 layout_mode = 3
@@ -15,7 +18,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fbcxr")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rr82m")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,19 +39,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="CharacterSelectCard" parent="HBoxContainer" instance=ExtResource("1_y5kws")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="LevelPicker" parent="HBoxContainer" instance=ExtResource("3_ey7er")]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="CharacterSelectCard2" parent="HBoxContainer" instance=ExtResource("1_y5kws")]
-layout_mode = 2
-size_flags_vertical = 0
-player_number = 2
-
 [node name="StartButton" type="Button" parent="."]
 custom_minimum_size = Vector2(125, 50)
 layout_mode = 1
@@ -66,5 +57,21 @@ theme = ExtResource("3_361jh")
 theme_override_font_sizes/font_size = 28
 text = "Start"
 script = ExtResource("4_18ffd")
+
+[node name="CharacterSelectCard" parent="." instance=ExtResource("1_y5kws")]
+layout_mode = 1
+offset_right = 150.0
+size_flags_vertical = 0
+
+[node name="CharacterSelectCard2" parent="." instance=ExtResource("1_y5kws")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+player_number = 2
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

@@ -4,6 +4,7 @@ extends Node2D
 @export var bullet_scene : PackedScene
 @export var bullet_interval : float = 0.5
 @export var bullet_speed : float = 100.0
+@export var bullet_damage : int = 0
 
 var _bullet_timer : float = 0.5
 
@@ -18,4 +19,5 @@ func _process(delta):
     bullet.add_to_groups(get_groups())
     bullet.speed = bullet_speed
     bullet.lifetime = 10 
+    bullet.damage = bullet_damage 
     get_tree().current_scene.level.add_child(bullet)

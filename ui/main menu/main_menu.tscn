@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b772bu81umnm0"]
+[gd_scene load_steps=6 format=3 uid="uid://b772bu81umnm0"]
 
 [ext_resource type="Script" uid="uid://dfg457ebkency" path="res://ui/main menu/main_menu.gd" id="1_qwnig"]
 [ext_resource type="Script" uid="uid://bak8y51idvq8r" path="res://ui/utilities/button_grab_focus/button_grab_focus.gd" id="2_cngla"]
+[ext_resource type="Shader" uid="uid://bj7lydjngfcgj" path="res://assets/shaders/panel_slide.gdshader" id="2_dv33c"]
 [ext_resource type="PackedScene" uid="uid://08qbsg4jcjna" path="res://ui/main menu/select screen/select_screen.tscn" id="3_cngla"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sln25"]
+shader = ExtResource("2_dv33c")
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("main_screen", "select_screen")]
 layout_mode = 3
@@ -16,7 +20,8 @@ game_scene = "uid://d3t2ruo0h65a6"
 main_screen = NodePath("MainScreen")
 select_screen = NodePath("SelectScreen")
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sln25")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
